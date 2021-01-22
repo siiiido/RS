@@ -26,7 +26,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = '_$ni-gypk&$5&7zn=wl2!nq-&_gjvjlh-*fp7$q2exl7lws(q5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".ap-northeast-2.compute.amazonaws.com"]
 
