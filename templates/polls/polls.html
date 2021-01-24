@@ -1,13 +1,95 @@
 <!--
   {% load static %}
   위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
+href="{% static 'css/main/main.css' %}"
 -->
-{% load static %}
+<!-- {% load static %} -->
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/polls/polls.css' %}">
+    <title>2지 선다 선택지</title>
+</head>
 
-<body>설문조사 페이지</body>
+<body>
+    <!-- <div class="question question1">
+        <h3>테스트 질문</h3>
+        <div class="question-box">
+            <input type="radio" name="opt" class="radio-question box-left">
+            <label class="radio-text text-left">
+                왼쪽
+            </label>
+            <input type="radio" name="opt" class="radio-question box-right">
+            <label class="radio-text text-right">
+                오른쪽
+            </label>
+        </div>
+    </div> -->
+    <div class="wrap">
+        
+        <div class="whole-question">
+            <h3>테스트 질문1</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-question">
+            <h3>테스트 질문2</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-question">
+            <h3>테스트 질문3</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-question">
+            <h3>테스트 질문4</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
 
 </html>
