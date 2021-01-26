@@ -1,13 +1,88 @@
 <!--
   {% load static %}
   위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
+href="{% static 'css/main/main.css' %}"
 -->
-{% load static %}
+<!-- {% load static %} -->
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info</title>
+</head>
 
-<body>개인정보 수집 페이지</body>
+<body>
+    <div class="info-container">
+        <div class="info">
+            <!-- <div class="close-btn-parent">
+                <i class="fas fa-window-close fa-2x close-btn"></i>
+            </div> -->
+            <div class="info-header">
+                <h3>정보입력</h3>
+            </div>
+            <div class="info-content">
+                <!-- <p>학교인증(에타오른쪽위 사람모양 눌러서 내 정보 캡쳐해서 올리기
+              학번,학교를 인증하기 위함이르모 oo대 oo학번이 꼭 나와야합니다)</p> -->
+                <!-- <div class="center-btn-parent">
+                    <button type="button" name="button">예시 버튼</button>
+                    <a href="#" class="center-btn ex-btn">예시버튼</a>
+              <label class="center-btn file-btn">
+                파일첨부 <input type="file" accept="image/*;capture=camera" style="display:none;">
+              </label>
+                </div> -->
+
+                <form action="" class="unmodified">
+                    <div class="name">
+                        이름 <input type="text" name="" value="">
+                    </div>
+                    <div class="sex">
+                        성별 <input type="text" name="" value="">
+                    </div>
+                    <div class="age">
+                        연령대 <input type="text" name="" id="">
+                    </div>
+                </form>
+
+                <br>
+                <!-- 학교, 학번,다시한번 확인해주세요 -->
+                학교 인증 <input type="file" accept="image/*;capture=camera">
+
+                <br><br>
+                <form class="info-form">
+                    <div>
+                        <!-- for이 무엇?? -->
+                        <label for="kakao">카카오톡ID</label>
+                        <input type="text" id="kakao" class="kakao">
+                    </div>
+                    <div class="uni-radio">
+                        <div class="choose-uni">
+                            <label for="">같은학? 다른학? 상관x?</label>
+                        </div>
+                        <div class="choose-uni-radio">
+                            cc시러<input type="radio" name="cc" value="ccx">
+                            cc조아 <input type="radio" name="cc" value="cco">
+                            상관노 <input type="radio" name="cc" value="no">
+                        </div>
+                    </div>
+                    
+                    <!-- <div>
+                이상형
+                컴퓨터나 휴대폰으로 했을때 가로,세로 반응형인지 확인하기
+                <textarea style="resize:none;" name="name" rows="4" cols="35"></textarea>
+              </div> -->
+
+                    <!-- <input type="submit" value="제출하기" class="submit-btn"> -->
+                    <a href="http://127.0.0.1:5500/templates/polls/polls.html">다 음</a>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</body>
 
 </html>
