@@ -1,10 +1,10 @@
-# **return-spring**
+# **새로, 봄 return-spring**
 ### Contributor
-|Position|Name|Stack|
-|:--:|:--:|:--:|
-| Design |  **[Park Soo-bin](https://naver.com)** | Design Tool |
-| Front | **[Song Sang-han](https://github.com/siiiido)** | html / css / javascript  |
-| Back | **[Kim Tae-hun](https://github.com/huni-KR)** | django / rest api | 
+|Position|Name|Stack| E-mail|
+|:--:|:--:|:--:|:--:|
+| Design |  **[Park Soo-bin](https://www.instagram.com/poumuoq1004/)** | Design Tool | vermouth3228@gmail.com |
+| Front | **[Song Sang-han](https://github.com/siiiido)** | html / css / javascript  | discegaudere24.7@gmail.com |
+| Back | **[Kim Tae-hun](https://github.com/huni-KR)** | django / rest api | xogns12356@gmail.com |
 
 <br>
 
