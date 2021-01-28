@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'submit',
-    'polls',
     'status',
 ]
 
