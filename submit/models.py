@@ -1,13 +1,10 @@
 from datetime import date
-
 from django.db import models
-from django.utils import timezone
-
 
 # Create your models here.
 class User_Table(models.Model):    
     # 시스템 : 유저 고유 번호
-    user_code = models.CharField(max_length=10, primary_key=True)
+    user_code = models.AutoField(primary_key=True)
     # 카카오톡 : 이름
     name = models.CharField(max_length=20)
     # 카카오톡 : 성별
@@ -27,9 +24,9 @@ class User_Table(models.Model):
     # 시스템 : 우선순위
     priority = models.IntegerField(default=0)
     # 시스템 : 가입일
-    sign_up_date = models.DateField(default=date.today())
+    sign_up_date = models.DateField(default=date.today)
     # 시스템 : 최근 매칭일
-    recent_matching_date = models.DateField(default=date.today())    
+    recent_matching_date = models.DateField(default=date.today)
     # 시스템 : 매칭 횟수 카운트
     matching_count = models.IntegerField(default=0)
     # 시스템 : 관계자 승인 여부
