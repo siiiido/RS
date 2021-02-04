@@ -57,18 +57,18 @@ img{
   margin-bottom: 60vh;
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
 }
-.bird{
+/* .bird{
   position: absolute;
   left: 0;
   bottom: 60%;
   width: 6rem;
-  /* transform: translateX(-100%); */
+  transform: translateX(-100%);
 
-  /* transition : duration delay */
+  transition : duration delay
   transition: 2s 0.5s linear;
  
-}
-[data-index="5"] .bird{
+} */
+/* [data-index="5"] .bird{
   left: 30%;
   bottom: 30%;
-}
+} */

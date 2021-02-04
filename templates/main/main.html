@@ -3,7 +3,7 @@
   위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
 href="{% static 'css/main/main.css' %}"
 -->
-<!-- {% load static %} -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,26 +17,24 @@ href="{% static 'css/main/main.css' %}"
 </head>
 
 <body>
-  <header class="header">
+  <!-- <header class="header">
     <div class="global-width">
       <h1 class="page-title">header부분</h1>
     </div>
 
-  </header>
+  </header> -->
 
   <section class="scroll-content">
     <div class="scroll-graphic">
-      <div class="graphic-item "><img src="{% static 'images/main/sketch.jpg' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item"><img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img"></div>
+      <div class="graphic-item "><img src="{% static 'images/main/design1.jpg' %}" alt="" class="scene-img"></div>
+      <div class="graphic-item"><img src="{% static 'images/main/design2.jpg' %}" alt="" class="scene-img"></div>
       <div class="graphic-item" data-action="birdFlies">
-        <!-- <img src="/main/static/images/testgif.gif" alt="" class="bird"> -->
         <img src="{% static 'images/main/test1.png' %}" alt="" class="scene-img">
       </div>
 
       <div class="graphic-item"><img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img"></div>
       <div class="graphic-item"><img src="{% static 'images/main/sketch.jpg' %}" alt="" class="scene-img"></div>
       <div class="graphic-item" data-action="birdFlies2">
-        <!-- <img src="/main/static/images/testgif.gif" alt="" class="bird"> -->
         <img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img">
       </div>
     </div>
@@ -79,6 +77,7 @@ href="{% static 'css/main/main.css' %}"
 
 
   <script src="{% static 'javascript/main/main.js' %}"></script>
+ 
 
 </body>
 
