@@ -2,27 +2,67 @@ from django.http import HttpResponseRedirect
 
 from django.shortcuts import render
 from .forms import KakaoForm, UserForm
-# Create your views here.
+
+
+#-----------------------
+# from .models import test
+# from .forms import ContactForm
+#-----------------------
+
 
 def submit(request):
-    if request.method == 'GET' : 
+    # print(request.GET)
+    # print(request.POST)
+    # context={}
+    # test_title=request.POST.get('title')
+    # print(test_title)
+
+    # print("제발 돼라 제발")
+    # return render(request, "submit/submit.html", context)
+    if request.method == "POST":
+        print("포스트말론")
+        test_title = request.POST.get('title')
+        print(test_title)
+    context={}
+    return render(request, "submit/submit.html",context)
+
+    # elif request.method == "GET":
+    #     print("겟따뚜이")
+    #     test_title = request.GET.get('title')
+    #     print(test_title)
+    # context={}
+    # return render(request, "submit/submit.html",context)
+
+
+# Create your views here.
+
+# def submit(request):
+#     if request.method == 'GET' : 
+#         print(request.GET['title']) 
+#         print(request.POST) 
+#         print("여기는 get")
+#         context={}
         
-        # 카카오톡 API에서 받아온 정보 KakaoForm에 입력
+
+#         # 카카오톡 API에서 받아온 정보 KakaoForm에 입력
         
-        form = KakaoForm()
+#         form = KakaoForm()
 
-        # print('kakako')
-        # templates/ : path안됬을때 해보기
-        return render(request, 'submit/submit.html', {form:form})
-
-    elif request.method == 'POST' :
-        print(request.GET) 
-        print(request.POST) 
+#         # print('kakako')
+#         # templates/ : path안됬을때 해보기
+#         # return render(request, 'submit/submit.html', {form:form})
+#         return render(request, 'submit/submit.html',context)
 
 
-        context={} 
-        # return render(request, "submit/templates/submit/submit.html", context)
-        return render(request, "submit/submit.html", context) 
+#     elif request.method == 'POST' :
+#         print(request.GET) 
+#         print(request.POST) 
+#         print("여기는 post")
+#         context={}
+
+
+#         # return render(request, "submit/templates/submit/submit.html", context)
+#         return render(request, "submit/submit.html", context) 
         # # print(request.POST['your_name'])
         # form = UserForm(request.POST)
         # if form.is_valid():
@@ -42,14 +82,14 @@ def submit(request):
 
     # return render(request, )
 
-def mypage(request):
-    cur_user = request.user
+# def mypage(request):
+#     cur_user = request.user
 
-    if cur_user.is_authenticated:
-        user = User.objects.get(user = request.user)
-        return render(request, "main.html",{'user':user})
-    else:
-        return redirect('status')
+#     if cur_user.is_authenticated:
+#         user = User.objects.get(user = request.user)
+#         return render(request, "main.html",{'user':user})
+#     else:
+#         return redirect('status')
 
 
 

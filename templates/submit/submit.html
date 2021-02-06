@@ -3,7 +3,12 @@
   위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
 href="{% static 'css/main/main.css' %}"
 -->
-<!-- {% load static %} -->
+<!-- {% extends "submit_test.html" %}
+{% block title %}
+여기에는 뭐 넣디
+{% endblock %} -->
+
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +16,14 @@ href="{% static 'css/main/main.css' %}"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>info</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/submit/submit.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/submit/submit.css' %}">
 </head>
+<title>submit page</title>
 
 <body>
 
-
-    {% if user.is_authenticated %}
+    <!-- ======================정보 입력, 불러오기======================= -->
     <div class="info-container">
         <div class="info">
 
@@ -59,7 +65,7 @@ href="{% static 'css/main/main.css' %}"
                         </div>
                     </div>
 
-                    <a href="http://127.0.0.1:5500/templates/polls/polls.html">다 음</a>
+                    <!-- <a href="http://127.0.0.1:5500/templates/polls/polls.html">다 음</a> -->
 
                 </form>
             </div>
@@ -68,13 +74,89 @@ href="{% static 'css/main/main.css' %}"
 
     </div>
 
-<!-- 
-    <form  method="POST">
-        {{ form.as_p }}
-        <input type="text" name="title">
-        <input type="submit" value="OK">
-    </form>
-    <h2>{{ text }}</h2> -->
+    <!-- {% block content %}{% endblock %} -->
+
+
+
+    <!-- =================== 2지 선다=================== -->
+
+    <!-- <div class="question question1">
+        <h3>테스트 질문</h3>
+        <div class="question-box">
+            <input type="radio" name="opt" class="radio-question box-left">
+            <label class="radio-text text-left">
+                왼쪽
+            </label>
+            <input type="radio" name="opt" class="radio-question box-right">
+            <label class="radio-text text-right">
+                오른쪽
+            </label>
+        </div>
+    </div> -->
+    <div class="wrap">
+
+        <div class="whole-question">
+            <h3>테스트 질문1</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-question">
+            <h3>테스트 질문2</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-question">
+            <h3>테스트 질문3</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-question">
+            <h3>테스트 질문4</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    아니 도대체 왜 안된는건데 여긴 sbumit =>  html은 적용함
+
+    <div style="background-color: aquamarine;"> abcd</div> 또 html은 적용하네
 
 </body>
 

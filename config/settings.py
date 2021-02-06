@@ -142,6 +142,10 @@ USE_TZ = False
 STATIC_URL='/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    STATIC_DIR,
+    STATIC_DIR
+    # BASE_DIR / "static",
+    # 'http://127.0.0.1:5500/templates/submit/submit.html',
+
 ]
-STATIC_ROOT=os.path.join(BASE_DIR, '.static')
+
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')

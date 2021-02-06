@@ -47,6 +47,9 @@ class User_Table(models.Model):
     Q09 = models.BooleanField(default=True)
     Q10 = models.BooleanField(default=True)
 
+# class test(models.Model):
+#     name = models.CharField(max_length=10)
+
 
 # data = User_Table.objects.get(user_code='1')
 # data.delete()
