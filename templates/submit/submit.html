@@ -22,139 +22,215 @@ href="{% static 'css/main/main.css' %}"
 
     <!-- ======================정보 입력, 불러오기======================= -->
     <div class="info-container">
+
         <div class="info">
 
-            <div class="info-header">
-                <h3>정보입력</h3>
-            </div>
+            <h3>정보입력</h3>
             <div class="info-content">
 
-
-                <form action="" class="unmodified">
-                    <div class="name">
-                        이름 <input type="text" name="" value="">
-                    </div>
-                    <div class="sex">
-                        성별 <input type="text" name="" value="">
-                    </div>
-                    <div class="age">
-                        연령대 <input type="text" name="" id="">
-                    </div>
-                </form>
-
+                <div class="from_db">
+                    <form action="." method="POST">{% csrf_token %}
+                        <div class="name">
+                            이름 <input type="text" name="name" value="">
+                        </div>
+                        <div class="sex">
+                            성별 <input type="text" name="sex" value="">
+                        </div>
+                        <div class="age">
+                            연령대 <input type="text" name="age" id="">
+                        </div>
+                    </form>
+                </div>
                 <br>
-                학교 인증 <input type="file" accept="image/*;capture=camera">
+                <form action="." method="POST" class="info-form">{% csrf_token %}
 
-                <br><br>
-                <form class="info-form">
+                    <div class="uni_check">
+                        학교 인증 <input name="uni-photo" type="file" accept="image/*;capture=camera">
+                    </div>
+
+                    <br><br>
                     <div>
-                        <label for="contact">카카오톡ID</label>
-                        <input type="text" id="contact" class="kakao" name="contact">
+                        <label for="kakao">카카오톡ID</label>
+                        <input type="text" class="kakao" name="kakao">
                     </div>
                     <div class="uni-radio">
                         <div class="choose-uni">
                             <label for="">같은학? 다른학? 상관x?</label>
                         </div>
                         <div class="choose-uni-radio">
-                            cc시러<input type="radio" name="cc" value="ccx">
-                            cc조아 <input type="radio" name="cc" value="cco">
-                            상관노 <input type="radio" name="cc" value="no">
+                            <!-- radio 선택된 value값이 넘어감 -->
+                            <!-- 즉 views.py에서 name으로 값을 호출하고 print했을 때 나온 값은 value임  -->
+                            cc시러<input name="cc_radio" type="radio" value="ccx">
+                            cc조아 <input name="cc_radio" type="radio" value="cco">
+                            상관노 <input name="cc_radio" type="radio" value="anything">
                         </div>
                     </div>
+                    <!-- <a href="http://127.0.0.1:8000/templates/status/status.html">다 음</a> -->
+            </div>
 
-                    <!-- <input type="submit" value="제출하기" class="submit-btn"> -->
-                    <a href="http://127.0.0.1:8000/templates/status/status.html">다 음</a>
+        </div>
 
-                </form>
+
+        <!-- =================== 2지 선다=================== -->
+
+        <!-- <div class="wrap"> -->
+
+        <!-- radio : name이 같은 것 끼리 중복 체크 안됨  -->
+        <!-- id가 같아서 radio버튼 누르면 밑에 버튼이라도 위에 버튼이 클릭됨 -->
+
+        <div class="whole-question">
+
+            <div>
+                <h3>테스트 질문1</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q1" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q1" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <h3>테스트 질문2</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q2" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q2" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div>
+                <h3>테스트 질문3</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q3" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q3" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div>
+                <h3>테스트 질문4</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q4" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q4" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>테스트 질문5</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q5" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q5" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>테스트 질문6</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q6" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q6" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>테스트 질문7</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q7" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q7" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>테스트 질문8</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q8" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q8" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>테스트 질문9</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q9" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q9" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>테스트 질문10</h3>
+                <div class="radio-items">
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q10" value="left">
+                        <label for="a1">left</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" class="only-sr" name="q10" value="right">
+                        <label for="a2">right</label>
+                    </div>
+                </div>
             </div>
 
         </div>
 
     </div>
-
-    <!-- {% block content %}{% endblock %} -->
-
-
-
-    <!-- =================== 2지 선다=================== -->
-
-    <!-- <div class="question question1">
-        <h3>테스트 질문</h3>
-        <div class="question-box">
-            <input type="radio" name="opt" class="radio-question box-left">
-            <label class="radio-text text-left">
-                왼쪽
-            </label>
-            <input type="radio" name="opt" class="radio-question box-right">
-            <label class="radio-text text-right">
-                오른쪽
-            </label>
-        </div>
-    </div> -->
-    <div class="wrap">
-
-        <div class="whole-question">
-            <h3>테스트 질문1</h3>
-            <div class="radio-items">
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
-                    <label for="a1">left</label>
-                </div>
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
-                    <label for="a2">right</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="whole-question">
-            <h3>테스트 질문2</h3>
-            <div class="radio-items">
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
-                    <label for="a1">left</label>
-                </div>
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
-                    <label for="a2">right</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="whole-question">
-            <h3>테스트 질문3</h3>
-            <div class="radio-items">
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
-                    <label for="a1">left</label>
-                </div>
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
-                    <label for="a2">right</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="whole-question">
-            <h3>테스트 질문4</h3>
-            <div class="radio-items">
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a1" name="temp1" value="1">
-                    <label for="a1">left</label>
-                </div>
-                <div class="col-6">
-                    <input type="radio" class="only-sr" id="a2" name="temp1" value="2">
-                    <label for="a2">right</label>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-    아니 도대체 왜 안된는건데 여긴 sbumit =>  html은 적용함
-
-    <div style="background-color: aquamarine;"> abcd</div> 또 html은 적용하네
+    <input type="submit" value="제출">
+    </form>
 
 </body>
 
