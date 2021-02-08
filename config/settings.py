@@ -76,6 +76,7 @@ MIDDLEWARE = [
 
 # 등록하지 않으면, 각 요청 시에 host명의 Site 인스턴스를 찾습니다 .
 SITE_ID = 1
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 # django-allauth setting
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/submit' # 로그인 후 리디렉션할 페이지
