@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from django.conf.urls import url
 
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('submit', include('submit.urls')),
-    path('status', include('status.urls')),
-    
-    # path('postcreate/', views.postcreate, name='postcreate')
+    path('submit/', include('submit.urls')),
+    path('status/', include('status.urls')),
+
+    url('accounts/', include('allauth.urls')),
 ]

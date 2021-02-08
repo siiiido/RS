@@ -23,19 +23,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-secret_file = os.path.join(BASE_DIR, 'secrets.json') # secrets.json 파일 위치를 명시
-
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
-
-def get_secret(setting, secrets=secrets):    
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = "_$ni-gypk&$5&7zn=wl2!nq-&_gjvjlh-*fp7$q2exl7lws(q5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,16 +33,36 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".ap-northeast-2.compute.amazonaws.co
 # Application definition
 
 INSTALLED_APPS = [
+
+    # django settings
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    # apps
     'main',
     'submit',
     'status',
+    
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',  
+    'allauth.socialaccount.providers.kakao',
+    
 ]
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,6 +73,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# 등록하지 않으면, 각 요청 시에 host명의 Site 인스턴스를 찾습니다 .
+SITE_ID = 1
+
+# django-allauth setting
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/submit' # 로그인 후 리디렉션할 페이지
+ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000"  # 로그아웃 후 리디렉션 할 페이지
+ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 버튼 클릭 시 자동 로그아웃
+
 
 ROOT_URLCONF = 'config.urls'
 
