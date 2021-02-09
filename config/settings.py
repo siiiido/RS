@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'main',
     'submit',
     'status',
+    'social',
     
     # allauth
     'allauth',
