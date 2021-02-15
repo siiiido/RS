@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td><B>id</B></td>
+                <td><B>name</B></td>
+                <td><B>platform</B></td>
+                <td><B>email</B></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user.user_id}}</td>
+                <td>{{user.user_name}}</td>
+                <td>{{user.platform}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </body>
+    
+    

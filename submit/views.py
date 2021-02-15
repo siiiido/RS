@@ -1,9 +1,16 @@
 from django.shortcuts import render
+from social.models import Social_User
 
 # Create your views here.
 
 def submit(request):
-    return render(request, 'submit/submit.html')
+
+
+    social_user = Social_User.objects.all()
+    context = {'users' : social_user}
+    print(social_user)
+
+    return render(request, 'submit/submit_test.html', context)
 
     if requset.method == "GET":
         """
