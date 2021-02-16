@@ -1,78 +1,114 @@
-body{
-  margin: 0;
-}
-div, section, header, footer, p, h1, h2, footer{
-  /* 내부 패딩이나 border가 width,  height에 포함이 되도록 */
-  box-sizing: border-box;
-}
-img{
-  max-width: 100%;
-  height: auto;
-}
-
-.global-width{
-  max-width: 620px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* top에서 sticky(스크롤 중에 고정) */
-.scroll-graphic{
-  overflow: hidden;
-  position: sticky;
-  top: 0;
+html{
   height: 100vh;
 }
-.scene-img{
-  max-height: 100vh;
-}
-
-/* 각 이미지 감싸는 class */
-.graphic-item{
-  /* 이미지 겹치게 할려고 */
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: 0.5s;
-  
-  will-change: opacity;
-}
-.visible{
-  opacity: 1;
-}
-.scroll-text{
-  /* position 기본값 static */
-  position: relative;
-}
-.step{
-  padding: 0.5rem 1rem;
-  background : rgba(255, 255, 255, 0.8);
-  border-radius: 0.8rem;
-  margin-bottom: 60vh;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
-}
-/* .bird{
-  position: absolute;
-  left: 0;
-  bottom: 60%;
-  width: 6rem;
-  transform: translateX(-100%);
-
-  transition : duration delay
-  transition: 2s 0.5s linear;
- 
-} */
-/* [data-index="5"] .bird{
-  left: 30%;
-  bottom: 30%;
-} */
 
 body{
-  background-color: cornflowerblue;
-}
+    margin: 0;
+  }
+  div, section, header, footer, p, h1, h2, footer{
+    /* 내부 패딩이나 border가 width,  height에 포함이 되도록 */
+    box-sizing: border-box;
+  }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .global-width{
+    /* max-width : 모바일 더 줄어들어서 width가 아닌 max-width함 */
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* top에서 sticky(스크롤 중에 고정) */
+  .scroll-graphic{
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    /* sticky해주면 높이를 지정해줘야함 */
+    height: 100vh;
+  }
+  .scene-img{
+    max-height: 100vh;
+  }
+  
+  /* 각 이미지 감싸는 class */
+  .graphic-item{
+    /* 이미지 겹치게 할려고, 원래 이미지가 겹쳐져 있음 */
+    position: absolute;
+    left: 0;
+    top: 0;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 화면에 꽉 차게 */
+    width: 100%;
+    height: 100%;
+  
+    /* js로 하나씩 opacity를 1로 할려구 결국 visible을 붙인다 */
+    opacity: 0;
+    transition: 0.5s;
+    
+    will-change: opacity;
+  }
+  .visible{
+    opacity: 1;
+  }
+  .scroll-text{
+    /* position 기본값 static */
+    position: relative;
+  }
+  
+  /* 말풍선 */
+  .step{
+    padding: 0.5rem 1rem;
+    background : rgba(255, 255, 255, 0.7);
+    border-radius: 0.8rem;
+  
+    /* 말풍선 사이 간격 */
+    margin-bottom: 55vh;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+  }
+  /* .bird{
+    position: absolute;
+    left: 0;
+    bottom: 60%;
+    width: 6rem;
+    transform: translateX(-100%);
+  
+    transition : duration delay
+    transition: 2s 0.5s linear;
+   
+  } */
+  /* [data-index="5"] .bird{
+    left: 30%;
+    bottom: 30%;
+  } */
+  
+  
+  .kakao_btn{
+    /* 버튼 테두리 없애기 */
+    border: 0;
+    outline: 0;
+  
+    width: 80vw;
+    height: 10vh;
+    background-color: #fff;
+  
+  }
+  .next_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .last_img{
+    display: none;
+  }
+
+  .last-step{
+    box-shadow: rgba(0, 0, 0, 0.0) 0 0 0px;
+  }
+  

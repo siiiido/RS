@@ -22,216 +22,263 @@ href="{% static 'css/main/main.css' %}"
 
     <!-- ======================정보 입력, 불러오기======================= -->
     <div class="info-container">
+        <h3>정보입력</h3>
 
         <div class="info">
 
-            <h3>정보입력</h3>
             <div class="info-content">
 
-                <div class="from_db">
-                    <form action="." method="POST">{% csrf_token %}
-                        <div class="name">
-                            이름 <input type="text" name="name" value="">
-                        </div>
-                        <div class="sex">
-                            성별 <input type="text" name="sex" value="">
-                        </div>
-                        <div class="age">
-                            연령대 <input type="text" name="age" id="">
-                        </div>
-                    </form>
-                </div>
+                <!-- <div class="from_db"> -->
+                <form action="." method="POST">
+
+
+                    <div class="name common_content">
+                        <p class="name_p common_p">이름</p>
+                        <input type="text" name="name" value="" class="input_name common_input">
+                    </div>
+
+                    <div class="sex common_content">
+                        <p class="sex_p common_p">성별</p>
+                        <input type="text" name="sex" value="" class="input_sex common_input">
+                    </div>
+
+                    <div class="age common_content">
+                        <p class="age_p common_p">연령대</p>
+                        <input type="text" name="age" id="" class="input_age common_input">
+                    </div>
+
+
+                </form>
+                <!-- </div> -->
                 <br>
-                <form action="." method="POST" class="info-form">{% csrf_token %}
-
-                    <div class="uni_check">
-                        학교 인증 <input name="uni-photo" type="file" accept="image/*;capture=camera">
-                    </div>
-
-                    <br><br>
-                    <div>
-                        <label for="kakao">카카오톡ID</label>
-                        <input type="text" class="kakao" name="kakao">
-                    </div>
-                    <div class="uni-radio">
-                        <div class="choose-uni">
-                            <label for="">같은학? 다른학? 상관x?</label>
-                        </div>
-                        <div class="choose-uni-radio">
-                            <!-- radio 선택된 value값이 넘어감 -->
-                            <!-- 즉 views.py에서 name으로 값을 호출하고 print했을 때 나온 값은 value임  -->
-                            cc시러<input name="cc_radio" type="radio" value="ccx">
-                            cc조아 <input name="cc_radio" type="radio" value="cco">
-                            상관노 <input name="cc_radio" type="radio" value="anything">
-                        </div>
-                    </div>
-                    <!-- <a href="http://127.0.0.1:8000/templates/status/status.html">다 음</a> -->
+                <form action="." method="POST" class="info-form">
             </div>
 
-        </div>
-
-
-        <!-- =================== 2지 선다=================== -->
-
-        <!-- <div class="wrap"> -->
-
-        <!-- radio : name이 같은 것 끼리 중복 체크 안됨  -->
-        <!-- id가 같아서 radio버튼 누르면 밑에 버튼이라도 위에 버튼이 클릭됨 -->
-
-        <div class="whole-question">
-
-            <div>
-                <h3>테스트 질문1</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q1" value="left">
-                        <label for="a1">left</label>
+            <div class="send_content">
+                <div class="uni_check">
+                    학교 인증 <input class="uni_btn" name="uni-photo" type="file" accept="image/*;capture=camera">
+                </div>
+                <div class="kakao_content common_content">
+                    <!-- <label for="kakao">카카오톡ID</label> -->
+                    <p class="kakao_p common_p">카카오톡ID</p>
+                    <input type="text" class="kakao common_input" name="kakao">
+                </div>
+                <div class="uni_radio">
+                    <div class="choose-uni">
+                        <label for="">선호 방법</label>
                     </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q1" value="right">
-                        <label for="a2">right</label>
+                    <div class="choose_uni_radio ">
+                        <br>
+                        <li class="ccx_li">
+                            <input type="radio" value="ccx" id="ccx">
+                            <label class="ccx_label">No cc</label>
+                        </li>
+                        <li class="cco_li">
+                            <input type="radio" value="cco" id="cco">
+                            <label class="cco_label">Yes cc</label>
+                        </li>
+                        <li class="anything_li">
+                            <input type="radio" value="anything" id="anything">
+                            <label class="anything_label">anything</label>
+                        </li>
+                        <!-- radio 선택된 value값이 넘어감 -->
+                        <!-- 즉 views.py에서 name으로 값을 호출하고 print했을 때 나온 값은 value임  -->
+                        <!-- cc시러<input name="cc_radio" type="radio" value="ccx"> -->
+                        <!-- cc조아 <input name="cc_radio" type="radio" value="cco"> -->
+                        <!-- 상관노 <input name="cc_radio" type="radio" value="anything"> -->
                     </div>
                 </div>
-            </div>
-
-
-            <div>
-                <h3>테스트 질문2</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q2" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q2" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div>
-                <h3>테스트 질문3</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q3" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q3" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div>
-                <h3>테스트 질문4</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q4" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q4" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3>테스트 질문5</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q5" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q5" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3>테스트 질문6</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q6" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q6" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3>테스트 질문7</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q7" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q7" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3>테스트 질문8</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q8" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q8" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3>테스트 질문9</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q9" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q9" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3>테스트 질문10</h3>
-                <div class="radio-items">
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q10" value="left">
-                        <label for="a1">left</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="radio" class="only-sr" name="q10" value="right">
-                        <label for="a2">right</label>
-                    </div>
-                </div>
+                <!-- <a href="http://127.0.0.1:8000/templates/status/status.html">다 음</a> -->
             </div>
 
         </div>
 
     </div>
+
+
+    <!-- =================== 2지 선다=================== -->
+
+    <!-- <div class="wrap"> -->
+
+    <!-- radio : name이 같은 것 끼리 중복 체크 안됨  -->
+    <!-- id가 같아서 radio버튼 누르면 밑에 버튼이라도 위에 버튼이 클릭됨 -->
+
+    <div class="whole_question">
+
+        <!-- <h3>테스트 질문1</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" name="q1" value="left">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" name="q1" value="right">
+                    <label for="a2">right</label>
+                </div>
+            </div> -->
+        <ul>
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left left1 ">
+                    <input type='radio' value='left' id='q1' />
+                    <label class="left_label1">Value 1</label>
+                </li>
+                <li class="right right1 ">
+                    <input type='radio' value='right' id='q1' />
+                    <label class="right_label1">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left left2">
+                    <input type='radio' value='left' id='q2' />
+                    <label class="left_label2">Value 1</label>
+                </li>
+                <li class="right right2 ">
+                    <input type='radio' value='right' id='q2' />
+                    <label class="right_label2">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+            <div class="radio_items">
+                <h5>테스트 질문 1</h5>
+                <br>
+                <li class="left1 ">
+                    <input type='radio' value='left' name='q1' />
+                    <label class="left_label">Value 1</label>
+                </li>
+                <li class="right1 ">
+                    <input type='radio' value='right' name='q1' />
+                    <label class="right_label">Value 2</label>
+                </li>
+            </div>
+
+
+
+        </ul>
+        <br>
+
+
+
+
+
+
+        <!-- 예비용
+        <div>
+            <h3>테스트 질문10</h3>
+            <div class="radio-items">
+                <div class="col-6">
+                    <input type="radio" class="only-sr" name="q10" value="left">
+                    <label for="a1">left</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="only-sr" name="q10" value="right">
+                    <label for="a2">right</label>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
     <input type="submit" value="제출">
     </form>
 
+
+    <script src="{% static 'javascript/submit/submit.js' %}"></script>
 </body>
 
 </html>

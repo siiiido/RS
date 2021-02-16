@@ -16,42 +16,45 @@ href="{% static 'css/main/main.css' %}"
   <title>제목 뭘로 하징</title>
 </head>
 
+
 <body>
-  <!-- <header class="header">
-    <div class="global-width">
-      <h1 class="page-title">header부분</h1>
-    </div>
-
-  </header> -->
-
-  <section class="scroll-content">
+  <section class="scroll-content ">
     <div class="scroll-graphic">
-      <div class="graphic-item "><img src="{% static 'images/main/design1.jpg' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item"><img src="{% static 'images/main/design2.jpg' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item" data-action="birdFlies">
-        <img src="{% static 'images/main/design3.jpg' %}" alt="" class="scene-img">
-      </div>
-
-      <div class="graphic-item"><img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img"></div>
+      <div class="graphic-item "><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
+      <div class="graphic-item"><img src="{% static 'images/main/design2.png' %}" alt="" class="scene-img"></div>
+      <div class="graphic-item"><img src="{% static 'images/main/design3.png' %}" alt="" class="scene-img"></div>
+      <div class="graphic-item"><img src="{% static 'images/main/design4.jpg' %}" alt="" class="scene-img"></div>
       <div class="graphic-item"><img src="{% static 'images/main/sketch.jpg' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item" data-action="birdFlies2">
-        <img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img">
-      </div>
+      <!-- <div class="graphic-item"><img src="{% static 'images/main/sketch.jpg' %}" alt="" class="scene-img"></div> -->
+      <!-- <div class="graphic-item" ><img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img last_img"></div> -->
     </div>
 
-    </div>
     <div class="scroll-text global-width">
       <div class="step">
-        <p>테스트 1</p>
+        <p>무료하다 정말~</p>
+        <p>혼자 카페가기도 싫고</p>
+        <p>혼자 할 일은 다 했고</p>
       </div>
       <div class="step">
         <p>
-          테스트 2
+          넷플도 지루하네...
+        </p>
+        <p>
+          집에서 할 것도 없을 때
+        </p>
+        <p>
+          만날 친구도 없고
         </p>
       </div>
       <div class="step">
         <p>
-          테스트 3
+          카톡할 사람도 없구...
+        </p>
+        <p>
+          연락할 사람이 없다면
+        </p>
+        <p>
+          나 같은 사람 어디 없나?
         </p>
       </div>
       <div class="step">
@@ -59,30 +62,28 @@ href="{% static 'css/main/main.css' %}"
           테스트 4
         </p>
       </div>
-      <div class="step">
-        <p>
-          테스트 5
-        </p>
+
+      <div class="step last-step">
+        <div class="next_btn">
+          <button class="kakao_btn">
+            <a href="submit.html"></a>
+              <img class="kakao_btn_img" src="{% static 'images/main/kakao_login.png' %}" alt="">
+            </a>
+          </button>
+        </div>
       </div>
-      <div class="step">
-        <p>
-          테스트 6
-        </p>
-      </div>
+
 
     </div>
   </section>
 
-  <footer>
-    <div class="next_btn">
-      <button class="kakao_btn">
-        <img class="kakao_btn_img" src="{% static 'images/main/kakao_login.png' %}" alt="">
-      </button>
-    </div>
-  </footer>
+  <!-- <div class="next_btn">
+    <button class="kakao_btn">
+      <img class="kakao_btn_img" src="{% static 'images/main/kakao_login.png' %}" alt="">
+    </button>
+  </div> -->
 
   <script src="{% static 'javascript/main/main.js' %}"></script>
-
 </body>
 
 </html>
