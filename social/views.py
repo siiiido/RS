@@ -77,3 +77,6 @@ class kakaoLoginView(View):
                     '\nuser_nickname : ' + Social_User_Table.user_nickname +
                     '\ntoken : ' + marpple_tokken )
         return redirect('/submit')
+
+
+

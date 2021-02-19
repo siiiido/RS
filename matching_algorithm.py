@@ -29,8 +29,8 @@ class User_Data(object):
 
 
 def process():
-    man_set = Social_User_Table.objects.filter(gender=True)
-    woman_set = Social_User_Table.objects.filter(gender=False)
+    man_set = Social_User_Table.objects.filter(gender='male')
+    woman_set = Social_User_Table.objects.filter(gender='female')
 
     list_man = list_maker(man_set)
     list_woman = list_maker(woman_set)
@@ -39,8 +39,10 @@ def process():
 
     print( dictionary_match )
 
-    change_recent_matching_date(dictionary_match)
+    update_matching_data(dictionary_match)
 
+
+# 성별 쿼리에 따라 리스트 만들기
 def list_maker(qurey_set):
     list_result = []
     for data in qurey_set:
@@ -65,6 +67,7 @@ def list_maker(qurey_set):
 
     return list_result
 
+# 기본 매칭 알고리즘
 def match_standard(list_man, list_woman):
 
     dictionary_result = {}
@@ -88,11 +91,15 @@ def match_standard(list_man, list_woman):
     
     return dictionary_result
 
+
+# id로 index 위치 찾기
 def index_finder(list_gender, gender_id):
     for i in range(len(list_gender)):
         if list_gender[i].user_id == gender_id:
             return i
 
+
+# 질문 결과(2진수) 비교
 def handle_question(str_woman, str_man):
     score_result = 0;    
     
@@ -102,6 +109,8 @@ def handle_question(str_woman, str_man):
     
     return score_result
 
+
+# 대학별 매칭
 def handle_university(woman, man):
     
     if woman.preference == "SAME" and man.preference == "SAME":       
@@ -121,6 +130,8 @@ def handle_university(woman, man):
        
     return False
 
+
+# 질문 결과를 2진수 문자열로 변환
 def str_maker(list_question):
     str_result = ""
     for tmp in list_question:
@@ -130,48 +141,14 @@ def str_maker(list_question):
             str_result += "0"
     return str_result
 
-def change_recent_matching_date(dictionary_match):
-    
 
+# 최근 매칭일 / 매칭 횟수 변경
+def update_matching_data(dictionary_match):
+    for i in dictionary_match:        
 
+        print(i + " " + dictionary_match[i])
 
-"""
-# 테스트 시작
-def process():
-    data_man = [
-        User_Data('11', '남1', 'abcdee', '대학1', "SAME", 0, '1111010000'),
-        User_Data('12', '남2', 'abcdcc', '대학2', "ALL", 1, '0101101001'),
-        User_Data('13', '남3', 'abcddd', '대학3', "DIFF", 2, '0101101001'),
-        User_Data('14', '남4', 'bbcdee', '대학4', "SAME", 0, '1001010000'),
-        User_Data('15', '남5', 'bbcdcc', '대학5', "ALL", 1, '1111111111'),
-        User_Data('16', '남6', 'bbcddd', '대학6', "DIFF", 2, '0000000000'),
-    ]
-
-    data_woman = [
-        User_Data('21', '여1', 'cbcdee', '대학1', "SAME", 0, '1111010000'),
-        User_Data('22', '여2', 'cbcdcc', '대학2', "ALL", 1, '0101101001'),
-        User_Data('23', '여3', 'cbcddd', '대학3', "DIFF", 2, '0101101001'),
-        User_Data('24', '여4', 'dbcdee', '대학1', "SAME", 0, '1111010000'),
-        User_Data('25', '여5', 'dbcdcc', '대학2', "ALL", 1, '0101101001'),
-        User_Data('26', '여6', 'dbcddd', '대학3', "DIFF", 2, '0101101001'),
-    ]
-
-    list_man = test(data_man)
-    list_woman = test(data_woman)
-
-    dictionary_match = match(list_man, list_woman)
-
-    print( dictionary_match )
-
-
-def test(list_test):    
-    list_result = list_test
-    random.shuffle(list_result)
-    list_result = sorted(list_result, key=attrgetter('priority'), reverse=True)
-
-    return list_result
-# 테스터 끝
-"""
+        
 
 
 process()

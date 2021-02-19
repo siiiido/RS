@@ -1,8 +1,6 @@
 from datetime import date
 from django.db import models
 
-# Create your models here.
-
 class Social_User_Table(models.Model):    
 
     # 카카오톡 : 카카오 고유 ID
@@ -26,7 +24,8 @@ class Social_User_Table(models.Model):
     # SAME : 자기 학교만 / DIFF : 다른 학교만 / ALL : 모든 학교
     preference = models.TextField(default="ALL")    
     # 사용자 : 학생증 이미지
-    image = models.ImageField(null=False)    
+    image = models.ImageField(null=False, upload_to="social")    
+
     # 시스템 : 우선순위
     priority = models.IntegerField(default=0)
     # 시스템 : 가입일
