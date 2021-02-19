@@ -41,13 +41,6 @@ class kakaoLoginView(View):
 
         kakao_response = requests.get(url, headers = headers)
         kakao_response = json.loads(kakao_response.text)
-
-        print("kakao_response")
-        print(kakao_response)
-        print("kakao_response")
-
-
-        print("kakakakao")
      
         # 수정 예정
         # 왜 전역으로 선언해야하는지를 모르겟음
@@ -58,24 +51,18 @@ class kakaoLoginView(View):
             Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
             jwt_token = jwt.encode({'user_id':Social_User_Table.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
 
-            print(  'user_id : ' + Social_User_Table.user_id +
-                    '\nuser_nickname : ' + Social_User_Table.user_nickname +
-                    '\ntoken : ' + jwt_token )
-
             return redirect('/submit')
 
         Social_User_Table(
             user_id         = kakao_response['id'],
             user_nickname   = kakao_response['properties']['nickname'],
-            email           = kakao_response['kakao_account'].get('email', None)
+            gender          = kakao_response['kakao_account']['gender'],
+            age_range       = kakao_response['kakao_account']['age_range'],
         ).save()
 
         Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
         marpple_tokken = jwt.encode({'user_id':Social_User_Table.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
 
-        print(  'user_id : ' + Social_User_Table.user_id +
-                    '\nuser_nickname : ' + Social_User_Table.user_nickname +
-                    '\ntoken : ' + marpple_tokken )
         return redirect('/submit')
 
 

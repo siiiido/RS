@@ -17,6 +17,8 @@ def submit(request):
 
         print("get")        
 
+        
+
         social_user = Social_User_Table.objects.all()
         context = {'users' : social_user}
         print(Social_User_Table)
