@@ -1,60 +1,21 @@
+import django
+import os
+import random
+import cv2
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+django.setup()
+
+
+from social.models import Social_User_Table
 from datetime import date
-from django.db import models
+import images
 
-# Create your models here.
+image1 = cv2.imread('images/1.jpg', cv2.IMREAD_COLOR)
 
-class Social_User_Table(models.Model):    
-
-    # 카카오톡 : 카카오 고유 ID
-    user_id = models.TextField(primary_key=True)
-    
-    # 카카오톡 : 닉네임
-    user_nickname = models.TextField(null=False)
-
-    # 카카오톡 : 성별
-    # 남자 : male / 여자 : female
-    gender = models.TextField(null=False)   
-     
-    # 카카오톡 : 태어난 연도
-    age_range = models.TextField(null=False)    
-
-    # 사용자 : 등록한 연락처
-    contact = models.TextField(null=False)
-    # 사용자 : 학교
-    university = models.TextField(null=False)
-    # 사용자 : 선호 학교
-    # SAME : 자기 학교만 / DIFF : 다른 학교만 / ALL : 모든 학교
-    preference = models.TextField(default="ALL")    
-    # 사용자 : 학생증 이미지
-    image = models.ImageField(null=False)    
-    # 시스템 : 우선순위
-    priority = models.IntegerField(default=0)
-    # 시스템 : 가입일
-    sign_up_date = models.DateField(default=date.today)
-    # 시스템 : 최근 매칭일
-    recent_matching_date = models.DateField(default=date.today)
-    # 시스템 : 매칭 횟수 카운트
-    matching_count = models.IntegerField(default=0)
-    # 시스템 : 관계자 승인 여부
-    admin_allow = models.BooleanField(default=False)
-
-    # 질문 결과 Q1~10
-    Q01 = models.BooleanField(default=True)
-    Q02 = models.BooleanField(default=True)
-    Q03 = models.BooleanField(default=True)
-    Q04 = models.BooleanField(default=True)
-    Q05 = models.BooleanField(default=True)
-    Q06 = models.BooleanField(default=True)
-    Q07 = models.BooleanField(default=True)
-    Q08 = models.BooleanField(default=True)
-    Q09 = models.BooleanField(default=True)
-    Q10 = models.BooleanField(default=True)
-
-
-"""
 m1 = Social_User_Table(user_id = '11', user_nickname='남1', gender='male',
                         age_range='20~29', contact='aa', university='대학1',
-                        preference="SAME", priority=0, Q01=True, Q02=True, Q03=True, 
+                        preference="SAME", image=image1, priority=0, Q01=True, Q02=True, Q03=True, 
                         Q04=True, Q05=False, Q06=True, Q07=False, Q08=False, Q09=False, Q10=False)  
 
 m2 = Social_User_Table(user_id = '12', user_nickname='남2', gender='male',
@@ -74,7 +35,7 @@ m4 = Social_User_Table(user_id = '14', user_nickname='남4', gender='male',
 
 m5 = Social_User_Table(user_id = '15', user_nickname='남5', gender='male',
                         age_range='20~29', contact='ae', university='대학5',
-                        preference="ALL", priority=1, Q01=True, Q02=True, Q03=True, 
+                        preference="SAALLME", priority=1, Q01=True, Q02=True, Q03=True, 
                         Q04=True, Q05=True, Q06=True, Q07=True, Q08=True, Q09=True, Q10=True)  
 
 m6 = Social_User_Table(user_id = '16', user_nickname='남6', gender='male',
@@ -127,4 +88,3 @@ w3.save()
 w4.save()
 w5.save()
 w6.save()
-"""

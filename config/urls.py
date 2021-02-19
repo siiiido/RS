@@ -21,9 +21,9 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('social/', include('social.urls')),
     path('submit/', include('submit.urls')),
     path('status/', include('status.urls')),
-    path('social/', include('social.urls')),
 
-    url('accounts/', include('allauth.urls')),
+    # url('accounts/', include('allauth.urls')),
 ]

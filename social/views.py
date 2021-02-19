@@ -1,10 +1,17 @@
+"""
+선택동의항목 뜨지 않을 경우 아래 사이트에서 프로필 지정 해야함
+https://accounts.kakao.com/
+"""
+
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.views import View
 from config.settings import SECRET_KEY
 
-from .models import Social_User, Social_Platform
+from django.db import models
+from .models import Social_User_Table
 
 import requests
 import json
@@ -25,11 +32,7 @@ class kakaoLoginView(View):
 
         token_kakao_response = requests.post(url, headers = headers, data = body)
         access_token = json.loads(token_kakao_response.text).get('access_token')
-        # access_token = request.headers.get('Authorization', None)
-
-        # print( token_kakao_response.text )
-        # print( access_token )
-
+        
         url = 'https://kapi.kakao.com/v2/user/me'
         headers = {
             'Authorization' : f'Bearer {access_token}',
@@ -43,115 +46,34 @@ class kakaoLoginView(View):
         print(kakao_response)
         print("kakao_response")
 
-        # # get        
-        # # kakao = Social_Platform.objects.get(platform_name='kakao')
-        
-        # # filter
-        # kakao = Social_Platform.objects.filter(platform_name='kakao')
-
-        # # get_object_or_404()
-        # # kakao = get_object_or_404(Social_Platform, platform_name='kakao')
-            
-        # print("kakao")
-        # print(kakao)
-        # print("kakao")
-
-        # if Social_User.objects.filter(platform = kakao, user_id = kakao_response["id"]).exists():
-            
-        #     social_user = Social_User.objects.get(platform_id = kakao_response['id'])
-        #     jwt_token = jwt.encode({'id':user.id}, SECRET_KEY, algorithm = 'HS256').decode('urf=8')
-
-        #     return HttpResponse(f'id:{social_user.user_id}, name:{social_user.user_name}, token:{jwt_token}')
-        
-
-        # print("카카오 아이디")
-        # print(kakao_response['id'])
-        # print("카카오 아이디")
-
-        # Social_User(
-        #     user_id         = kakao_response['id'],
-        #     user_name       = kakao_response['properties']['nickname'],
-        #     social_platform = kakao,
-        #     email           = kakao_response['kakao_account'].get('email', None)
-        # ).save()
-
-        # social_user = Social_User.objects.get(social_platform = kakao, user_id = kakao_response['id'])
-        # marpple_tokken = jwt.encode({'id':user.id}, SECRET_KEY, algorithm = 'HS256').decode('urf=8')
-
-        # return HttpResponse(f'id:{social_user.user_id}, name:{social_user.user_name}, token:{marpple_tokken}')
-        
-
-
-        # kakao = ' '
-        # try:            
-        #     kakao = Social_Platform.objects.get(platform_name='kakao')
-
-        #     print("Test 5")
-
-        #     if Social_User.objects.filter(platform = kakao, user_id = kakao_response['id']).exists():
-                
-        #         social_user = Social_User.objects.get(user_id = kakao_response['id'])
-        #         jwt_token = jwt.encode({'user_id':social_user.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
-
-        #         print(  'user_id : ' + social_user.user_id +
-        #                 '\nuser_name : ' + social_user.user_name +
-        #                 '\ntoken : ' + jwt_token )
-                
-        #         # return redirect('/submit')
-        #         return HttpResponse(f'user_id:{social_user.user_id}, user_name:{social_user.user_name}, token:{jwt_token}')
-    
-        # except:
-
-        #     print("test 6")
-
-        #     Social_User(
-        #         user_id         = kakao_response['id'],
-        #         user_name       = kakao_response['properties']['nickname'],
-        #         platform        = kakao,
-        #         email           = kakao_response['kakao_account'].get('email', None)
-        #     ).save()
-
-        #     social_user = Social_User.objects.get(platform = kakao, user_id = kakao_response['id'])
-        #     marpple_tokken = jwt.encode({'user_id':social_user.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
-
-        #     print(  'user_id : ' + social_user.user_id +
-        #                 '\nuser_name : ' + social_user.user_name +
-        #                 '\ntoken : ' + marpple_tokken )
-
-        #     # return redirect('/submit')
-        #     return HttpResponse(f'user_id:{social_user.user_id}, user_name:{social_user.user_name}, token:{marpple_tokken}')
-
 
         print("kakakakao")
-                  
-        kakao = 'kakao'
-
-        if Social_User.objects.filter(platform = kakao, user_id = kakao_response['id']).exists():
+     
+        # 수정 예정
+        # 왜 전역으로 선언해야하는지를 모르겟음
+        global Social_User_Table
+        
+        if Social_User_Table.objects.filter(user_nickname = kakao_response['properties']['nickname'], user_id = kakao_response['id']).exists():
             
-            social_user = Social_User.objects.get(user_id = kakao_response['id'])
-            jwt_token = jwt.encode({'user_id':social_user.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
+            Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
+            jwt_token = jwt.encode({'user_id':Social_User_Table.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
 
-            print(  'user_id : ' + social_user.user_id +
-                    '\nuser_name : ' + social_user.user_name +
+            print(  'user_id : ' + Social_User_Table.user_id +
+                    '\nuser_nickname : ' + Social_User_Table.user_nickname +
                     '\ntoken : ' + jwt_token )
 
             return redirect('/submit')
-            # return HttpResponse(f'user_id:{social_user.user_id}, user_name:{social_user.user_name}, token:{jwt_token}')
 
-        Social_User(
+        Social_User_Table(
             user_id         = kakao_response['id'],
-            user_name       = kakao_response['properties']['nickname'],
-            platform        = kakao,
+            user_nickname   = kakao_response['properties']['nickname'],
             email           = kakao_response['kakao_account'].get('email', None)
         ).save()
 
-        social_user = Social_User.objects.get(platform = kakao, user_id = kakao_response['id'])
-        marpple_tokken = jwt.encode({'user_id':social_user.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
+        Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
+        marpple_tokken = jwt.encode({'user_id':Social_User_Table.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
 
-        print(  'user_id : ' + social_user.user_id +
-                    '\nuser_name : ' + social_user.user_name +
+        print(  'user_id : ' + Social_User_Table.user_id +
+                    '\nuser_nickname : ' + Social_User_Table.user_nickname +
                     '\ntoken : ' + marpple_tokken )
         return redirect('/submit')
-        # return HttpResponse(f'user_id:{social_user.user_id}, user_name:{social_user.user_name}, token:{marpple_tokken}')
-        
-        
