@@ -26,67 +26,66 @@ href="{% static 'css/main/main.css' %}"
 
     <div class="info">
 
-        <div class="info-content">
+        <form action="." method="POST">{% csrf_token %}
 
-            <!-- <div class="from_db"> -->
-            <form action="." method="POST">
+            <div class="info-content">
+
+                <!-- <div class="from_db"> -->
 
 
                 <div class="name common_content">
                     <p class="name_p common_p">이름</p>
-                    <input type="text" name="name" value="" class="input_name common_input">
+                    <input type="text" name="html_user_nickname"  class="input_name common_input">
                     <p>{{user.user_nickname}} </p>
                 </div>
 
                 <div class="sex common_content">
                     <p class="sex_p common_p">성별</p>
-                    <input type="text" name="sex" value="" class="input_sex common_input">
+                    <input type="text" name="html_gender" value="" class="input_sex common_input">
                     <p>{{user.gender}}</p>
                 </div>
 
                 <div class="age common_content">
                     <p class="age_p common_p">연령대</p>
-                    <input type="text" name="age" id="" class="input_age common_input">
+                    <input type="text" name="html_age_range" id="" class="input_age common_input">
                     <p>{{user.age_range}}</p>
                 </div>
                 <br><br>
 
 
-            </form>
-            <br>
-        </div>
-        <form action="">
+                <br>
+            </div>
             <div class="send_content">
 
                 <div class="choose_uni">
                     <label>학교 선택</label>
-                    <select  class="read_select">
+                    <select class="read_select">
                         <option value="" selected>대학교 선택</option>
-                        <option value="경남정보대학교">경남정보대학교</option>
-                        <option value="경성대학교">경성대학교</option>
-                        <option value="고신대학교">고신대학교</option>
-                        <option value="대동대학교">대동대학교</option>
-                        <option value="동명대학교">동명대학교</option>
-                        <option value="동서대학교">동서대학교</option>
-                        <option value="동아대학교">동아대학교</option>
-                        <option value="동의과학대학교">동의과학대학교</option>
-                        <option value="동의대학교">동의대학교</option>
-                        <option value="동주대학교">동주대학교</option>
-                        <option value="부경대학교">부경대학교</option>
-                        <option value="부산가톨릭대학교">부산가톨릭대학교</option>
-                        <option value="부산경상대학교">부산경상대학교</option>
-                        <option value="부산과학기술대학교">부산과학기술대학교</option>
-                        <option value="부산교육대학교">부산교육대학교</option>
-                        <option value="부산대학교">부산대학교</option>
-                        <option value="부산디지털대학교">부산디지털대학교</option>
-                        <option value="부산여자대학교">부산여자대학교</option>
-                        <option value="부산예술대학교">부산예술대학교</option>
-                        <option value="부산외국어대학교">부산외국어대학교</option>
-                        <option value="신라대학교">신라대학교</option>
-                        <option value="영산대학교">영산대학교</option>
-                        <option value="한국폴리텍대학">한국폴리텍대학</option>
-                        <option value="한국해양대학교">한국해양대학교</option>
-                        <option value="1">직접 입력</option>
+                        <option name="html_university" value="경남정보대학교">경남정보대학교</option>
+                        <option name="html_university" value="경성대학교">경성대학교</option>
+                        <option name="html_university" value="고신대학교">고신대학교</option>
+                        <option name="html_university" value="대동대학교">대동대학교</option>
+                        <option name="html_university" value="동명대학교">동명대학교</option>
+                        <option name="html_university" value="동서대학교">동서대학교</option>
+                        <option name="html_university" value="동아대학교">동아대학교</option>
+                        <option name="html_university" value="동의과학대학교">동의과학대학교</option>
+                        <option name="html_university" value="동의대학교">동의대학교</option>
+                        <option name="html_university" value="동주대학교">동주대학교</option>
+                        <option name="html_university" value="부경대학교">부경대학교</option>
+                        <option name="html_university" value="부산가톨릭대학교">부산가톨릭대학교</option>
+                        <option name="html_university" value="부산경상대학교">부산경상대학교</option>
+                        <option name="html_university" value="부산과학기술대학교">부산과학기술대학교</option>
+                        <option name="html_university" value="부산교육대학교">부산교육대학교</option>
+                        <option name="html_university" value="부산대학교">부산대학교</option>
+                        <option name="html_university" value="부산디지털대학교">부산디지털대학교</option>
+                        <option name="html_university" value="부산여자대학교">부산여자대학교</option>
+                        <option name="html_university" value="부산예술대학교">부산예술대학교</option>
+                        <option name="html_university" value="부산외국어대학교">부산외국어대학교</option>
+                        <option name="html_university" value="신라대학교">신라대학교</option>
+                        <option name="html_university" value="영산대학교">영산대학교</option>
+                        <option name="html_university" value="한국폴리텍대학">한국폴리텍대학</option>
+                        <option name="html_university" value="한국해양대학교">한국해양대학교</option>
+                        <option name="html_university" value="1">직접 입력</option>
                     </select>
                     <input type="text" class="read">
 
@@ -95,13 +94,13 @@ href="{% static 'css/main/main.css' %}"
                 <div class="uni_check">
                     <label class="input_file_btn" for="input_file">학교 인증</label>
                     <!-- 학교 인증 <input  class="uni_btn" name="uni-photo" type="file" accept="image/*;capture=camera"> -->
-                    <input type="file" id="input_file" class="input_file_pic">
+                    <input name="html_image" type="file" id="input_file" class="input_file_pic">
                 </div>
 
                 <div class="kakao_content common_content">
                     <!-- <label for="kakao">카카오톡ID</label> -->
                     <p class="kakao_p common_p">카카오톡ID</p>
-                    <input type="text" class="kakao common_input" name="kakao">
+                    <input type="text" class="kakao common_input" name="html_contact">
                 </div>
 
                 <div class="uni_radio">
@@ -109,16 +108,16 @@ href="{% static 'css/main/main.css' %}"
                     <label>선호 방법</label>
                     <!-- </div> -->
                     <div class="choose_uni_radio ">
-                        <li class="ccx_li">
-                            <input type="radio" value="DIFF" id="ccx">
-                            <label class="ccx_label">No cc</label>
+                        <li  class="ccx_li">
+                            <input  type="radio"  id="ccx">
+                            <label  class="ccx_label">No cc</label>
                         </li>
                         <li class="cco_li">
-                            <input type="radio" value="SAME" id="cco">
+                            <input name="html_preference" type="radio" value="SAME" id="cco">
                             <label class="cco_label">Yes cc</label>
                         </li>
                         <li class="anything_li">
-                            <input type="radio" value="ALL" id="anything">
+                            <input name="html_preference" type="radio" value="ALL" id="anything">
                             <label class="anything_label">anything</label>
                         </li>
                     </div>
@@ -156,11 +155,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' id='q1' />
+                            <input name="html_Q01" type='radio' value="left" id='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' id='q1' />
+                            <input name="html_Q01" type='radio' value='right' id='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -169,11 +168,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 2</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' id='q2' />
+                            <input name="html_Q02" type='radio' value='left' id='q2' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' id='q2' />
+                            <input name="html_Q02" type='radio' value='right' id='q2' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -182,11 +181,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 3</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q03" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q03" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -195,11 +194,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q04" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q04" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -208,11 +207,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q05" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q05" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -221,11 +220,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q06" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q06" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -234,11 +233,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q07" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q07" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -247,11 +246,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q08" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q08" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -260,11 +259,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left ">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q09" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right ">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q09" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
@@ -273,11 +272,11 @@ href="{% static 'css/main/main.css' %}"
                         <h5>테스트 질문 1</h5>
                         <br>
                         <li class="left ">
-                            <input type='radio' value='left' name='q1' />
+                            <input name="html_Q10" type='radio' value='left' name='q1' />
                             <label class="left_label">Value 1</label>
                         </li>
                         <li class="right ">
-                            <input type='radio' value='right' name='q1' />
+                            <input name="html_Q10" type='radio' value='right' name='q1' />
                             <label class="right_label">Value 2</label>
                         </li>
                     </div>
