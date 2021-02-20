@@ -11,10 +11,19 @@ def submit(request):
 
     if request.method == "GET":
 
+<<<<<<< HEAD
         if session_user_id :
             user_info = Social_User_Table.objects.get(pk=session_user_id)
             context = {'user' : user_info}
             return render(request, 'submit/submit_test.html', context)
+=======
+        user = request.session.get('user')
+        
+        if user :
+            social_user = Social_User_Table.objects.get(pk=user)
+            context = {'user' : social_user}
+            return render(request, 'submit/submit.html', context)
+>>>>>>> front
         
         else :            
             return redirect('/')      
@@ -25,7 +34,10 @@ def submit(request):
         2. 데이터 DB 반영
         3. 페이지 전환
         """
+<<<<<<< HEAD
         user_info = Social_User_Table.objects.get(pk=session_user_id)
+=======
+>>>>>>> front
 
         print(user_info.user_id)
         print(user_info.user_nickname)
@@ -36,12 +48,51 @@ def submit(request):
         상한 테스트 파트
         """
 
+<<<<<<< HEAD
+
+=======
+        # user = request.session.get('user')
+        # print(user)
+
+        html_user_nickname = request.POST.get('html_user_nickname','')
+        print(html_user_nickname)
+        print("asdsa")
+
+        html_university = request.POST.get('html_university',None)
+        print(html_university)
+
+        html_contact = request.POST.get('html_contact')
+        print("html_contact : ",html_contact)
+
+        html_image = request.POST.get('html_image')
+        print(html_image)
+
+        html_preference = request.POST.get('html_preference','')
+        print("html_preference : ",html_preference)
+
+        html_Q01 = request.POST.get('html_Q01')
+        print(html_Q01)
 
 
 
+
+        # social_user = Social_User_Table.objects.get(pk=user)
+
+        # Social_User_Table(
+        #         user_id         = user,
+        #         contact         = html_data,
+        #     ).save()
+        
+>>>>>>> front
+
+
+<<<<<<< HEAD
         
         # html_data = request.POST.get('title')
         # print(html_data)
         
         return redirect('/status')
         # return render(request, "submit/submit_test.html")
+=======
+        return redirect('/status')
+>>>>>>> front
