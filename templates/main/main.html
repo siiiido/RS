@@ -3,87 +3,84 @@
   위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
 href="{% static 'css/main/main.css' %}"
 -->
-{% load static %}
+<!-- {% load static %} -->
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/main/main.css' %}">
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <title>제목 뭘로 하징</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/main/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main/main.css' %}">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <title>제목 뭘로 하징</title>
 </head>
 
 
 <body>
-  <section class="scroll-content ">
-    <div class="scroll-graphic">
-      <div class="graphic-item "><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item"><img src="{% static 'images/main/design2.png' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item"><img src="{% static 'images/main/design3.png' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item"><img src="{% static 'images/main/design4.jpg' %}" alt="" class="scene-img"></div>
-      <div class="graphic-item"><img src="{% static 'images/main/sketch.jpg' %}" alt="" class="scene-img"></div>
-      <!-- <div class="graphic-item"><img src="{% static 'images/main/sketch.jpg' %}" alt="" class="scene-img"></div> -->
-      <!-- <div class="graphic-item" ><img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img last_img"></div> -->
-    </div>
-
-    <div class="scroll-text global-width">
-      <div class="step">
-        <p>무료하다 정말~</p>
-        <p>혼자 카페가기도 싫고</p>
-        <p>혼자 할 일은 다 했고</p>
-      </div>
-      <div class="step">
-        <p>
-          넷플도 지루하네...
-        </p>
-        <p>
-          집에서 할 것도 없을 때
-        </p>
-        <p>
-          만날 친구도 없고
-        </p>
-      </div>
-      <div class="step">
-        <p>
-          카톡할 사람도 없구...
-        </p>
-        <p>
-          연락할 사람이 없다면
-        </p>
-        <p>
-          나 같은 사람 어디 없나?
-        </p>
-      </div>
-      <div class="step">
-        <p>
-          테스트 4
-        </p>
-      </div>
-
-      <div class="step last-step">
-        <div class="next_btn">
-          <button class="kakao_btn">
-            <a href="submit.html"></a>
-              <img class="kakao_btn_img" src="{% static 'images/main/kakao_login.png' %}" alt="">
-            </a>
-          </button>
+    <section class="scroll-content ">
+        <div class="scroll-graphic">
+            <div class="graphic-item "><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
+            <div class="graphic-item"><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
+            <div class="graphic-item"><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
+            <div class="graphic-item"><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
+            <div class="graphic-item"><img src="{% static 'images/main/design1.png' %}" alt="" class="scene-img"></div>
+            <!-- <div class="graphic-item"></div> -->
+            <!-- <div class="graphic-item" ><img src="{% static 'images/main/test2.png' %}" alt="" class="scene-img last_img"></div> -->
         </div>
-      </div>
+
+        <div class="scroll-text global-width">
+            <div class="step">
+                <p>무료하다 정말~</p>
+                <p>혼자 카페가기도 싫고</p>
+                <p>혼자 할 일은 다 했고</p>
+            </div>
+            <div class="step">
+                <p>
+                    넷플도 지루하네...
+                </p>
+                <p>
+                    집에서 할 것도 없을 때
+                </p>
+                <p>
+                    만날 친구도 없고
+                </p>
+            </div>
+            <div class="step">
+                <p>
+                    카톡할 사람도 없구...
+                </p>
+                <p>
+                    연락할 사람이 없다면
+                </p>
+                <p>
+                    나 같은 사람 어디 없나?
+                </p>
+            </div>
+            <div class="step abc">
+                <p>
+                    테스트 4
+                </p>
+            </div>
+
+            <div class="step last-step">
+                <div class="next_btn">
+                    <button class="kakao_btn">
+                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=5d7075d20b4eeae726c8c1b313767b1a&redirect_uri=http://127.0.0.1:8000/social&response_type=code">
+                        <img class="kakao_btn_img" src="{% static 'images/main/kakao_login.png' %}" alt="">
+                        </a>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="submit.html">aa</a>
 
 
-    </div>
-  </section>
-
-  <!-- <div class="next_btn">
-    <button class="kakao_btn">
-      <img class="kakao_btn_img" src="{% static 'images/main/kakao_login.png' %}" alt="">
-    </button>
-  </div> -->
-
-  <script src="{% static 'javascript/main/main.js' %}"></script>
+    <script src="{% static 'javascript/main/main.js' %}"></script>
 </body>
 
 </html>

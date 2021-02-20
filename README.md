@@ -4,7 +4,7 @@
 |:--:|:--:|:--:|:--:|
 | Design |  **[Park Soo-bin](https://www.instagram.com/poumuoq1004/)** | Design Tool | vermouth3228@gmail.com |
 | Front | **[Song Sang-han](https://github.com/siiiido)** | html / css / javascript  | discegaudere24.7@gmail.com |
-| Back | **[Kim Tae-hun](https://github.com/huni-KR)** | django / rest api | xogns12356@gmail.com |
+| Back | **[Kim Tae-hun](https://github.com/huni-KR)** | django / rest api | babodogveloper@gmail.com |
 
 <br>
 

@@ -41,28 +41,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
 
     # apps
     'main',
+    'social',
     'submit',
     'status',
+
+    # # admin image
+    # 'sorl.thumbnail',
     
-    # allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',  
-    'allauth.socialaccount.providers.kakao',
+    # # allauth
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',  
+    # 'allauth.socialaccount.providers.kakao',
+    # 'django.contrib.sites',
     
 ]
 
-AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
+# AUTHENTICATION_BACKENDS = (
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+#     # `allauth` specific authentication methods, such as login by e-mail
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,13 +78,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# 등록하지 않으면, 각 요청 시에 host명의 Site 인스턴스를 찾습니다 .
-SITE_ID = 1
+# # 등록하지 않으면, 각 요청 시에 host명의 Site 인스턴스를 찾습니다 .
+# SITE_ID = 1
+# SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-# django-allauth setting
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/submit' # 로그인 후 리디렉션할 페이지
-ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000"  # 로그아웃 후 리디렉션 할 페이지
-ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 버튼 클릭 시 자동 로그아웃
+# # django-allauth setting
+# LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/submit' # 로그인 후 리디렉션할 페이지
+# ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000"  # 로그아웃 후 리디렉션 할 페이지
+# ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 버튼 클릭 시 자동 로그아웃
 
 
 ROOT_URLCONF = 'config.urls'
@@ -161,6 +166,8 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-
-# STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 STATIC_ROOT=os.path.join(BASE_DIR, '.static')
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

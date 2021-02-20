@@ -80,37 +80,44 @@
 
 
 *{
-  margin: 0;
-  padding: 0;
+  /* margin: 0; */
+  /* padding: 0; */
 }
 body{
-  padding: 2rem;
+  margin: 0;
+  /* width: 80vw; */
+  /* padding: 1rem; */
 }
 
 
 .info{
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  padding: 1.5rem;
+  /* margin-left: 2rem; */
+   /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 
 
   /* 모바일로 하면 width를 크게해야하고 컴퓨터는 작게 해야함 */
-  width: 70vw;
-  height: 60vh;
+  /* width: 90vw; */
+  height: 100vh;
   /* background : rgba(158, 219, 238, 0.702); */
   /* background : white; */
-  padding: 1rem;
-  border-radius: 1rem;
+  /* padding: 1rem; */
+  /* border-radius: 1rem; */
 }
 
 /* 큰 테두리를 rem으로 할 지 %로 할지 고민중 */
 .info-content{
   background-color: #fff;
   /* height: 35%; */
-  height: 13rem;
+  height: 11rem;
+  /* height: 30vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
-
 
 .name_p{
   top: 4rem;
@@ -120,23 +127,23 @@ body{
   top: 7.8rem;
 }
 
-
 .age_p{
   top: 11.9rem;
-
 }
 
 .common_content .common_p{
   position: absolute;
 }
 .common_content{
+  width: 85vw;
   border :  1px solid #58bff6;
   color: #58bff6;
   margin-bottom: 1rem;
   border-radius: 1rem;
 }
+
 .common_p{
-  left: 5rem;
+  left: 4rem;
   background-color: white;
 }
 .common_input{
@@ -150,47 +157,96 @@ body{
 
 
 .send_content {
-  /* height: 50%; */
-  height: 17rem;
+  /* height: 40%; */
+  /* height: 15rem; */
+  /* height: 60vh; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
+
+.choose_uni{
+  height: 3rem;
+  width: 80vw;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;  */
+
+}
 
 .kakao_content{
-  margin-top: 1.3rem;
+  /* margin-top: 1.3rem; */
 }
 .kakao_p{
-  top: 21.2rem;
+  /* top: 21.2rem; */
 }
 
 .uni_radio{
-  height: 7rem;
+  /* height: 1rem; */
 
+  /* display: flex;
+  justify-content: center;
+  align-items: center;  */
+}
+.uni_radio>label:first-child{
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.uni_radio{
+  height: 6rem;
 }
 .choose_uni_radio{
-  /* display: flex;  */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* margin-right: 2rem; */
-  /* margin-left: 2rem; */
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .choose_uni_radio>li{
   width: 4.3rem;
 }
 
 .ccx_li{
+  margin-right: 12rem;
+}
 
-}
-.cco_li{
-  left: 8rem;
-}
 .anything_li{
-  left: 13rem;
+  margin-left: 12rem;
 }
-
 .clikc_radio_uni{
   border: 2px solid skyblue;
 }
+.choose_uni_radio>li>label{
+  width: 90%;
+}
+
+.choose_uni>label, .uni_check {
+  font-size: 0.8rem;
+}
+.uni_btn{
+  width: 11rem;
+}
+
+.input_file_pic{
+  display: none;
+}
+.input_file_btn{
+  background-color: #58bff6;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+select{
+  width: 1.2rem;
+}
+.read{
+  width: 7rem;
+}
+input:read-only{background-color: #dedede;}
 
 
 
@@ -258,27 +314,35 @@ body{
 
 
 .whole_question{
-  /* display: flex;
+   /* display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;  */
   /* margin-top: 4rem; */
+  /* display: flex; */
 }
 
 h5{
+  margin-bottom: 6.3rem;
   /* text-align: center; */
   /* margin-right: 2rem; */
-  margin-bottom: -0.6rem;
-  margin-left: 5rem;
+  /* margin-bottom: -0.6rem; */
+  /* margin-left: 5rem; */
 }
 
 ul{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  padding: 0;
+  margin: 0;
   list-style: none;
-  width: 85vw;
+  /* width: 75vw; */
+  width: 100%;
 }
 li{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   /* width: 5rem; */
   /* height: 1.5rem; */
   display: inline-block;
@@ -295,7 +359,7 @@ li>label{
   padding: 0.3rem;
   text-align: center;
   top: -1.0rem;
-  left: -0.4rem;
+  /* left: -0.4rem; */
   position: relative;
   display: block;
   width: 100%;
@@ -307,18 +371,28 @@ li>label{
   background-color: darkcyan;
 } */
 .left{
+  margin-right: 8.3rem;
   height: 3rem;
   width: 8rem;
-  border-right: none;
+  /* border-right: none; */
+  /* border: 2px solid skyblue; */
+
+
 }
 .right{
   height: 3rem;
   width: 8rem;
-  margin-left: 8.2rem;
-  border-left: 2px solid black;
+  margin-left: 8.3rem;
+  /* border-left: 2px solid black; */
+  /* border: 2px solid skyblue; */
+
+
 }
 .radio_items{
-  margin-top: 4.5rem;
+  /* margin-top: 3.5rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -326,13 +400,19 @@ li>label{
 
 
 
+.sky{
+  border: 2px solid skyblue;
+}
+.black{
+  border: 2px solid black;
+}
 /* 왼쪽 클릭 시 */
 .left_click_left{
   border: 2px solid skyblue;
 }
-.left_click_right{
+/* .left_click_right{
   border-left: none;
-} 
+}  */
 
 
 
