@@ -54,16 +54,16 @@ class Social_User_Table(models.Model):
     admin_allow = models.BooleanField(null=True)
 
     # 질문 결과 Q1~10
-    Q01 = models.BooleanField(default=True)
-    Q02 = models.BooleanField(default=True)
-    Q03 = models.BooleanField(default=True)
-    Q04 = models.BooleanField(default=True)
-    Q05 = models.BooleanField(default=True)
-    Q06 = models.BooleanField(default=True)
-    Q07 = models.BooleanField(default=True)
-    Q08 = models.BooleanField(default=True)
-    Q09 = models.BooleanField(default=True)
-    Q10 = models.BooleanField(default=True)
+    Q01 = models.BooleanField(null=True)
+    Q02 = models.BooleanField(null=True)
+    Q03 = models.BooleanField(null=True)
+    Q04 = models.BooleanField(null=True)
+    Q05 = models.BooleanField(null=True)
+    Q06 = models.BooleanField(null=True)
+    Q07 = models.BooleanField(null=True)
+    Q08 = models.BooleanField(null=True)
+    Q09 = models.BooleanField(null=True)
+    Q10 = models.BooleanField(null=True)
 
 
 """
