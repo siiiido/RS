@@ -6,14 +6,14 @@ import requests
 import json
 
 def submit(request):
+    
+    session_user_id = request.session.get('user')
 
     if request.method == "GET":
 
-        user = request.session.get('user')
-        
-        if user :
-            social_user = Social_User_Table.objects.get(pk=user)
-            context = {'user' : social_user}
+        if session_user_id :
+            user_info = Social_User_Table.objects.get(pk=session_user_id)
+            context = {'user' : user_info}
             return render(request, 'submit/submit_test.html', context)
         
         else :            
@@ -25,22 +25,23 @@ def submit(request):
         2. 데이터 DB 반영
         3. 페이지 전환
         """
-        html_data = request.POST.get('title')
-        print(html_data)
+        user_info = Social_User_Table.objects.get(pk=session_user_id)
+
+        print(user_info.user_id)
+        print(user_info.user_nickname)
+        print(user_info.gender)
+        print(user_info.age_range)
+
+        """ 
+        상한 테스트 파트
+        """
+
+
+
 
         
-
-        user = request.session.get('user')
-        print(user)
-        social_user = Social_User_Table.objects.get(pk=user)
-
-        Social_User_Table(
-                user_id         = user,
-                contact         = html_data,
-            ).save()
+        # html_data = request.POST.get('title')
+        # print(html_data)
         
-
-        
-        print("post fin")
-
-        return render(request, "submit/submit_test.html")
+        return redirect('/status')
+        # return render(request, "submit/submit_test.html")
