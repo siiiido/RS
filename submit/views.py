@@ -1,31 +1,23 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
 from social.models import Social_User_Table
 
-
-
-# Create your views here.
+import requests
+import json
 
 def submit(request):
 
     if request.method == "GET":
-        """
-        1. kakao 데이터를 포함하기
-        2. html 불러오기
-        """
 
-        print("get")        
-
+        user = request.session.get('user')
         
-
-        social_user = Social_User_Table.objects.all()
-        context = {'users' : social_user}
-        print(Social_User_Table)
-
-        return render(request, 'submit/submit_test.html', context)
+        if user :
+            social_user = Social_User_Table.objects.get(pk=user)
+            context = {'user' : social_user}
+            return render(request, 'submit/submit_test.html', context)
         
-    
+        else :            
+            return redirect('/')      
 
     elif request.method == "POST":
         """
@@ -33,4 +25,6 @@ def submit(request):
         2. 데이터 DB 반영
         3. 페이지 전환
         """
+
+        
         print("post")

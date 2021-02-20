@@ -1,5 +1,12 @@
+"""
+Questino 수정 -> 스트링타입
+
+"""
+
 from datetime import date
 from django.db import models
+from django.utils.safestring import mark_safe
+
 
 class Social_User_Table(models.Model):    
 
@@ -24,18 +31,27 @@ class Social_User_Table(models.Model):
     # SAME : 자기 학교만 / DIFF : 다른 학교만 / ALL : 모든 학교
     preference = models.TextField(default="ALL")    
     # 사용자 : 학생증 이미지
-    image = models.ImageField(null=False, upload_to="social")    
+    image = models.ImageField(null=False, upload_to="social", blank=True)    
+
+    def image_tag(self):
+        if self.image:
+            return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image.url)
+        else:
+            return 'No Image Found'
+    image_tag.short_description = 'Image'
+
 
     # 시스템 : 우선순위
     priority = models.IntegerField(default=0)
     # 시스템 : 가입일
     sign_up_date = models.DateField(default=date.today)
     # 시스템 : 최근 매칭일
+    
     recent_matching_date = models.DateField(default=date.today)
     # 시스템 : 매칭 횟수 카운트
     matching_count = models.IntegerField(default=0)
     # 시스템 : 관계자 승인 여부
-    admin_allow = models.BooleanField(default=False)
+    admin_allow = models.BooleanField(null=True)
 
     # 질문 결과 Q1~10
     Q01 = models.BooleanField(default=True)

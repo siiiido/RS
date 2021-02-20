@@ -1,6 +1,11 @@
 """
 선택동의항목 뜨지 않을 경우 아래 사이트에서 프로필 지정 해야함
 https://accounts.kakao.com/
+
+로그인시 session 생성함
+
+로그아웃 구현시 session.pop 해야함!
+https://infinitt.tistory.com/221
 """
 
 
@@ -15,7 +20,6 @@ from .models import Social_User_Table
 
 import requests
 import json
-import jwt
 
 
 # Create your views here.
@@ -41,29 +45,26 @@ class kakaoLoginView(View):
 
         kakao_response = requests.get(url, headers = headers)
         kakao_response = json.loads(kakao_response.text)
-     
+
         # 수정 예정
         # 왜 전역으로 선언해야하는지를 모르겟음
-        global Social_User_Table
-        
+        global Social_User_Table        
         if Social_User_Table.objects.filter(user_nickname = kakao_response['properties']['nickname'], user_id = kakao_response['id']).exists():
             
             Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
-            jwt_token = jwt.encode({'user_id':Social_User_Table.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
+            
+            request.session['user'] = Social_User_Table.user_id
 
-            return redirect('/submit')
+        else :
+            Social_User_Table(
+                user_id         = kakao_response['id'],
+                user_nickname   = kakao_response['properties']['nickname'],
+                gender          = kakao_response['kakao_account']['gender'],
+                age_range       = kakao_response['kakao_account']['age_range'],
+            ).save()
 
-        Social_User_Table(
-            user_id         = kakao_response['id'],
-            user_nickname   = kakao_response['properties']['nickname'],
-            gender          = kakao_response['kakao_account']['gender'],
-            age_range       = kakao_response['kakao_account']['age_range'],
-        ).save()
-
-        Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
-        marpple_tokken = jwt.encode({'user_id':Social_User_Table.user_id}, SECRET_KEY, algorithm = 'HS256').decode('utf=8')
-
-        return redirect('/submit')
-
-
-
+            Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
+           
+            request.session['user'] = Social_User_Table.user_id
+        
+        return redirect('/submit')  

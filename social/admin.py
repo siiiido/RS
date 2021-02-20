@@ -1,23 +1,27 @@
-import csv
-
 from django.contrib import admin
 from django.db import models
-from django.forms import TextInput, Textarea
+from django.forms import Textarea
 
-
-from .models import *
+from .models import Social_User_Table
 
 # Register your models here.
-class AllAdmin(admin.ModelAdmin):
+# class AllAdmin(admin.ModelAdmin):
+#     formfield_overrides = {
+#         models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':40})},
+#     }
+    
+#     list_display = ('user_id', 'sign_up_date', 'university', 'image_tag', 'admin_allow')
+
+# admin.site.register(Social_User_Table, AllAdmin)
+
+class UserAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':40})},
     }
-
-admin.site.register(Social_User_Table, AllAdmin)
-
-# class AllowAdmin(admin.ModelAdmin):
-#     list_display = ('user_id', 'university', 'sign_up_date', 'image', 'admin_allow')
-
     
+    list_display = ('user_id', 'sign_up_date', 'university', 'image_tag', 'admin_allow')
+    list_filter = ('gender', 'admin_allow', 'university', 'age_range')
 
-# admin.site.register(Social_User_Table, AllowAdmin)
+
+admin.site.register(Social_User_Table, UserAdmin)
+
