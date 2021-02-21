@@ -11,19 +11,16 @@ def submit(request):
 
     if request.method == "GET":
 
-<<<<<<< HEAD
         if session_user_id :
             user_info = Social_User_Table.objects.get(pk=session_user_id)
             context = {'user' : user_info}
             return render(request, 'submit/submit_test.html', context)
-=======
         user = request.session.get('user')
         
         if user :
             social_user = Social_User_Table.objects.get(pk=user)
             context = {'user' : social_user}
             return render(request, 'submit/submit.html', context)
->>>>>>> front
         
         else :            
             return redirect('/')      
@@ -37,10 +34,7 @@ def submit(request):
 <<<<<<< HEAD
         user_info = Social_User_Table.objects.get(pk=session_user_id)
 =======
->>>>>>> front
 
-        print(user_info.user_id)
-        print(user_info.user_nickname)
         print(user_info.gender)
         print(user_info.age_range)
 
