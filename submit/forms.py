@@ -28,10 +28,3 @@ from django import forms
 
 # ==================상한=====================
 
-# university = (
-#     ("경남정보대학교","경남정보대학교")
-# )
-# class test(forms.Form):
-#     select_name = forms.ChoiceField(choices=university)
-
-    

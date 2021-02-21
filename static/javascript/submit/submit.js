@@ -20,9 +20,13 @@
             if(e.target.value == "1"){
                 read.readOnly = false;
                 read.value = "";
+                // print(read.value);
+                // document.querySelector('.value_1').value = read.value;
+                // read.innerHTML.value
             }else{
                 read.value = e.target.value;
                 read.readOnly = true;
+                // print(read.value);
             }
         }
     }
