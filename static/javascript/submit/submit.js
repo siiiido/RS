@@ -1,5 +1,4 @@
 (() => {
-
     const ccx_li = document.querySelector(".ccx_li");
     const cco_li = document.querySelector(".cco_li");
     const anything_li = document.querySelector(".anything_li");
@@ -7,85 +6,47 @@
     const cco_label = document.querySelector(".cco_label");
     const anything_label = document.querySelector(".anything_label");
 
-
     const left_label = document.querySelectorAll(".left_label");
     const right_label = document.querySelectorAll(".right_label");
 
-
     const read = document.querySelector(".read");
 
+    const read_select = document.querySelector(".read_select");
 
+    window.onload = () => {
+        setTimeout(() => scrollTo(0, 0), 100);
 
-    const form = document.querySelector('.form_field');
-    print(form);
-
-    window.addEventListener('submit', (e) => {
-        print("test submit");
-        alert("test");
-        e.target.preventDefault();
-        print(form);
-
-    });
-
-
-
-
-
-    window.onload = function () {
-        console.log("load start");
-
-
-        const read_select = document.querySelector(".read_select");
-        read_select.onchange = function (e) {
+        read_select.onchange = (e) => {
             if (e.target.value == "1") {
                 read.readOnly = false;
                 read.value = "";
-                // print(read.value);
-                // document.querySelector('.value_1').value = read.value;
-                // read.innerHTML.value
             } else {
                 read.value = e.target.value;
                 read.readOnly = true;
-
-
-
-
             }
         }
-
-
-
-
-        // ==================onload 했을때 이름,성별,연령대가 등록 x면 창 띄우기========================
-
-
 
 
     }
 
 
-
     window.addEventListener('click', (e) => {
-
         // console.log(e);
         if (e.target === ccx_label || e.target === ccx_li) {
-            ccx_li.classList.add("clikc_radio_uni");
-            cco_li.classList.remove("clikc_radio_uni")
-            anything_li.classList.remove("clikc_radio_uni")
+            ccx_li.classList.add("sky");
+            cco_li.classList.remove("sky")
+            anything_li.classList.remove("sky")
         }
         else if (e.target === cco_label || e.target === cco_li) {
-            cco_li.classList.add("clikc_radio_uni");
-            ccx_li.classList.remove("clikc_radio_uni")
-            anything_li.classList.remove("clikc_radio_uni")
+            cco_li.classList.add("sky");
+            ccx_li.classList.remove("sky")
+            anything_li.classList.remove("sky")
         }
         else if (e.target === anything_li || e.target === anything_label) {
-            anything_li.classList.add("clikc_radio_uni");
-            ccx_li.classList.remove("clikc_radio_uni")
-            cco_li.classList.remove("clikc_radio_uni")
+            anything_li.classList.add("sky");
+            ccx_li.classList.remove("sky")
+            cco_li.classList.remove("sky")
         }
-
-
-
 
         for (let i = 0; i < 10; i++) {
             if (e.target === left_label[i]) {
@@ -106,24 +67,35 @@
 
 
 
-    console.log("add전");
-
+    // form 전체를 받아서 name으로 value를 찾자
     const form_field = document.querySelector('.form_field');
 
-    form_field.addEventListener('submit', (e) => {
-        const uni = form_field.html_university.value;
+    // 대학교 value
+    const option_value = form_field.html_university.options[form_field.html_university.selectedIndex].value;
+    // 카카오 value
+    const kakao_value = form_field.html_contact.value;
+    // 대학교 선호
+    const uni_radio = form_field.html_preference.value;
 
-        console.log(uni);
+    const q1 = form_field.html_Q01.value;
+    const q2 = form_field.html_Q02.value;
+    const q3 = form_field.html_Q03.value;
+    const q4 = form_field.html_Q04.value;
+    const q5 = form_field.html_Q05.value;
+    const q6 = form_field.html_Q06.value;
+    const q7 = form_field.html_Q07.value;
+    const q8 = form_field.html_Q08.value;
+    const q9 = form_field.html_Q09.value;
+    const q10 = form_field.html_Q10.value;
 
-        if(uni.value.length ===0 ){
+    
 
-            alert("누락");
-            e.preventDefault();
-            console.log('0');
-        }
+    window.addEventListener('submit', () => {
 
-        if(uni.value ===""){
-            console.log('null');
+        if(option_value == '' || kakao_value=='' || uni_radio =='' ||
+        q1 =='' || q2 == '' || q3 =='' || q4 =='' || q5 == '' || q6 ==''||
+        q7 =='' || q8 =='' || q9 =='' || q10 ==''){
+            console.log("value is empty");
         }
 
     });
@@ -131,9 +103,7 @@
 
 
 
-
-
-
-
 })();
+
+
 

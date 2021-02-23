@@ -1,120 +1,20 @@
 
-/* 정보 입력 page */
-
-/*------------ modal----------- */
-
-/* .modal-container {
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-}
-.modal-container.show-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modal {
-  padding: 1em;
-  width: 95vw;
-  height: 80vh;
-  background: white;
-  overflow: hidden;
-}
-.close-btn-parent {
-  display: flex;
-  justify-content: flex-end;
-}
-.btn-file{
-  border-radius: 0.3rem;
-  background: lightgreen;
-  padding: 0.2rem;
-  display: flex;
-}
-.center-btn-parent{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 1.2em;
-  margin-right: 0.4em;
-  margin-left: 0.4em;
-}
-.center-btn{
-  text-decoration: none;
-  font-size: 1rem;
-  color: white;
-  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
-  border-radius: 0.8rem;
-  transition: all 0.1s;
-  text-shadow: 0rem -0.1rem rgba(0 , 0, 0, 0.44);
-}
-.center-btn:active{
-  transform: translateY(0.7rem);
-}
-.file-btn{
-  background: #1f75d9;
-  border-bottom: 5px solid #165195;
-}
-.file-btn:active{
-  background: #1f75d9;
-  border-bottom: 2px solid #165195;
-}
-.ex-btn{
-  background: #ff521e;
-  border-bottom: 5px solid #c1370e;
-}
-.ex-btn:active{
-  background: #ff521e;
-  border-bottom: 2px solid #c1370e;
-} */
-
-/* body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-
-
 body{
   margin: 0;
-  /* width: 80vw; */
-  /* padding: 1rem; */
 }
-
-
 
 .info{
   padding: 1.5rem;
-  /* margin-left: 2rem; */
-   /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-
-
-  /* 모바일로 하면 width를 크게해야하고 컴퓨터는 작게 해야함 */
-  /* width: 90vw; */
   height: 100vh;
-  /* background : rgba(158, 219, 238, 0.702); */
-  /* background : white; */
-  /* padding: 1rem; */
-  /* border-radius: 1rem; */
 }
 
 /* 큰 테두리를 rem으로 할 지 %로 할지 고민중 */
-.info-content{
+.info_content{
   background-color: #fff;
-  /* height: 35%; */
   height: 11rem;
-  /* height: 30vh; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
+}
+.info_content>input:read-only{
+  background-color: white;
 }
 
 .name_p{
@@ -139,7 +39,6 @@ body{
   margin-bottom: 1rem;
   border-radius: 1rem;
 }
-.common_content >input:read-only{background-color: white;}
 
 .common_p{
   left: 4rem;
@@ -155,38 +54,19 @@ body{
 }
 
 
-.send_content {
-  /* height: 40%; */
-  /* height: 15rem; */
-  /* height: 60vh; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-}
-
 
 .choose_uni{
   height: 3rem;
   width: 80vw;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;  */
-
 }
 
 .kakao_content{
-  /* margin-top: 1.3rem; */
 }
 .kakao_p{
-  /* top: 21.2rem; */
 }
 
 .uni_radio{
-  /* height: 1rem; */
-
-  /* display: flex;
-  justify-content: center;
-  align-items: center;  */
+ 
 }
 .uni_radio>label:first-child{
   margin-bottom: 2rem;
@@ -213,9 +93,11 @@ body{
 .anything_li{
   margin-left: 12rem;
 }
-.clikc_radio_uni{
-  border: 2px solid skyblue;
+.choose_uni_radio{
+  color:rgb(161, 161, 161) ;
+
 }
+
 .choose_uni_radio>li>label{
   width: 90%;
 }
@@ -238,7 +120,6 @@ body{
 
 
 
-
 select{
   width: 1.2rem;
 }
@@ -252,100 +133,23 @@ select{
 
 /* ===================2지 선다================================= */
 
-  /* input[type=radio]{
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
-  .radio-items{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  label{
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px 10px;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-  .col-6{
-    width: 50%;
-    display: table-cell;
-    height: 3rem;
-    line-height:3rem;
-    border-left: 1px solid red;
-    text-align:center;
-  
-  }
-  .only-sr{
-    overflow: hidden;
-    position: absolute;
-  }
-  .radio-items{
-    display: table;
-    width: 100%;
-    border: 1px solid blue;
-    border-radius: 1rem;
-    box-sizing: border-box;
-  }
-  .radio-items:checked{
-    background-color: aqua;
-  }
-  .radio-items>div:first-child{
-    border-left: none;
-    width: auto;
-  }
- 
-  .whole-question{
-    width: 12rem;
-    display: table;
-  }
-
-  input[type="radio"]:checked+label{
-    background-color: blueviolet;
-  } */
-
-
-
 
 .whole_question{
-   /* display: flex;
-  justify-content: center;
-  align-items: center;  */
-  /* margin-top: 4rem; */
-  /* display: flex; */
 }
 
 h5{
   margin-bottom: 6.3rem;
-  /* text-align: center; */
-  /* margin-right: 2rem; */
-  /* margin-bottom: -0.6rem; */
-  /* margin-left: 5rem; */
 }
 
 ul{
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   padding: 0;
   margin: 0;
   list-style: none;
-  /* width: 75vw; */
   width: 100%;
 }
 li{
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* width: 5rem; */
-  /* height: 1.5rem; */
   display: inline-block;
-  border: 2px solid black;
+  border: 2px solid rgb(161, 161, 161);
   border-radius: 0.4rem;
   position: absolute;
 }
@@ -358,7 +162,6 @@ li>label{
   padding: 0.3rem;
   text-align: center;
   top: -1.0rem;
-  /* left: -0.4rem; */
   position: relative;
   display: block;
   width: 100%;
@@ -366,60 +169,29 @@ li>label{
   border-radius: 1rem;
   cursor: pointer;
 }
-/* input[type="radio"]:checked+label{
-  background-color: darkcyan;
-} */
 .left{
   margin-right: 8.3rem;
   height: 3rem;
   width: 8rem;
-  /* border-right: none; */
-  /* border: 2px solid skyblue; */
-
-
+  color:rgb(161, 161, 161) ;
 }
 .right{
   height: 3rem;
   width: 8rem;
   margin-left: 8.3rem;
-  /* border-left: 2px solid black; */
-  /* border: 2px solid skyblue; */
-
-
+  color:rgb(161, 161, 161) ;
 }
 .radio_items{
-  /* margin-top: 3.5rem; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-
-
-
-
 .sky{
   border: 2px solid skyblue;
+  color: black;
 }
 .black{
-  border: 2px solid black;
+  border: 2px solid rgb(161, 161, 161);
+  color:rgb(161, 161, 161) ;
 }
-/* 왼쪽 클릭 시 */
-.left_click_left{
-  border: 2px solid skyblue;
-}
-/* .left_click_right{
-  border-left: none;
-}  */
-
-
-
-/* 오른쪽 클릭 시 */
-.right_click_right{
-  border: 2px solid skyblue;
-}
-.right_click_left{
-  border-right: none;
-} 
-

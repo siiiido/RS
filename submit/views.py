@@ -9,9 +9,15 @@ import json
 # =============상한-=============
 
 def submit(request):
+    
+    session_user_id = request.session.get('user')
 
     if request.method == "GET":
 
+        if session_user_id :
+            user_info = Social_User_Table.objects.get(pk=session_user_id)
+            context = {'user' : user_info}
+            return render(request, 'submit/submit_test.html', context)
         user = request.session.get('user')
 
         if user:
@@ -27,6 +33,14 @@ def submit(request):
         1. 페이지 내 데이터 받기
         2. 데이터 DB 반영
         3. 페이지 전환
+        """
+        user_info = Social_User_Table.objects.get(pk=session_user_id)
+
+        print(user_info.gender)
+        print(user_info.age_range)
+
+        """ 
+        상한 테스트 파트
         """
 
         # user = request.session.get('user')
@@ -67,8 +81,13 @@ def submit(request):
         #         user_id         = user,
         #         contact         = html_data,
         #     ).save()
+        
 
-        print("post fin")
 
-        # return redirect('/status')
-        return redirect('/submit')
+        
+        # html_data = request.POST.get('title')
+        # print(html_data)
+        
+        return redirect('/status')
+
+
