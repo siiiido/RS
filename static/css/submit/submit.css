@@ -79,15 +79,13 @@
 } */
 
 
-*{
-  /* margin: 0; */
-  /* padding: 0; */
-}
+
 body{
   margin: 0;
   /* width: 80vw; */
   /* padding: 1rem; */
 }
+
 
 
 .info{
@@ -113,9 +111,9 @@ body{
   /* height: 35%; */
   height: 11rem;
   /* height: 30vh; */
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
 }
 
@@ -141,6 +139,7 @@ body{
   margin-bottom: 1rem;
   border-radius: 1rem;
 }
+.common_content >input:read-only{background-color: white;}
 
 .common_p{
   left: 4rem;
@@ -246,7 +245,7 @@ select{
 .read{
   width: 7rem;
 }
-input:read-only{background-color: #dedede;}
+.choose_uni>input:read-only{background-color: #dedede;}
 
 
 

@@ -70,4 +70,5 @@ def submit(request):
 
         print("post fin")
 
-        return redirect('/status')
+        # return redirect('/status')
+        return redirect('/submit')
