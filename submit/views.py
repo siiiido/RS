@@ -14,7 +14,7 @@ def submit(request):
         if session_user_id :
             user_info = Social_User_Table.objects.get(pk=session_user_id)
             context = {'user' : user_info}
-            return render(request, 'submit/submit_test.html', context)
+            return render(request, 'submit/submit.html', context)
         
         else :            
             return redirect('/')      
