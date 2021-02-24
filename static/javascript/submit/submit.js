@@ -67,35 +67,40 @@
 
 
 
-    // form 전체를 받아서 name으로 value를 찾자
-    const form_field = document.querySelector('.form_field');
+    window.addEventListener('submit', (e) => {
 
-    // 대학교 value
-    const option_value = form_field.html_university.options[form_field.html_university.selectedIndex].value;
-    // 카카오 value
-    const kakao_value = form_field.html_contact.value;
-    // 대학교 선호
-    const uni_radio = form_field.html_preference.value;
+        // form 전체를 받아서 name으로 value를 찾자
+        const form_field = document.querySelector('.form_field');
 
-    const q1 = form_field.html_Q01.value;
-    const q2 = form_field.html_Q02.value;
-    const q3 = form_field.html_Q03.value;
-    const q4 = form_field.html_Q04.value;
-    const q5 = form_field.html_Q05.value;
-    const q6 = form_field.html_Q06.value;
-    const q7 = form_field.html_Q07.value;
-    const q8 = form_field.html_Q08.value;
-    const q9 = form_field.html_Q09.value;
-    const q10 = form_field.html_Q10.value;
+        // 대학교 value
+        const option_value = form_field.html_university.options[form_field.html_university.selectedIndex].value;
 
-    
+        // 이미지
+        const img_value = form_field.html_image.files[0];
 
-    window.addEventListener('submit', () => {
+        // 카카오 value
+        const kakao_value = form_field.html_contact.value;
+        // 대학교 선호
+        const uni_radio = form_field.html_preference.value;
 
-        if(option_value == '' || kakao_value=='' || uni_radio =='' ||
-        q1 =='' || q2 == '' || q3 =='' || q4 =='' || q5 == '' || q6 ==''||
-        q7 =='' || q8 =='' || q9 =='' || q10 ==''){
-            console.log("value is empty");
+        const q1 = form_field.html_Q01.value;
+        const q2 = form_field.html_Q02.value;
+        const q3 = form_field.html_Q03.value;
+        const q4 = form_field.html_Q04.value;
+        const q5 = form_field.html_Q05.value;
+        const q6 = form_field.html_Q06.value;
+        const q7 = form_field.html_Q07.value;
+        const q8 = form_field.html_Q08.value;
+        const q9 = form_field.html_Q09.value;
+        const q10 = form_field.html_Q10.value;
+
+
+
+        if (option_value == '' || kakao_value == '' || img_value == null || uni_radio == '' ||
+            q1 == '' || q2 == '' || q3 == '' || q4 == '' || q5 == '' || q6 == '' ||
+            q7 == '' || q8 == '' || q9 == '' || q10 == '') {
+            alert("모든 정보 입력 ㄱ");
+            e.preventDefault();
         }
 
     });

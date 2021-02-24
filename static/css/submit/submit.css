@@ -11,7 +11,7 @@ body{
 /* 큰 테두리를 rem으로 할 지 %로 할지 고민중 */
 .info_content{
   background-color: #fff;
-  height: 11rem;
+  height: 12rem;
 }
 .info_content>input:read-only{
   background-color: white;
@@ -56,13 +56,18 @@ body{
 
 
 .choose_uni{
+  margin-bottom: 0.5rem;
   height: 3rem;
   width: 80vw;
 }
 
-.kakao_content{
-}
+
 .kakao_p{
+  top: 19rem;
+}
+
+.uni_check{
+  margin-bottom: 1rem;
 }
 
 .uni_radio{
