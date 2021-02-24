@@ -34,11 +34,8 @@ def submit(request):
         2. 데이터 DB 반영
         3. 페이지 전환
         """
-<<<<<<< HEAD
         user_info = Social_User_Table.objects.get(pk=session_user_id)
-=======
 
-<<<<<<< HEAD
         print(user_info.gender)
         print(user_info.age_range)
 
@@ -46,11 +43,6 @@ def submit(request):
         상한 테스트 파트
         """
 
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> front
         # user = request.session.get('user')
         # print(user)
 
@@ -89,24 +81,15 @@ def submit(request):
         #         user_id         = user,
         #         contact         = html_data,
         #     ).save()
-<<<<<<< HEAD
         
->>>>>>> front
 
 
-<<<<<<< HEAD
         
         # html_data = request.POST.get('title')
         # print(html_data)
         
-        return redirect('/status')
         # return render(request, "submit/submit_test.html")
-=======
-        return redirect('/status')
->>>>>>> front
-=======
 
         print("post fin")
 
         return redirect('/status')
->>>>>>> front
