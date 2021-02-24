@@ -17,6 +17,7 @@ def submit(request):
         if session_user_id :
             user_info = Social_User_Table.objects.get(pk=session_user_id)
             context = {'user' : user_info}
+<<<<<<< HEAD
             return render(request, 'submit/submit_test.html', context)
         user = request.session.get('user')
 
@@ -27,6 +28,12 @@ def submit(request):
 
         else:
             return redirect('/')
+=======
+            return render(request, 'submit/submit.html', context)
+        
+        else :            
+            return redirect('/')      
+>>>>>>> 9cf4722d13aa408b6419a4ffb71fee6c32a16143
 
     elif request.method == "POST":
         """
