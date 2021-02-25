@@ -47,13 +47,27 @@ def submit(request):
         # print(user)
 
         html_user_nickname = request.POST.get('html_user_nickname', '')
-        print("html_user_nickname : ", html_user_nickname)
-        print("asdsa")
+
 
         # select, option 데이터 넘길 때
         html_university = request.POST['html_university']
         html_contact = request.POST.get('html_contact')
-        html_image = request.POST.get('html_image')
+
+        # # html_image = request.POST.get('html_image')
+        # html_image = request.FILES.get('html_image')
+        # print("html_image : ", html_image)
+        # print(type(html_image))
+
+        # html_image = request.FILES.get('html_image')
+        html_image = request.FILES
+
+
+        with open(''+html_image.name, 'wb+') as destination:  
+            for chunk in html_image.chunks():  
+                destination.write(chunk)  
+
+
+
         html_preference = request.POST.get('html_preference')
 
         html_Q01 = request.POST.get('html_Q01')
@@ -78,9 +92,6 @@ def submit(request):
         html_Q09 = string_to_bool(html_Q09)
         html_Q10 = string_to_bool(html_Q10)        
 
-
-        print(html_image)
-        print(type(html_image))
 
         Social_User_Table(
                 # 유저 정보
