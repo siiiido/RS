@@ -31,7 +31,7 @@ class Social_User_Table(models.Model):
     # SAME : 자기 학교만 / DIFF : 다른 학교만 / ALL : 모든 학교
     preference = models.TextField(default="ALL")    
     # 사용자 : 학생증 이미지
-    image = models.ImageField(null=False, upload_to="social", blank=True)    
+    image = models.ImageField(null=False, upload_to="", blank=True)    
 
     def image_tag(self):
         if self.image:

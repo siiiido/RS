@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'social',
     'submit',
     'status',
+    'result',
 
     # # admin image
     # 'sorl.thumbnail',

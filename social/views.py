@@ -46,6 +46,9 @@ class kakaoLoginView(View):
         kakao_response = requests.get(url, headers = headers)
         kakao_response = json.loads(kakao_response.text)
 
+        print( kakao_response['id'])
+        print( kakao_response['properties']['nickname'])
+
         # 수정 예정
         # 왜 전역으로 선언해야하는지를 모르겟음
         global Social_User_Table        
@@ -54,6 +57,8 @@ class kakaoLoginView(View):
             Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
             
             request.session['user'] = Social_User_Table.user_id
+
+            return redirect('/result')
 
         else :
             Social_User_Table(
@@ -67,4 +72,4 @@ class kakaoLoginView(View):
            
             request.session['user'] = Social_User_Table.user_id
         
-        return redirect('/submit')  
+            return redirect('/submit')  

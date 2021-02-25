@@ -1,4 +1,4 @@
-# **새로, 봄 return-spring**
+# **새로운, 봄날 new-spring**
 ### Contributor
 |Position|Name|Stack| E-mail|
 |:--:|:--:|:--:|:--:|
