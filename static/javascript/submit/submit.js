@@ -152,7 +152,7 @@
             e.preventDefault();
         }
         if (q9 == '') {
-            alert("대학교 선택하쇼");
+            alert("q9 선택하쇼");
             e.preventDefault();
         }
         if (q10 == '') {
