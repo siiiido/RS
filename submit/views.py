@@ -57,7 +57,8 @@ def submit(request):
         html_contact = request.POST.get('html_contact')
         print("html_contact : ", html_contact)
 
-        html_image = request.POST.get('html_image')
+        # html_image = request.POST.get('html_image')
+        html_image = request.FILES.get('html_image')
         print("html_image : ", html_image)
 
         html_preference = request.POST.get('html_preference')
