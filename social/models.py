@@ -35,7 +35,7 @@ class Social_User_Table(models.Model):
 
     def image_tag(self):
         if self.image:
-            return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image.url)
+            return mark_safe('<img src="%s" style="width: 200px; height:150px;" />' % self.image.url)
         else:
             return 'No Image Found'
     image_tag.short_description = 'Image'

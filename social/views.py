@@ -44,32 +44,44 @@ class kakaoLoginView(View):
         }
 
         kakao_response = requests.get(url, headers = headers)
-        kakao_response = json.loads(kakao_response.text)
-
-        print( kakao_response['id'])
-        print( kakao_response['properties']['nickname'])
-
-        # 수정 예정
-        # 왜 전역으로 선언해야하는지를 모르겟음
-        global Social_User_Table        
-        if Social_User_Table.objects.filter(user_nickname = kakao_response['properties']['nickname'], user_id = kakao_response['id']).exists():
-            
-            Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
-            
-            request.session['user'] = Social_User_Table.user_id
-
-            return redirect('/result')
-
-        else :
-            Social_User_Table(
-                user_id         = kakao_response['id'],
-                user_nickname   = kakao_response['properties']['nickname'],
-                gender          = kakao_response['kakao_account']['gender'],
-                age_range       = kakao_response['kakao_account']['age_range'],
-            ).save()
-
-            Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
-           
-            request.session['user'] = Social_User_Table.user_id
+        kakao_response = json.loads(kakao_response.text)        
         
-            return redirect('/submit')  
+        # 추가 정보 동의에 대한 처리
+        if kakao_response['kakao_account']['age_range_needs_agreement'] == False and kakao_response['kakao_account']['gender_needs_agreement'] == False :
+
+            global Social_User_Table        
+            # 이미 가입된 유저
+            if Social_User_Table.objects.filter(user_nickname = kakao_response['properties']['nickname'], user_id = kakao_response['id']).exists():
+                
+                Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
+                
+                request.session['user'] = Social_User_Table.user_id
+
+                return redirect('/result')
+
+            # 신규 가입 유저
+            else :
+                # 나이 20~29세만 가입 가능
+                if kakao_response['kakao_account']['age_range'] == '20~29':            
+                    Social_User_Table(
+                        user_id         = kakao_response['id'],
+                        user_nickname   = kakao_response['properties']['nickname'],
+                        gender          = kakao_response['kakao_account']['gender'],
+                        age_range       = kakao_response['kakao_account']['age_range'],
+                    ).save()
+
+                    Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
+                
+                    request.session['user'] = Social_User_Table.user_id
+                
+                    return redirect('/submit')  
+                
+                # 나이 핸들링
+                else:
+                    # 서비스 이용 불가 안내 메시지
+                    return HttpResponse('한국나이 기준 20대만 이용 가능합니다.')
+        # 추가 정보 동의 핸들링
+        else:
+            # 카카오톡 - 설정 - 개인/보안 - 카카오계정 - 계정 연결
+            # - 연결된 서비스 관리 - 외부 서비스 - 새봄 - 모든정보 삭제 - 연결 끊기
+            return HttpResponse('추가 정보 동의해주세요')
