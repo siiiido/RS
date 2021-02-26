@@ -1,6 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from social.models import Social_User_Table
+from .models import Query_Table
 
 import requests
 import json
@@ -13,7 +14,21 @@ def submit(request):
 
         if session_user_id :
             user_info = Social_User_Table.objects.get(pk=session_user_id)
-            context = {'user' : user_info}
+            
+            quiz01 = Query_Table.objects.get(pk=1)
+            quiz02 = Query_Table.objects.get(pk=2)
+            quiz03 = Query_Table.objects.get(pk=3)
+            quiz04 = Query_Table.objects.get(pk=4)
+            quiz05 = Query_Table.objects.get(pk=5)
+            quiz06 = Query_Table.objects.get(pk=6)
+            quiz07 = Query_Table.objects.get(pk=7)
+            quiz08 = Query_Table.objects.get(pk=8)
+            quiz09 = Query_Table.objects.get(pk=9)
+            quiz10 = Query_Table.objects.get(pk=10)
+
+            context = {'user' : user_info, 'quiz01' : quiz01, 'quiz02' : quiz02, 'quiz03' : quiz03,
+                         'quiz04' : quiz04, 'quiz05' : quiz06, 'quiz06' : quiz07, 'quiz07' : quiz01,
+                         'quiz08' : quiz08, 'quiz09' : quiz09,  'quiz10' : quiz10}
             return render(request, 'submit/submit.html', context)
 
         else:
