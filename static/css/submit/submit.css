@@ -189,7 +189,6 @@ input[type="radio"]{
   height: 0;
 }
 li>label{
-  padding: 0.3rem;
   text-align: center;
   top: -1.0rem;
   position: relative;

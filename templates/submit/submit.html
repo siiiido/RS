@@ -92,7 +92,8 @@ href="{% static 'css/main/main.css' %}"
 
                 <div class="uni_check">
                     <label class="input_file_btn" for="input_file">학생증 인증</label>
-                    <input name="html_image" type="file" id="input_file" class="input_file_pic" accept="image/jpg , image/jpeg, image/png">
+                    <input name="html_image" type="file" id="input_file" class="input_file_pic"
+                        accept="image/jpg , image/jpeg, image/png">
                 </div>
 
                 <div class="kakao_content common_content">
@@ -132,132 +133,132 @@ href="{% static 'css/main/main.css' %}"
 
                 <ul>
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz01.query}}</h5>
                         <br>
                         <li class="left">
                             <input id='q1_left' name="html_Q01" type='radio' value="left" />
-                            <label for="q1_left" class="left_label">Value 1</label>
+                            <label for="q1_left" class="left_label">{{quiz01.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id='q1_right' name="html_Q01" type='radio' value='right' />
-                            <label for="q1_right" class="right_label">Value 2</label>
+                            <label for="q1_right" class="right_label">{{quiz01.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 2</h5>
+                        <h5>{{quiz02.query}} </h5>
                         <br>
                         <li class="left">
                             <input id='q2_left' name="html_Q02" type='radio' value='left' />
-                            <label for="q2_left" class="left_label">Value 1</label>
+                            <label for="q2_left" class="left_label">{{quiz02.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id='q2_right' name="html_Q02" type='radio' value='right' />
-                            <label for="q2_right" class="right_label">Value 2</label>
+                            <label for="q2_right" class="right_label">{{quiz02.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 3</h5>
+                        <h5>{{quiz03.query}} </h5>
                         <br>
                         <li class="left">
                             <input id="q3_left" name="html_Q03" type='radio' value='left' />
-                            <label for="q3_left" class="left_label">Value 1</label>
+                            <label for="q3_left" class="left_label">{{quiz03.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id="q3_right" name="html_Q03" type='radio' value='right' />
-                            <label for="q3_right" class="right_label">Value 2</label>
+                            <label for="q3_right" class="right_label">{{quiz03.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz04.query}} </h5>
                         <br>
                         <li class="left">
                             <input id="q4_left" name="html_Q04" type='radio' value='left' />
-                            <label for="q4_left" class="left_label">Value 1</label>
+                            <label for="q4_left" class="left_label">{{quiz04.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id="q4_right" name="html_Q04" type='radio' value='right' />
-                            <label for="q4_right" class="right_label">Value 2</label>
+                            <label for="q4_right" class="right_label">{{quiz04.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz05.query}} </h5>
                         <br>
                         <li class="left">
                             <input id="q5_left" name="html_Q05" type='radio' value='left' />
-                            <label for="q5_left" class="left_label">Value 1</label>
+                            <label for="q5_left" class="left_label">{{quiz05.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id="q5_right" name="html_Q05" type='radio' value='right' />
-                            <label for="q5_right" class="right_label">Value 2</label>
+                            <label for="q5_right" class="right_label">{{quiz05.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz06.query}} </h5>
                         <br>
                         <li class="left">
                             <input id="q6_left" name="html_Q06" type='radio' value='left' />
-                            <label for="q6_left" class="left_label">Value 1</label>
+                            <label for="q6_left" class="left_label">{{quiz06.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id="q6_right" name="html_Q06" type='radio' value='right' />
-                            <label for="q6_right" class="right_label">Value 2</label>
+                            <label for="q6_right" class="right_label">{{quiz06.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz07.query}} </h5>
                         <br>
                         <li class="left">
                             <input id="q7_left" name="html_Q07" type='radio' value='left' />
-                            <label for="q7_left" class="left_label">Value 1</label>
+                            <label for="q7_left" class="left_label">{{quiz07.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id="q7_right" name="html_Q07" type='radio' value='right' />
-                            <label for="q7_right" class="right_label">Value 2</label>
+                            <label for="q7_right" class="right_label">{{quiz07.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz08.query}} </h5>
                         <br>
                         <li class="left">
                             <input id="q8_left" name="html_Q08" type='radio' value='left' />
-                            <label for="q8_left" class="left_label">Value 1</label>
+                            <label for="q8_left" class="left_label">{{quiz08.selection1}}</label>
                         </li>
                         <li class="right">
                             <input id="q8_right" name="html_Q08" type='radio' value='right' />
-                            <label for="q8_right" class="right_label">Value 2</label>
+                            <label for="q8_right" class="right_label">{{quiz08.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz09.query}} </h5>
                         <br>
                         <li class="left ">
                             <input id="q9_left" name="html_Q09" type='radio' value='left' />
-                            <label for="q9_left" class="left_label">Value 1</label>
+                            <label for="q9_left" class="left_label">{{quiz09.selection1}}</label>
                         </li>
                         <li class="right ">
                             <input id="q9_right" name="html_Q09" type='radio' value='right' />
-                            <label for="q9_right" class="right_label">Value 2</label>
+                            <label for="q9_right" class="right_label">{{quiz09.selection2}}</label>
                         </li>
                     </div>
 
                     <div class="radio_items">
-                        <h5>테스트 질문 1</h5>
+                        <h5>{{quiz10.query}} </h5>
                         <br>
                         <li class="left ">
                             <input id="q10_left" name="html_Q10" type='radio' value='left' />
-                            <label for="q10_left" class="left_label">Value 1</label>
+                            <label for="q10_left" class="left_label">{{quiz10.selection1}}</label>
                         </li>
                         <li class="right ">
                             <input id="q10_right" name="html_Q10" type='radio' value='right' />
-                            <label for="q10_right" class="right_label">Value 2</label>
+                            <label for="q10_right" class="right_label">{{quiz10.selection2}}</label>
                         </li>
                     </div>
 
