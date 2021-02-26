@@ -103,62 +103,62 @@
         //     e.preventDefault();
         // }
 
-        if (option_value == '') {
-            alert("대학교 선택하쇼");
-            e.preventDefault();
-        }
-        if (kakao_value == '') {
-            alert("카톡 아디 선택하쇼");
-            e.preventDefault();
-        }
-        if (img_value == null) {
-            alert("이미지 선택하쇼");
-            e.preventDefault();
-        }
-        if (uni_radio == '') {
-            alert("cc 선택하쇼" );
-            e.preventDefault();
-        }
-        if (q1 == '') {
-            alert("q1 선택하쇼");
-            e.preventDefault();
-        }
-        if (q2 == '') {
-            alert("q2 선택하쇼");
-            e.preventDefault();
-        }
-        if (q3 == '') {
-            alert("q3 선택하쇼");
-            e.preventDefault();
-        }
-        if (q4 == '') {
-            alert("q4 선택하쇼");
-            e.preventDefault();
-        }
-        if (q5 == '') {
-            alert("q5 선택하쇼");
-            e.preventDefault();
-        }
-        if (q6 == '') {
-            alert("q6 선택하쇼");
-            e.preventDefault();
-        }
-        if (q7 == '') {
-            alert("q7 선택하쇼");
-            e.preventDefault();
-        }
-        if (q8 == '') {
-            alert("q8 선택하쇼");
-            e.preventDefault();
-        }
-        if (q9 == '') {
-            alert("q9 선택하쇼");
-            e.preventDefault();
-        }
-        if (q10 == '') {
-            alert("q10 선택하쇼");
-            e.preventDefault();
-        }
+        // if (option_value == '') {
+        //     alert("대학교 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (kakao_value == '') {
+        //     alert("카톡 아디 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (img_value == null) {
+        //     alert("이미지 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (uni_radio == '') {
+        //     alert("cc 선택하쇼" );
+        //     e.preventDefault();
+        // }
+        // if (q1 == '') {
+        //     alert("q1 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q2 == '') {
+        //     alert("q2 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q3 == '') {
+        //     alert("q3 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q4 == '') {
+        //     alert("q4 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q5 == '') {
+        //     alert("q5 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q6 == '') {
+        //     alert("q6 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q7 == '') {
+        //     alert("q7 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q8 == '') {
+        //     alert("q8 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q9 == '') {
+        //     alert("q9 선택하쇼");
+        //     e.preventDefault();
+        // }
+        // if (q10 == '') {
+        //     alert("q10 선택하쇼");
+        //     e.preventDefault();
+        // }
 
 
     });
