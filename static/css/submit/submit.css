@@ -1,6 +1,43 @@
 
 body{
   margin: 0;
+  background-color: whitesmoke;
+}
+
+h5{
+  margin-bottom: 6.3rem;
+}
+h3{
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+li{
+  display: inline-block;
+  border: 2px solid rgb(161, 161, 161);
+  /* border-radius: 0.4rem; */
+  position: absolute;
+}
+input[type="radio"]{
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+li>label{
+  text-align: center;
+  top: -1.0rem;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* border-radius: 1rem; */
+  cursor: pointer;
 }
 
 .info{
@@ -9,44 +46,59 @@ body{
 }
 
 
+
+
 /* 큰 테두리를 rem으로 할 지 %로 할지 고민중 */
 .info_content{
   background-color: white;
-  height: 12rem;
-}
-.info_content>input:read-only{
-  background-color: white;
+  height: 13rem;
+  border: 6px solid #58bff6;
+  padding-top: 1rem;
+  /* padding-right: 1rem; */
+  /* padding-left: 0.5rem; */
+  /* width: 20rem; */
+  width: 80vw;
+  /* margin-top: 1rem; */
+  background-color:#58bff6 ;
+  border-radius: 1.5rem;
+  /* margin-right: 5rem; */
+  padding-right: 1rem;
+
 }
 
+
 .name_p{
-  top: 1.1rem;
+  top: 6.5rem;
 }
 
 .sex_p{
-  top: 5rem;
+  top: 10.5rem;
 }
 
 .age_p{
-  top: 9.1rem;
+  top: 14.5rem;
 }
 
 
+
+/* =========add============= */
 
 
 .common_add{
   position: absolute;
-  left: 3rem;
+  left: 7.9rem;
   color: black;
+  font-weight: bold;
 }
 
 .add_name{
-  top: 2.6rem;
-}
-.add_sex{
   top: 6.5rem;
 }
+.add_sex{
+  top: 10.5rem;
+}
 .add_age{
-  top: 10.6rem;
+  top: 14.5rem;
 }
 
 .submit_wrap{
@@ -63,33 +115,45 @@ body{
   border: 1px solid #58bff6 ;
 }
 
-
 .common_content .common_p{
   position: absolute;
 }
 .common_content{
-  width: 85vw;
-  border :  1px solid #58bff6;
-  color: #58bff6;
+  width: 60vw;
+  /* border :  3px solid #FEE500; */
+  border :  1px solid black;
+  color: black;
   margin-bottom: 1rem;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
+  background-color: rgb(241, 241, 241);
+  margin-left: 4rem;
 }
 
 .common_p{
-  left: 3rem;
-  background-color: white;
+  left: 2.5rem;
+  /* background-color: white; */
 }
 .common_input{
   margin: 0.4rem;
   padding: 0.3rem;
   width: 90%;
-  border : 1px solid #fff;
+  border : 1px solid rgb(241, 241, 241);
   height: 1.3rem;
   outline: none;
+  background-color: rgb(241, 241, 241);
+  /* background-color: red; */
 }
 
+.kakao_content{
+  width: 13rem;
+  border :  1px solid black;
+  color: black;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+
+}
 .kakao_p{
-  top: 18rem;
+  top: 22rem;
 }
 
 .choose_uni{
@@ -101,7 +165,6 @@ body{
 .uni_check{
   margin-bottom: 0.8rem;
   height: 2.3rem;
-
 }
 
 
@@ -121,7 +184,8 @@ body{
   align-items: center;
 }
 .choose_uni_radio>li{
-  width: 4.3rem;
+  width: 5rem;
+  height:3rem ;
 }
 
 .ccx_li{
@@ -131,13 +195,14 @@ body{
 .anything_li{
   margin-left: 12rem;
 }
+
 .choose_uni_radio{
   color:rgb(161, 161, 161) ;
-
 }
 
 .choose_uni_radio>li>label{
-  width: 90%;
+  width: 100%;
+  height:100%;
 }
 
 .choose_uni>label, .uni_check {
@@ -146,7 +211,6 @@ body{
 .uni_btn{
   width: 11rem;
 }
-
 
 
 
@@ -164,40 +228,8 @@ select{
 /* ===================2지 선다================================= */
 
 
-.whole_question{
-}
 
-h5{
-  margin-bottom: 6.3rem;
-}
 
-ul{
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-}
-li{
-  display: inline-block;
-  border: 2px solid rgb(161, 161, 161);
-  border-radius: 0.4rem;
-  position: absolute;
-}
-input[type="radio"]{
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
-li>label{
-  text-align: center;
-  top: -1.0rem;
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-  cursor: pointer;
-}
 .left{
   margin-right: 8.3rem;
   height: 3rem;
@@ -217,8 +249,9 @@ li>label{
 }
 
 .sky{
+  background-color: #58bff6;
   border: 2px solid #58bff6;
-  color: black;
+  color: white;
 }
 .black{
   border: 2px solid rgb(161, 161, 161);
