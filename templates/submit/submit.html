@@ -51,7 +51,7 @@ href="{% static 'css/main/main.css' %}"
             <br>
         </div>
 
-        <form class="form_field" action="." method="POST">
+        <form class="form_field" action="." method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             <div class="send_content">
@@ -92,7 +92,7 @@ href="{% static 'css/main/main.css' %}"
 
                 <div class="uni_check">
                     <label class="input_file_btn" for="input_file">학생증 인증</label>
-                    <input name="html_image" type="file" id="input_file" class="input_file_pic">
+                    <input name="html_image" type="file" id="input_file" class="input_file_pic" accept="image/jpg , image/jpeg, image/png">
                 </div>
 
                 <div class="kakao_content common_content">
