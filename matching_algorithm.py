@@ -6,12 +6,14 @@
 import django
 import os
 import random
+from operator import attrgetter
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 django.setup()
 
+from datetime import date
 from social.models import Social_User_Table
-from operator import attrgetter
+from result.models import Matching_Table
 
 class User_Data(object):
     def __init__(self, user_id, user_nickname, contact, university, preference, priority, str_question):
@@ -27,7 +29,6 @@ class User_Data(object):
         return repr((self.user_id, self.user_nickname, self.contact, self.university, self.preference, self.priority, self.str_question))
     
 
-
 def process():
     man_set = Social_User_Table.objects.filter(gender='male')
     woman_set = Social_User_Table.objects.filter(gender='female')
@@ -37,8 +38,6 @@ def process():
 
     dictionary_match = match_standard(list_man, list_woman)
 
-    print( dictionary_match )
-
     update_matching_data(dictionary_match)
 
 
@@ -47,17 +46,16 @@ def list_maker(qurey_set):
     list_result = []
     for data in qurey_set:
         # 관리자가 승인한 경우만 list에 넣기
-        # if data.admin_allow :
+        if data.admin_allow :
+            list_question = [data.Q01, data.Q02, data.Q03, data.Q04,
+                            data.Q05, data.Q06, data.Q07, data.Q08, data.Q09, data.Q10]
 
-        list_question = [data.Q01, data.Q02, data.Q03, data.Q04,
-                         data.Q05, data.Q06, data.Q07, data.Q08, data.Q09, data.Q10]
+            str_question = str_maker(list_question)
 
-        str_question = str_maker(list_question)
+            user_data = User_Data(data.user_id, data.user_nickname, data.contact,
+                                data.university, data.preference, data.priority, str_question)
 
-        user_data = User_Data(data.user_id, data.user_nickname, data.contact,
-                              data.university, data.preference, data.priority, str_question)
-
-        list_result.append(user_data)
+            list_result.append(user_data)
 
     # 선착순 데이터 -> 무작위 데이터
     random.shuffle(list_result)
@@ -72,22 +70,22 @@ def match_standard(list_man, list_woman):
 
     dictionary_result = {}
 
-    for woman in list_woman:
+    for man in list_man:
         score_max = 0
-        man_id = ''
-        for man in list_man:
+        woman_id = ''
+        for woman in list_woman:
             if score_max == 10:
                 break
             if handle_university(woman, man):
                 score_question = handle_question(woman.str_question, man.str_question)
                 if score_max < score_question :
                     score_max = score_question
-                    man_id = man.user_id               
+                    woman_id = woman.user_id               
 
-        if man_id != '':
-            index_list = index_finder(list_man, man_id)
-            del list_man[index_list]            
-            dictionary_result[woman.user_id] = man_id
+        if woman_id != '':
+            index_list = index_finder(list_woman, woman_id)
+            del list_woman[index_list]            
+            dictionary_result[man.user_id] = woman_id
     
     return dictionary_result
 
@@ -144,11 +142,19 @@ def str_maker(list_question):
 
 # 최근 매칭일 / 매칭 횟수 변경
 def update_matching_data(dictionary_match):
-    for i in dictionary_match:        
+    for key, value in dictionary_match.items():        
+        Matching_Table(
+            user_man_id = key,
+            user_woman_id = value,
+        ).save()
 
-        print(i + " " + dictionary_match[i])
+        user_man = Social_User_Table.objects.get(user_id=key)
+        user_man.recent_matching_date = date.today()
+        user_man.save()
 
-        
+        user_woman = Social_User_Table.objects.get(user_id=value)
+        user_woman.recent_matching_date = date.today()
+        user_woman.save()
 
 
 process()

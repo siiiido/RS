@@ -24,4 +24,6 @@ urlpatterns = [
     path('social/', include('social.urls')),
     path('submit/', include('submit.urls')),
     path('status/', include('status.urls')),
+    path('result/', include('result.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
