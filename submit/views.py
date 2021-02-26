@@ -27,7 +27,9 @@ def submit(request):
         html_university = request.POST['html_university']
         html_contact = request.POST.get('html_contact')
 
-        html_image = request.FILES
+        html_image = request.FILES.get('html_image')
+        # html_image = request.POST.get('html_image')
+        print("html_image : ", html_image)
 
         html_preference = request.POST.get('html_preference')
 
