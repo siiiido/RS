@@ -40,6 +40,8 @@ class Social_User_Table(models.Model):
             return 'No Image Found'
     image_tag.short_description = 'Image'
 
+    # 시스템 : 파트너 user_id
+    partner_user_id = models.TextField(blank=True)
 
     # 시스템 : 우선순위
     priority = models.IntegerField(default=0)
