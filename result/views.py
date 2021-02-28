@@ -15,7 +15,11 @@ def result(request):
 
             # 관리자 승인 대기
             if user_info.admin_allow == None :
-                return HttpResponse('관리자 승인 대기중입니다.')
+                
+                print("관리자 승인 대기중!\n" + user_info.user_nickname + '님!')
+                
+                context = {'my_info' : user_info}
+                return render(request, 'result/1.html', context)
                                 
             # 관리자 승인 O
             elif user_info.admin_allow:
@@ -31,25 +35,35 @@ def result(request):
                     my_info = Social_User_Table.objects.get(user_id=user_info.user_id)
                     partner_info = Social_User_Table.objects.get(partner_user_id=user_info.user_id)
 
-                    print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
+                    # print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
                     
                     context = {'my_info' : my_info, 'partner_info' : partner_info}
                     return render(request, 'result/result.html', context)
 
                 #매칭 실패
                 else:
-                    return HttpResponse('매칭 실패 다음 기회에')
+                    
+                    print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
+
+                    context = {'my_info' : user_info}
+                    return render(request, 'result/2.html', context)
 
             # 관리자 승인 X
-            else:
-                return HttpResponse('관리자 승인이 거절되었습니다.')
+            else:                
+                
+                print("관리자 승인 거절\n" + user_info.user_nickname + '님!')
+                
+                context = {'my_info' : user_info}
+                return render(request, 'result/3.html', context)
                         
         # 정보 미등록 회원
-        else:
-            return HttpResponse('매칭 등록 X')
+        else:            
+
+            print("이번 매칭에 등록되어 있지 않습니다!\n" + user_info.user_nickname + '님!')
+
+            context = {'my_info' : user_info}
+            return render(request, 'result/4.html', context)
 
     # 로그인 X
     else:
         return redirect('/')
-
-
