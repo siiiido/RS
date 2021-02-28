@@ -13,7 +13,6 @@ django.setup()
 
 from datetime import date
 from social.models import Social_User_Table
-from result.models import Matching_Table
 
 class User_Data(object):
     def __init__(self, user_id, user_nickname, contact, university, preference, priority, str_question):
@@ -142,19 +141,34 @@ def str_maker(list_question):
 
 # 최근 매칭일 / 매칭 횟수 변경
 def update_matching_data(dictionary_match):
-    for key, value in dictionary_match.items():        
-        Matching_Table(
-            user_man_id = key,
-            user_woman_id = value,
-        ).save()
 
-        user_man = Social_User_Table.objects.get(user_id=key)
-        user_man.recent_matching_date = date.today()
-        user_man.save()
+    for key, value in dictionary_match.items():  
+        user1 = Social_User_Table.objects.get(user_id=key)
+        user1.partner_user_id = value
+        user1.save()
 
-        user_woman = Social_User_Table.objects.get(user_id=value)
-        user_woman.recent_matching_date = date.today()
-        user_woman.save()
+        user2 = Social_User_Table.objects.get(user_id=value)
+        user2.partner_user_id = key
+        user2.save()
+
+
+
+# 1
+# # 최근 매칭일 / 매칭 횟수 변경
+# def update_matching_data(dictionary_match):
+#     for key, value in dictionary_match.items():        
+#         Matching_Table(
+#             user_man_id = key,
+#             user_woman_id = value,
+#         ).save()
+
+#         user_man = Social_User_Table.objects.get(user_id=key)
+#         user_man.recent_matching_date = date.today()
+#         user_man.save()
+
+#         user_woman = Social_User_Table.objects.get(user_id=value)
+#         user_woman.recent_matching_date = date.today()
+#         user_woman.save()
 
 
 process()
