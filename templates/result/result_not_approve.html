@@ -12,15 +12,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/result/result.css' %}">
-    <title>Document</title>
+    <title>새봄 : 새로운 봄날</title>
 </head>
 
 <body>
+
+    <div class="navbar">
+        <img class="thumnail" src="../final/thumnail2.png" alt="">
+        <a href="https://pf.kakao.com/_ExmxkkK">
+            <button class="kakao_plus_btn">
+                <img class="kakako_plus" src="../final/kakao.png" alt=""><span>채널추가</span>
+            </button>
+        </a>
+    </div>
+
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="approve">
-                <div class="ment">아직 승인 대기 중</div>
+                <div class="ment">***님 승인 대기 중 입니다. <br>
+                    관리자의 승인을 기다려주세요
+                </div>
             </div>
             <div class="move_page"><a href="">main으로 이동</a></div>
         </div>
