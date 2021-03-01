@@ -29,6 +29,8 @@
     const graphicElems = document.querySelectorAll(".graphic-item");
     let currentItem = graphicElems[0]; //현재 활성화된(visible 클래스가 붙은) .graphic-item을 지정
     let ioIndex;
+    const test = document.querySelector(".abc");
+
 
 
     const io = new IntersectionObserver((entries, observer) => {
@@ -37,13 +39,16 @@
 
     });
 
+
     // data - : html표준 뒤의 글은 자기 맘대로
     for (let i = 0; i < stepElems.length; i++) {
         io.observe(stepElems[i]);
 
+
+        // 루프 돌면서 data-index받기
         // 밑, 밑밑 같은 문장
         // stepElems[i].setAttribute('data-index',i);
-        stepElems[i].dataset.index = i;
+        stepElems[i].dataset.index = i; //index는 우리가 만든 index임 다른 이름으로 해도됨
         graphicElems[i].dataset.index = i;
     }
 
@@ -61,6 +66,8 @@
         // }
     }
 
+
+
     window.addEventListener('scroll', () => {
         let step;
         let boundingRect;
@@ -71,19 +78,46 @@
             if (!step) continue;
             boundingRect = step.getBoundingClientRect();
 
+            // getBoundingClientRect은 x,y,heigth,top 표시하기
 
-            if ((boundingRect.top > window.innerHeight * 0.1) &&
-                boundingRect.top < window.innerHeight * 0.3) {
+
+            if (boundingRect.top > window.innerHeight * 0.1 &&
+                boundingRect.top < window.innerHeight * 0.8) {
+                // graphicElems[step.dataset.index].classList.add('visible')
 
                 inactivate();
                 currentItem = graphicElems[step.dataset.index];
                 activate();
+                // console.log(window.pageXOffset);
+                // console.log(document.body.scrollHeight);
+                // console.log(document.body.clientHeight);
+                // console.log(document.documentElement.scrollTop);
+
             }
+
+
+
+            //스크롤 끝일때
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+
+                // console.log("window.innerHeight : " + window.innerHeight);
+                // console.log("window.scrollY : " + window.scrollY);
+                // console.log("document.body.offsetHeight : " + document.body.offsetHeight);
+                test.style.opacity = 0;
+            }
+            if ((window.innerHeight + window.scrollY) < document.body.offsetHeight) {
+                // console.log("여기도??");
+                // console.log("window.innerHeight : " + window.innerHeight);
+                // console.log("window.scrollY : " + window.scrollY);
+                // console.log("document.body.offsetHeight : " + document.body.offsetHeight);
+                test.style.opacity = 1;
+            }
+
         }
     });
 
     window.addEventListener('load', () => {
-        setTimeout(() => scrollTo(0, 0),100);
+        setTimeout(() => scrollTo(0, 0), 100);
     }, false);
     activate();
 
