@@ -25,7 +25,7 @@ def submit(request):
             quiz09 = Query_Table.objects.get(pk=9)
             quiz10 = Query_Table.objects.get(pk=10)
 
-            context = {'user' : user_info, 'quiz01' : quiz01, 'quiz02' : quiz02, 'quiz03' : quiz03,
+            context = {'user' : session_user_info, 'quiz01' : quiz01, 'quiz02' : quiz02, 'quiz03' : quiz03,
                          'quiz04' : quiz04, 'quiz05' : quiz05, 'quiz06' : quiz06, 'quiz07' : quiz07,
                          'quiz08' : quiz08, 'quiz09' : quiz09,  'quiz10' : quiz10}
             return render(request, 'submit/submit.html', context)
