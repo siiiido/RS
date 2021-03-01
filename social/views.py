@@ -7,9 +7,7 @@ https://accounts.kakao.com/
 로그아웃 구현시 session.pop 해야함!
 https://infinitt.tistory.com/221
 """
-
 from django.views.decorators.csrf import csrf_protect
-
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
@@ -22,9 +20,6 @@ from .models import Social_User_Table
 import requests
 import json
 
-# Create your views here.
-# class kakaoLoginView(View):
-    
 @csrf_protect
 def social(request):
     kakao_access_code = request.GET.get('code', None)
@@ -63,10 +58,6 @@ def social(request):
             }
 
             request.session['user_info'] = user_info
-            test = request.session.get('user_info')
-
-            # Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
-            # request.session['user'] = Social_User_Table.user_id
 
             return redirect('/result')
 
@@ -81,27 +72,8 @@ def social(request):
                     'gender'        : kakao_response['kakao_account']['gender'],
                     'age_range'     : kakao_response['kakao_account']['age_range'],
                 }
-
-                print( user_info)
-
                 request.session['user_info'] = user_info
-
-                test = request.session.get('user_info')
-
-                print(test)
-
-                # 1
-                # Social_User_Table(
-                #     user_id         = kakao_response['id'],
-                #     user_nickname   = kakao_response['properties']['nickname'],
-                #     gender          = kakao_response['kakao_account']['gender'],
-                #     age_range       = kakao_response['kakao_account']['age_range'],
-                # ).save()
-
-                # Social_User_Table = Social_User_Table.objects.get(user_id = kakao_response['id'])
-            
-                # request.session['user'] = Social_User_Table.user_id
-            
+                
                 return redirect('/submit')  
             
             # 나이 핸들링
