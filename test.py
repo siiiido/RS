@@ -12,4 +12,4 @@ user_info = {
 #                 age_range     : 4,
 # }
 # 
-print(user_info)
+print(user_info.get('user_id'))
