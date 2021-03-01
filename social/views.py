@@ -7,6 +7,7 @@ https://accounts.kakao.com/
 로그아웃 구현시 session.pop 해야함!
 https://infinitt.tistory.com/221
 """
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
