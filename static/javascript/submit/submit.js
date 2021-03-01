@@ -14,7 +14,7 @@
     const read_select = document.querySelector(".read_select");
 
     window.onload = () => {
-        setTimeout(() => scrollTo(0, 0), 100);
+        // setTimeout(() => scrollTo(0, 0), 100);
 
         read_select.onchange = (e) => {
             if (e.target.value == "1") {

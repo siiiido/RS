@@ -14,51 +14,7 @@ body{
     height: auto;
   }
 
-  .navbar{
-    overflow: hidden;
-    background-color: blanchedalmond;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    height: 4rem;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .navbar>img{
-    margin-left: 1rem;
-    width: 8rem;
-    height: 100%;
-  }
-  .navbar>a{
-    text-decoration: none;
-    color: #312F16;
-    font-size: 0.4rem;
-  }
   
-
-  .kakao_plus_btn{
-    font-size: 0.4rem;
-    height: 2.5rem;
-    width: 5.4rem;
-    border-radius: 0.4rem;
-    border: #FEE500;
-    background-color: #FEE500;
-    margin-right: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  }
-  .kakao_plus_btn>span{
-    font-weight: bold;
-  }
-  
-  .kakako_plus{
-    height: 1.1rem;
-    width: 1.2rem;
-  }
 
   
   .global-width{
@@ -141,5 +97,78 @@ body{
 
   .last-step{
     box-shadow: rgba(0, 0, 0, 0.0) 0 0 0px;
+    margin-bottom: 0;
   }
-  
+  footer{
+    margin-top: 1rem;
+    background-color: #c0c4ce;
+    display: flex;
+  }
+  .footer_left{
+    /* background-color: wheat; */
+    width: 50%;
+    /* border-right: 2px solid black; */
+    height: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer_right{
+    /* background-color: tomato; */
+    display: inline;
+    width: 50%;
+    float: right;
+    height: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+  }
+.footer_right>a{
+  text-decoration: none;
+  color: black;
+  position: absolute;
+  margin-top: 0.7rem;
+}
+.channel{
+  right: 3rem;
+}
+.man_to_man{
+  right: 8.5rem;
+}
+.email{
+  position: absolute;
+  font-size: 0.3rem;
+  margin-top: 2.8rem;
+  margin-left: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.footer_kakao{
+  height: 1.5rem;
+  width: 4.3rem;
+  padding-left: 0.2rem;
+}
+
+
+.footer_left_span{
+  font-size: 0.3rem;
+}
+.footer_first_a{
+  margin-left: 6.5rem;
+}
+.footer_second_a{
+  margin-left: 1rem;
+  background-color: #FEE500;
+}
+.footer_first_img{
+  width: 4rem;
+  height: 1.5rem;
+}
+
+.abc{
+  visibility: hidden;
+}

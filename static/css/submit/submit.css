@@ -43,6 +43,7 @@ li>label{
 .info{
   padding: 1.5rem;
   height: 100vh;
+  margin-top: 4rem;
 }
 
 
@@ -62,15 +63,15 @@ li>label{
 }
 
 .name_p{
-  top: 5.8rem;
+  top: 9.7rem;
 }
 
 .sex_p{
-  top: 9.5rem;
+  top: 13.5rem;
 }
 
 .age_p{
-  top: 13.2rem;
+  top: 17.4rem;
 }
 
 
@@ -82,13 +83,13 @@ li>label{
 }
 
 .add_name{
-  top: 5.8rem;
+  top: 9.7rem;
 }
 .add_sex{
-  top: 9.5rem;
+  top: 13.5rem;
 }
 .add_age{
-  top: 13.2rem;
+  top: 17.4rem;
 }
 
 .submit_wrap{
@@ -146,7 +147,7 @@ li>label{
 }
 
 .kakao_p{
-  top: 25rem;
+  top: 29rem;
   left: 1rem;
   margin-right: 4rem;
 }

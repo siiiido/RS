@@ -1,12 +1,5 @@
-<!--
-  {% load static %}
-  위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
--->
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,15 +8,15 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/result/result.css' %}">
     <title>새봄 : 새로운 봄날</title>
+
 </head>
-
 <body>
-
+    
     <div class="navbar">
-        <img class="thumnail" src="../final/thumnail2.png" alt="">
+        <img src="{% static 'images/main/thumnail2.png' %}" alt="">
         <a href="https://pf.kakao.com/_ExmxkkK">
             <button class="kakao_plus_btn">
-                <img class="kakako_plus" src="../final/kakao.png" alt=""><span>채널추가</span>
+                <img class="kakako_plus" src="{% static 'images/main/kakao_plus.png' %}" alt=""><span>채널추가</span>
             </button>
         </a>
     </div>
@@ -31,13 +24,12 @@
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="approve">
-                <div class="ment">***님 승인 대기 중 입니다. <br>
-                    관리자의 승인을 기다려주세요
+                <div class="ment">***님 새봄은 한국나이 기준 20~29세만 이용가능합니다 ! <br> 
                 </div>
             </div>
             <div class="move_page"><a href="">main으로 이동</a></div>
         </div>
     </div>
+    
 </body>
-
 </html>
