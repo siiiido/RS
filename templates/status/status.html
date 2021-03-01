@@ -3,11 +3,31 @@
   위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
 -->
 {% load static %}
-
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="{% static '../result/result.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="modal_background">
+    <div class="modal_wrap succes_wrap">
+        <div class="modal_image"><img src="succes.jpg" alt=""></div>
+        <div class="modal_content">
+            <div class="succes">
+                <div>***님 매칭 성공</div>
+                <div>상대방 카톡 아디는 ***</div>
+            </div>
+            <div class="move_page"><a href="">main으로 이동</a></div>
+        </div>
+    </div>
+</div>
 
-<html>
-
-<body>상태 출력 페이지</body>
-
+  
+</body>
 </html>

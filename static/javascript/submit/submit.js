@@ -96,67 +96,60 @@
 
 
 
-        // if (option_value == '' || kakao_value == '' || img_value == null || uni_radio == '' ||
-        //     q1 == '' || q2 == '' || q3 == '' || q4 == '' || q5 == '' || q6 == '' ||
-        //     q7 == '' || q8 == '' || q9 == '' || q10 == '') {
-        //     alert("모든 정보 입력 ㄱ");
-        //     e.preventDefault();
-        // }
-
         if (option_value == '') {
-            alert("대학교 선택하쇼");
+            alert("대학교를 선택해 주세요.");
             e.preventDefault();
         }
         if (kakao_value == '') {
-            alert("카톡 아디 선택하쇼");
+            alert("카카오톡ID를 입력해 주세요");
             e.preventDefault();
         }
         if (img_value == null) {
-            alert("이미지 선택하쇼");
+            alert("학색증을 인증해 주세요");
             e.preventDefault();
         }
         if (uni_radio == '') {
-            alert("cc 선택하쇼" );
+            alert("선호 학교를 선택해 주세요" );
             e.preventDefault();
         }
         if (q1 == '') {
-            alert("q1 선택하쇼");
+            alert("첫번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q2 == '') {
-            alert("q2 선택하쇼");
+            alert("두번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q3 == '') {
-            alert("q3 선택하쇼");
+            alert("세번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q4 == '') {
-            alert("q4 선택하쇼");
+            alert("네번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q5 == '') {
-            alert("q5 선택하쇼");
+            alert("다섯번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q6 == '') {
-            alert("q6 선택하쇼");
+            alert("여섯번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q7 == '') {
-            alert("q7 선택하쇼");
+            alert("일곱번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q8 == '') {
-            alert("q8 선택하쇼");
+            alert("여덟번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q9 == '') {
-            alert("q9 선택하쇼");
+            alert("아홉번째 질문을 선택해 주세요");
             e.preventDefault();
         }
         if (q10 == '') {
-            alert("q10 선택하쇼");
+            alert("열번째 질문을 선택해 주세요");
             e.preventDefault();
         }
 
