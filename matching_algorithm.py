@@ -13,6 +13,7 @@ django.setup()
 
 from datetime import date
 from social.models import Social_User_Table
+from main.models import Registered_User_Table
 
 class User_Data(object):
     def __init__(self, user_id, user_nickname, contact, university, preference, priority, str_question):
@@ -41,6 +42,8 @@ def process():
     dictionary_match = match_standard(list_man, list_woman)
 
     update_matching_data(dictionary_match)
+
+    upload_database()
 
 # 매칭 파트너 초기화
 def init_partner(qurey_set):
@@ -160,5 +163,43 @@ def update_matching_data(dictionary_match):
         user2 = Social_User_Table.objects.get(user_id=value)
         user2.partner_user_id = key
         user2.save()
+
+def upload_database():
+
+    origin_database = Social_User_Table.objects.all()
+
+    for origin_data in origin_database:
+        Registered_User_Table(
+            user_id                 = origin_data.user_id,
+            user_nickname           = origin_data.user_nickname,
+            gender                  = origin_data.gender,
+            age_range               = origin_data.age_range,
+            contact                 = origin_data.contact,
+            university              = origin_data.university,            
+            preference              = origin_data.preference,
+            image                   = origin_data.image,
+
+            partner_user_id         = origin_data.partner_user_id,
+            priority                = origin_data.priority,
+
+            sign_up_date            = origin_data.sign_up_date,
+            recent_matching_date    = origin_data.recent_matching_date,
+
+            matching_count          = origin_data.matching_count,
+
+            admin_allow             = origin_data.admin_allow,
+
+            # 질문 결과 Q1~10
+            Q01 = origin_data.Q01,
+            Q02 = origin_data.Q02,
+            Q03 = origin_data.Q03,
+            Q04 = origin_data.Q04,
+            Q05 = origin_data.Q05,
+            Q06 = origin_data.Q06,
+            Q07 = origin_data.Q07,
+            Q08 = origin_data.Q08,
+            Q09 = origin_data.Q09,
+            Q10 = origin_data.Q10,
+        ).save
 
 process()

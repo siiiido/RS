@@ -1,20 +1,19 @@
 from django.views.decorators.csrf import csrf_protect
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from social.models import Social_User_Table
 from .models import Query_Table
 
 import requests
-import json
 
 @csrf_protect
 def submit(request):
     
-    user_info = request.session.get('user_info')
+    session_user_info = request.session.get('user_info')
 
     if request.method == "GET":
 
-        if user_info :            
+        if session_user_info :            
             quiz01 = Query_Table.objects.get(pk=1)
             quiz02 = Query_Table.objects.get(pk=2)
             quiz03 = Query_Table.objects.get(pk=3)
@@ -39,9 +38,7 @@ def submit(request):
         # select, option 데이터 넘길 때
         html_university = request.POST['html_university']
         html_contact = request.POST.get('html_contact')
-
         html_image = request.FILES.get('html_image')
-
         html_preference = request.POST.get('html_preference')
 
         html_Q01 = request.POST.get('html_Q01')
@@ -68,10 +65,10 @@ def submit(request):
 
         Social_User_Table(
             # 유저 정보
-            user_id         = user_info.user_id,
-            user_nickname   = user_info.user_nickname,
-            gender          = user_info.gender,
-            age_range       = user_info.age_range,
+            user_id         = session_user_info.get('user_id'),
+            user_nickname   = session_user_info.get('user_nickname'),
+            gender          = session_user_info.get('gender'),
+            age_range       = session_user_info.get('age_range'),
             contact         = html_contact,        
             university      = html_university,                
             preference      = html_preference,  
