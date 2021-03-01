@@ -1,7 +1,6 @@
+from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render
 
-# Create your views here.
-
-
+@csrf_protect
 def main(request):
     return render(request, 'main/main.html')

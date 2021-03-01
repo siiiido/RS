@@ -47,9 +47,9 @@ class Social_User_Table(models.Model):
     priority = models.IntegerField(default=0)
     # 시스템 : 가입일
     sign_up_date = models.DateField(default=date.today)
-    # 시스템 : 최근 매칭일
-    
-    recent_matching_date = models.DateField(default=date.today)
+    # 시스템 : 최근 매칭일    
+    # recent_matching_date = models.DateField(default=date.today)
+    recent_matching_date = models.DateField(default=date(2021, 1, 1))
     # 시스템 : 매칭 횟수 카운트
     matching_count = models.IntegerField(default=0)
     # 시스템 : 관계자 승인 여부

@@ -1,3 +1,4 @@
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from social.models import Social_User_Table
@@ -6,15 +7,14 @@ from .models import Query_Table
 import requests
 import json
 
+@csrf_protect
 def submit(request):
     
-    session_user_id = request.session.get('user')
+    user_info = request.session.get('user_info')
 
     if request.method == "GET":
 
-        if session_user_id :
-            user_info = Social_User_Table.objects.get(pk=session_user_id)
-            
+        if user_info :            
             quiz01 = Query_Table.objects.get(pk=1)
             quiz02 = Query_Table.objects.get(pk=2)
             quiz03 = Query_Table.objects.get(pk=3)
@@ -35,8 +35,6 @@ def submit(request):
             return redirect('/')
 
     elif request.method == "POST":
-
-        user_info = Social_User_Table.objects.get(pk=session_user_id)
 
         # select, option 데이터 넘길 때
         html_university = request.POST['html_university']

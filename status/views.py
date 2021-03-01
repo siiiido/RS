@@ -1,9 +1,8 @@
+from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render, redirect
 from social.models import Social_User_Table
 
-# Create your views here.
-
-
+@csrf_protect
 def status(request):
 
     session_user_id = request.session.get('user')

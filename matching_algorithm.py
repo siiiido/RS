@@ -32,12 +32,21 @@ def process():
     man_set = Social_User_Table.objects.filter(gender='male')
     woman_set = Social_User_Table.objects.filter(gender='female')
 
+    init_man_set = init_partner(man_set)
+    init_woman_set = init_partner(woman_set)
+
     list_man = list_maker(man_set)
     list_woman = list_maker(woman_set)
 
     dictionary_match = match_standard(list_man, list_woman)
 
     update_matching_data(dictionary_match)
+
+# 매칭 파트너 초기화
+def init_partner(qurey_set):
+    for qurey in qurey_set:
+        qurey.partner_user_id = ''
+        qurey.save()
 
 
 # 성별 쿼리에 따라 리스트 만들기
@@ -63,6 +72,7 @@ def list_maker(qurey_set):
     list_result = sorted(list_result, key=attrgetter('priority'), reverse=True)
 
     return list_result
+
 
 # 기본 매칭 알고리즘
 def match_standard(list_man, list_woman):
@@ -150,25 +160,5 @@ def update_matching_data(dictionary_match):
         user2 = Social_User_Table.objects.get(user_id=value)
         user2.partner_user_id = key
         user2.save()
-
-
-
-# 1
-# # 최근 매칭일 / 매칭 횟수 변경
-# def update_matching_data(dictionary_match):
-#     for key, value in dictionary_match.items():        
-#         Matching_Table(
-#             user_man_id = key,
-#             user_woman_id = value,
-#         ).save()
-
-#         user_man = Social_User_Table.objects.get(user_id=key)
-#         user_man.recent_matching_date = date.today()
-#         user_man.save()
-
-#         user_woman = Social_User_Table.objects.get(user_id=value)
-#         user_woman.recent_matching_date = date.today()
-#         user_woman.save()
-
 
 process()
