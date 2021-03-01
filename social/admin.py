@@ -8,7 +8,7 @@ class UserAdmin(admin.ModelAdmin):
         models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':40})},
     }
     
-    list_display = ('user_id', 'user_nickname', 'sign_up_date', 'university', 'image_tag', 'admin_allow')
+    list_display = ('user_id', 'user_nickname', 'sign_up_date', 'university', 'image_tag', 'matching_count', 'admin_allow')
     list_display_links = ['user_id', 'image_tag']
     list_editable = ['admin_allow']
 

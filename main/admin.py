@@ -8,10 +8,7 @@ class MainAdmin(admin.ModelAdmin):
         models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':40})},
     }
     
-    list_display = ('user_id', 'user_nickname', 'sign_up_date', 'university', 'image_tag', 'admin_allow')
-    list_display_links = ['user_id', 'image_tag']
-    list_editable = ['admin_allow']
-
-    list_filter = ('gender', 'admin_allow', 'university', 'age_range')
+    list_display = ('user_id', 'gender', 'university', 'contact', 'sign_up_date', 'recent_matching_date', 'matching_count')
+    list_filter = ('gender', 'university', 'matching_count')
 
 admin.site.register(Registered_User_Table, MainAdmin)

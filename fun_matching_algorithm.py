@@ -1,8 +1,3 @@
-"""
-수정 예정
-1. dictionary에서 나와서 매칭시 데이터 최근 매칭 반영 업데이트
-2. 
-"""
 import django
 import os
 import random
@@ -47,6 +42,7 @@ def process_matching():
 # 매칭 파트너 초기화
 def init_partner(qurey_set):
     for qurey in qurey_set:
+        qurey.matching_count = 0
         qurey.partner_user_id = ''
         qurey.save()
 
@@ -157,64 +153,43 @@ def update_matching_data(dictionary_match):
     for key, value in dictionary_match.items():  
         user1 = Social_User_Table.objects.get(user_id=key)
         user1.partner_user_id = value
-        user1.matching_count += 1 
+        user1.matching_count = 1 
+        user1.recent_matching_date = date.today()
         user1.save()
 
         user2 = Social_User_Table.objects.get(user_id=value)
         user2.partner_user_id = key
-        user1.matching_count += 1
+        user2.matching_count = 1
+        user2.recent_matching_date = date.today()
         user2.save()
 
 
 def process_data():
-    upload_delete_database()
+    upload_database()
 
 
-def upload_delete_database():
-
+def upload_database():
     origin_database = Social_User_Table.objects.all()
 
     for origin_data in origin_database:
-        
-        if Registered_User_Table.objects.filter(user_id=origin_data.user_id).exists():
-            
+        add_registered_user_table(origin_data)       
 
-        else:
-            Registered_User_Table(
-                user_id                 = origin_data.user_id,
-                user_nickname           = origin_data.user_nickname,
-                gender                  = origin_data.gender,
-                age_range               = origin_data.age_range,
-                contact                 = origin_data.contact,
-                university              = origin_data.university,            
-                preference              = origin_data.preference,
-                image                   = origin_data.image,
 
-                partner_user_id         = origin_data.partner_user_id,
-                priority                = origin_data.priority,
+def add_registered_user_table(data):
 
-                sign_up_date            = origin_data.sign_up_date,
-                recent_matching_date    = origin_data.recent_matching_date,
+    origin_count = 0
+    if Registered_User_Table.objects.filter(user_id=data.user_id).exists():
+        origin_count = Registered_User_Table.objects.get(user_id=data.user_id).matching_count
 
-                matching_count          = origin_data.matching_count,
-
-                admin_allow             = origin_data.admin_allow,
-
-                # 질문 결과 Q1~10
-                Q01 = origin_data.Q01,
-                Q02 = origin_data.Q02,
-                Q03 = origin_data.Q03,
-                Q04 = origin_data.Q04,
-                Q05 = origin_data.Q05,
-                Q06 = origin_data.Q06,
-                Q07 = origin_data.Q07,
-                Q08 = origin_data.Q08,
-                Q09 = origin_data.Q09,
-                Q10 = origin_data.Q10,
-            ).save()
-
-            origin_data.delete()
-
+    Registered_User_Table(
+        user_id                 = data.user_id,
+        gender                  = data.gender,
+        contact                 = data.contact,
+        university              = data.university,
+        sign_up_date            = data.sign_up_date,
+        recent_matching_date    = data.recent_matching_date,
+        matching_count          = data.matching_count + origin_count,
+    ).save()
 
 process_matching()
-process_data()
+process_data() 
