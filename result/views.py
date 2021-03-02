@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 from social.models import Social_User_Table
 from main.models import Registered_User_Table
-from config.settings import LIST_DATE
+from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE
 
 @csrf_protect
 def result(request):
@@ -22,7 +22,7 @@ def result(request):
                 
                 print("관리자 승인 대기중!\n" + user_info.user_nickname + '님!')
                 
-                context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
+                context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
                 return render(request, 'result/result_not_approve.html', context)
                                 
             # 관리자 승인 O
@@ -38,7 +38,7 @@ def result(request):
                 if my_info.last_partner_user_id == '':
                     print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
 
-                    context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
+                    context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
                     return render(request, 'result/result_fail.html', context)
 
                 # 매칭 성공
@@ -47,21 +47,21 @@ def result(request):
 
                     print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
                     
-                    context = {'my_info' : my_info, 'partner_info' : partner_info, 'LIST_DATE' : LIST_DATE}
+                    context = {'my_info' : my_info, 'partner_info' : partner_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
                     return render(request, 'result/result_succes.html', context)
 
             # 관리자 승인 X
             else:                                
                 # print("관리자 승인 거절\n" + user_info.user_nickname + '님!')
                 
-                context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
+                context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
                 return render(request, 'result/3.html', context)
                         
         # 정보 미등록 회원
         else:            
             # print("이번 매칭에 등록되어 있지 않습니다!\n" + user_info.user_nickname + '님!')
 
-            context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
+            context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
             return render(request, 'result/4.html', context)
 
     # 로그인 X

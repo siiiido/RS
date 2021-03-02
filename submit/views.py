@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from social.models import Social_User_Table
 from main.models import Registered_User_Table
 from .models import Query_Table
-from config.settings import LIST_DATE
+from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE
 
 @csrf_protect
 def submit(request):
@@ -35,7 +35,8 @@ def submit(request):
 
             context = {'user' : session_user_info, 'quiz01' : quiz01, 'quiz02' : quiz02, 'quiz03' : quiz03,
                          'quiz04' : quiz04, 'quiz05' : quiz05, 'quiz06' : quiz06, 'quiz07' : quiz07,
-                         'quiz08' : quiz08, 'quiz09' : quiz09,  'quiz10' : quiz10, 'LIST_DATE' : LIST_DATE}
+                         'quiz08' : quiz08, 'quiz09' : quiz09,  'quiz10' : quiz10,
+                          'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
             return render(request, 'submit/submit.html', context)
 
         else:
