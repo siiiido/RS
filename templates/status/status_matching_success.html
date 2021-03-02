@@ -34,13 +34,13 @@ href="{% static 'css/main/main.css' %}"
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="main_matching_wrap">
-                <div class="main_matching_ment other_page">{{user.user_nickname}}님의 최근 매칭일은 {{LIST_DATE[0]}}이라서
+                <div class="main_matching_ment other_page">{{user.user_nickname}}님의 최근 매칭일은 {{LAST_DATE}}이라서
                 </div>
                 <div class="main_matching_ment other_page">
-                    {{LIST_DATE[1]}}은 신청 불가능합니다
+                    {{THIS_DATE}}은 신청 불가능합니다
                 </div>
                 <div class="main_matching_ment other_page">
-                    {{LIST_DATE[2]}}에 신청해 주세요!
+                    {{NEXT_DATE}}에 신청해 주세요!
                 </div>
             </div>
         </div>
