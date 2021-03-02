@@ -42,9 +42,6 @@ def social(request):
     kakao_response = requests.get(url, headers = headers)
     kakao_response = json.loads(kakao_response.text)        
 
-    print(kakao_response)
-
-    
     # 추가 정보 동의에 대한 처리
     if kakao_response['kakao_account']['age_range_needs_agreement'] == False and kakao_response['kakao_account']['gender_needs_agreement'] == False :
 
