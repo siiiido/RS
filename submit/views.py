@@ -16,7 +16,7 @@ def submit(request):
     if Registered_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists():
         recent_matching_user = Registered_User_Table.objects.get(user_id=session_user_info.get('user_id'))
         # 모든 DB에 매칭 날짜가 최근 날짜
-        if recent_matching_user.last_update_date == LIST_DATE[0]:
+        if recent_matching_user.last_update_date == LAST_DATE:
             return redirect('/status')
 
     if request.method == "GET":
@@ -26,6 +26,8 @@ def submit(request):
             deny_user = Social_User_Table.objects.get(user_id=session_user_info.get('user_id'))
             if deny_user.admin_allow == False:
                 deny_user.delete()
+            else:
+                return redirect('/')                
 
         if session_user_info :            
             quiz01 = Query_Table.objects.get(pk=1)
