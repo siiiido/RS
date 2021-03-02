@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/result/result.css' %}">
     <title>새봄 : 새로운 봄날</title>
-
 </head>
 
 <body>
@@ -25,15 +24,20 @@
         </a>
     </div>
 
+
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="approve">
-                <div class="ment">***님 새봄은 한국나이 기준 20~29세만 이용가능합니다 ! <br>
+                <div class="ment">{{user.user_nickname}}님 정상등록 완료! <br>
+                    관리자의 승인을 기다려주세요 <br>
+                    다음 매칭은 3월 10일 입니다.
                 </div>
             </div>
             <div class="move_page"><a href="http://127.0.0.1:8000/">main으로 이동</a></div>
         </div>
     </div>
+    </div>
+
 
 </body>
 

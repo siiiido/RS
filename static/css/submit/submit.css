@@ -155,6 +155,7 @@ li>label{
   margin-bottom: 0.5rem;
 }
 
+
 .uni_check{
   margin-bottom: 0.8rem;
   height: 2.3rem;
@@ -251,4 +252,9 @@ select{
 .black{
   border: 2px solid rgb(161, 161, 161);
   color:rgb(161, 161, 161) ;
+}
+.left_label, .right_label, .ccx_label, .cco_label, .anything_label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
