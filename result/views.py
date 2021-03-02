@@ -32,7 +32,11 @@ def result(request):
                 # 매칭일 이전 연결
                 return HttpResponse('관리자 승인 완료\n 매칭일을 기다려주세요')
                 """
+                
 
+
+
+                # 1
                 my_info = Registered_User_Table.objects.get(user_id=session_user_info.get('user_id'))
                 # 매칭 실패
                 if my_info.last_partner_user_id == '':
@@ -55,7 +59,7 @@ def result(request):
                 # print("관리자 승인 거절\n" + user_info.user_nickname + '님!')
                 
                 context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
-                return render(request, 'result/3.html', context)
+                return render(request, 'result/result_deny.html', context)
                         
         # 정보 미등록 회원
         # else:            

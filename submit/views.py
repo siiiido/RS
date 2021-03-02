@@ -21,6 +21,12 @@ def submit(request):
 
     if request.method == "GET":
 
+        # 거절당한 사람 정보 지우고 다시 등록
+        if Social_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists():
+            deny_user = Social_User_Table.objects.get(user_id=session_user_info.get('user_id'))
+            if deny_user.admin_allow == False:
+                deny_user.delete()
+
         if session_user_info :            
             quiz01 = Query_Table.objects.get(pk=1)
             quiz02 = Query_Table.objects.get(pk=2)
