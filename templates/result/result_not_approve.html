@@ -20,10 +20,10 @@
 <body>
 
     <div class="navbar">
-        <img class="thumnail" src="../final/thumnail2.png" alt="">
+        <img class="thumnail" src="{% static 'images/main/thumnail2.png' %}" alt="">
         <a href="https://pf.kakao.com/_ExmxkkK">
             <button class="kakao_plus_btn">
-                <img class="kakako_plus" src="../final/kakao.png" alt=""><span>채널추가</span>
+                <img class="kakako_plus" src="{% static 'images/main/kakao_plus.png' %}" alt=""><span>채널추가</span>
             </button>
         </a>
     </div>
@@ -31,11 +31,11 @@
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="approve">
-                <div class="ment">***님 승인 대기 중 입니다. <br>
+                <div class="ment">{{my_info.user_nickname}}님 승인 대기 중 입니다. <br>
                     관리자의 승인을 기다려주세요
                 </div>
             </div>
-            <div class="move_page"><a href="">main으로 이동</a></div>
+            <div class="move_page"><a href="http://127.0.0.1:8000/">main으로 이동</a></div>
         </div>
     </div>
 </body>
