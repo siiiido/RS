@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from social.models import Social_User_Table
+from main.models import Registered_User_Table
 
 @csrf_protect
 def result(request):
@@ -31,24 +32,43 @@ def result(request):
                 return HttpResponse('관리자 승인 완료\n 매칭일을 기다려주세요')
                 """
 
-                # 매칭일 이후 연결
-                # 매칭 성공 - 남여 구분 X
-                if Social_User_Table.objects.filter(user_id=user_info.user_id).exists():                    
-                    my_info = Social_User_Table.objects.get(user_id=user_info.user_id)
-                    partner_info = Social_User_Table.objects.get(partner_user_id=user_info.user_id)
+                my_info = Registered_User_Table.objects.get(user_id=session_user_info.get('user_id'))
+                # 매칭 실패
+                if my_info.last_partner_user_id == '':
+                    print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
 
-                    # print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
+                    context = {'my_info' : user_info}
+                    return render(request, 'result/result_fail.html', context)
+
+                # 매칭 성공
+                else:
+                    partner_info = Registered_User_Table.objects.get(last_partner_user_id=my_info.user_id)
+
+                    print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
                     
                     context = {'my_info' : my_info, 'partner_info' : partner_info}
                     return render(request, 'result/result_succes.html', context)
 
-                #매칭 실패
-                else:
-                    
-                    # print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
 
-                    context = {'my_info' : user_info}
-                    return render(request, 'result/result_fail.html', context)
+                # 1
+                # 매칭일 이후 연결
+                # 매칭 성공 - 남여 구분 X
+                # if Social_User_Table.objects.filter(user_id=user_info.user_id).exists():                    
+                #     my_info = Social_User_Table.objects.get(user_id=user_info.user_id)
+                #     partner_info = Social_User_Table.objects.get(partner_user_id=user_info.user_id)
+
+                #     # print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
+                    
+                #     context = {'my_info' : my_info, 'partner_info' : partner_info}
+                #     return render(request, 'result/result_succes.html', context)
+
+                # #매칭 실패
+                # else:
+                    
+                #     # print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
+
+                #     context = {'my_info' : user_info}
+                #     return render(request, 'result/result_fail.html', context)
 
             # 관리자 승인 X
             else:                

@@ -180,14 +180,21 @@ def add_registered_user_table(data):
     origin_count = 0
     if Registered_User_Table.objects.filter(user_id=data.user_id).exists():
         origin_count = Registered_User_Table.objects.get(user_id=data.user_id).matching_count
+    
+    partner_user_id = Social_User_Table.objects.get(user_id=data.user_id)
+    if partner_user_id != '':
+        partner_user_id = partner_user_id.partner_user_id
 
     Registered_User_Table(
         user_id                 = data.user_id,
+        user_nickname           = data.user_nickname,
         gender                  = data.gender,
         contact                 = data.contact,
         university              = data.university,
+        last_partner_user_id    = data.partner_user_id,
         sign_up_date            = data.sign_up_date,
         recent_matching_date    = data.recent_matching_date,
+        last_update_date        = date.today(),
         matching_count          = data.matching_count + origin_count,
     ).save()
 
