@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'css/result/result.css' %}">
     <title>새봄 : 새로운 봄날</title>
 </head>
-
 <body>
 
     <div class="navbar">
@@ -26,36 +24,28 @@
 
 
     <div class="modal_background">
-        <div class="modal_wrap approving">
-            <div class="approve">
-
-                <div class="ment">{{user.user_nickname}}님 정상등록 완료! <br>
-                    관리자의 승인을 기다려주세요 <br>
-                    다음 매칭은 3월 10일 입니다.
-                </div>
-            </div>
-            <div class="move_page"><a href="http://127.0.0.1:8000/">main으로 이동</a></div>
-        </div>
-    </div>
-    </div>
-
-    <div class="modal_background">
-        <div class="modal_wrap approving">
+        <div class="modal_wrap main_matching">
             <div class="main_matching_wrap">
-                <div class="main_matching_ment other_page">{{user.user_nickname}}님 정상등록 완료!
+                <div class="main_matching_ment">매칭 진행 중
                 </div>
-                <div class="main_matching_ment other_page">
-                    관리자의 승인을 기다려주세요
+                <div class="main_matching_ment">
+                    카카오 채널로
                 </div>
-                <div class="main_matching_ment other_page">
-                    다음 매칭은 3월 10일 입니다.
+                <div class="main_matching_ment">
+                     알려드릴게요
                 </div>
             </div>
+
+            <!-- <div class="move_page"><a href="">main으로 이동</a></div> -->
         </div>
-        <div class="move_page"><a href="http://127.0.0.1:8000/">main으로 이동</a></div>
+        <a class="main_matching_kakao_btn" href="https://pf.kakao.com/_ExmxkkK">
+            <button class="kakao_plus_btn">
+                <img class="kakako_plus" src="{% static 'images/main/kakao_plus.png' %}" alt=""><span>채널추가</span>
+            </button>
+        </a>
     </div>
 
 
+    
 </body>
-
 </html>
