@@ -48,9 +48,7 @@ INSTALLED_APPS = [
     'social',
     'submit',
     'status',
-    'result',
-
-    
+    'result',    
 ]
 
 
@@ -66,7 +64,7 @@ MIDDLEWARE = [
 
 LAST_DATE = date(2021, 1, 1)
 THIS_DATE = date(2021, 3, 10)
-NEXT_DATE = date(2021, 3, 20)]
+NEXT_DATE = date(2021, 3, 20)
 
 ROOT_URLCONF = 'config.urls'
 

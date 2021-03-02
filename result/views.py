@@ -58,11 +58,11 @@ def result(request):
                 return render(request, 'result/3.html', context)
                         
         # 정보 미등록 회원
-        else:            
-            # print("이번 매칭에 등록되어 있지 않습니다!\n" + user_info.user_nickname + '님!')
+        # else:            
+        #     # print("이번 매칭에 등록되어 있지 않습니다!\n" + user_info.user_nickname + '님!')
 
-            context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
-            return render(request, 'result/4.html', context)
+        #     context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
+        #     return render(request, 'result/4.html', context)
 
     # 로그인 X
     else:
