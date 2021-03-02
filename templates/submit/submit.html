@@ -22,7 +22,9 @@ href="{% static 'css/main/main.css' %}"
 <body>
 
     <div class="navbar">
-        <img src="{% static 'images/main/thumnail2.png' %}" alt="">
+        <a href="http://127.0.0.1:8000/" class="thumnail_img">
+            <img src="{% static 'images/main/thumnail2.png' %}" alt="" class="thumnail">
+        </a>
         <a href="https://pf.kakao.com/_ExmxkkK">
             <button class="kakao_plus_btn">
                 <img class="kakako_plus" src="{% static 'images/main/kakao_plus.png' %}" alt=""><span>채널추가</span>
@@ -276,7 +278,7 @@ href="{% static 'css/main/main.css' %}"
                 </ul>
 
             </div>
-
+            <p class="next_matching_msg">다음 매칭은 ~~~입니다</p>
             <div class="submit_wrap">
                 <input class="submit_btn" type="submit" value="제출하기">
             </div>

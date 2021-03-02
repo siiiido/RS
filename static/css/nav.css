@@ -10,11 +10,15 @@
     justify-content:space-evenly;
     align-items: center;
   }
-.navbar>img{
+.thumnail_img{
+    height: 4rem;
+    padding-bottom: 1rem;
+  }
+.thumnail{
     margin-left: 20vw;
     width: 8rem;
     height: 140%;
-    width: 7rem;
+    width: 7rem;  
   }
 .navbar>a{
     text-decoration: none;

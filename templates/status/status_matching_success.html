@@ -1,9 +1,3 @@
-<!--
-  {% load static %}
-  위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
--->
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,15 +27,20 @@
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="main_matching_wrap">
-                <div class="main_matching_ment other_page">{{my_info.user_nickname}}님 승인 대기 중 입니다.
+                <div class="main_matching_ment other_page">{{user.user_nickname}}님 정상등록 완료!
                 </div>
                 <div class="main_matching_ment other_page">
                     관리자의 승인을 기다려주세요
+                </div>
+                <div class="main_matching_ment other_page">
+                    다음 매칭은 3월 10일 입니다.
                 </div>
             </div>
         </div>
         <div class="move_page"><a href="http://127.0.0.1:8000/">main으로 이동</a></div>
     </div>
+
+
 </body>
 
 </html>
