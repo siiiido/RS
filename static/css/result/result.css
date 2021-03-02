@@ -1,15 +1,6 @@
 body{
     background-color: whitesmoke;
 }
-.move_page>a{
-    text-decoration: none;
-    background-color: #58bff6;
-    height: 1.5rem;
-    padding-top: 0.5rem;
-    padding: 0.5rem 1.5rem 0 1.5rem;
-    color: white;
-    font-weight: bold;
-}
 
 img{
     width: 100%;
@@ -104,4 +95,54 @@ img{
 }
 .other_page{
     font-size: 1.1rem;
+}
+
+
+.move_page>a{
+    text-decoration: none;
+    height: 1.5rem;
+    padding-top: 0.5rem;
+    padding: 0.5rem 1.5rem 0 1.5rem;
+    font-weight: bold;
+    
+}
+
+
+
+.move_page, .approve_page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.approve_page{
+    margin-top: 4rem;
+}
+.fail_page{
+    display: flex;
+    justify-content: space-around;
+}
+.fail_page>a{
+
+    padding: 0;
+    padding-top: 0.5rem;
+    font-size: 0.7rem;
+    text-align: center;
+    width: 6rem;
+
+}
+.move_page>a:first-child{
+    background-color: #C2DAFE;
+    color: black;
+}
+.move_page>a:last-child{
+    background-color: #EEB9C9;
+    color:black;
+}
+.success_page>a:first-child{
+    background-color: #F7A4A5;
+}
+.approve_page>a:first-child{
+    background-color:#C2C7B9 ;
 }
