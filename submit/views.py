@@ -1,14 +1,23 @@
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from social.models import Social_User_Table
-from .models import Query_Table
 
+from social.models import Social_User_Table
+from main.models import Registered_User_Table
+from .models import Query_Table
+from config.settings import LIST_DATE
 
 @csrf_protect
 def submit(request):
     
     session_user_info = request.session.get('user_info')
+
+    # 모든 DB에 사용자 데이터 존재
+    if Registered_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists():
+        recent_matching_user = Registered_User_Table.objects.get(user_id=session_user_info.get('user_id'))
+        # 모든 DB에 매칭 날짜가 최근 날짜
+        if recent_matching_user.last_update_date == LIST_DATE[0]:
+            return redirect('/status')
 
     if request.method == "GET":
 
@@ -26,7 +35,7 @@ def submit(request):
 
             context = {'user' : session_user_info, 'quiz01' : quiz01, 'quiz02' : quiz02, 'quiz03' : quiz03,
                          'quiz04' : quiz04, 'quiz05' : quiz05, 'quiz06' : quiz06, 'quiz07' : quiz07,
-                         'quiz08' : quiz08, 'quiz09' : quiz09,  'quiz10' : quiz10}
+                         'quiz08' : quiz08, 'quiz09' : quiz09,  'quiz10' : quiz10, 'LIST_DATE' : LIST_DATE}
             return render(request, 'submit/submit.html', context)
 
         else:
