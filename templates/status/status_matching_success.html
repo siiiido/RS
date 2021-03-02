@@ -1,3 +1,10 @@
+<!--
+  {% load static %}
+  위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
+href="{% static 'css/main/main.css' %}"
+-->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +19,9 @@
 </head>
 
 <body>
-
     <div class="navbar">
-        <a href="http://127.0.0.1:8000/" class="thumnail_img">
-            <img src="{% static 'images/main/thumnail2.png' %}" alt="" class="thumnail">
+        <a class="img_test" href="http://127.0.0.1:8000/">
+            <img class="thumnail" src="{% static 'images/main/thumnail2.png' %}" alt="">
         </a>
         <a href="https://pf.kakao.com/_ExmxkkK">
             <button class="kakao_plus_btn">
@@ -24,16 +30,17 @@
         </a>
     </div>
 
+
     <div class="modal_background">
         <div class="modal_wrap approving">
             <div class="main_matching_wrap">
-                <div class="main_matching_ment other_page">{{user.user_nickname}}님의 최근 매칭일은 {{LIST_DATE[0]}}이라서
+                <div class="main_matching_ment other_page">{{user.user_nickname}}님의 최근 매칭일은 {{LAST_DATE}}이라서
                 </div>
                 <div class="main_matching_ment other_page">
-                    {{LIST_DATE[1]}}은 신청 불가능합니다
+                    {{THIS_DATE}}은 신청 불가능합니다
                 </div>
                 <div class="main_matching_ment other_page">
-                    {{LIST_DATE[2]}}에 신청해 주세요!
+                    {{NEXT_DATE}}에 신청해 주세요!
                 </div>
             </div>
         </div>

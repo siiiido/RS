@@ -96,7 +96,7 @@ li>label{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 4rem;
+  padding: 2rem 0;
 }
 
 .submit_wrap>input{
