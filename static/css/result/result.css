@@ -146,3 +146,12 @@ img{
 .approve_page>a:first-child{
     background-color:#C2C7B9 ;
 }
+.for_status_font{
+    font-size: 0.9rem;
+}
+.for_margin_zero{
+    margin-top: 0;
+}
+.for_result_allow{
+    font-size: 1rem;
+}
