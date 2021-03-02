@@ -182,8 +182,12 @@ def add_registered_user_table(data):
         origin_count = Registered_User_Table.objects.get(user_id=data.user_id).matching_count
     
     partner_user_id = Social_User_Table.objects.get(user_id=data.user_id)
+    recent_matching_date = date(2021, 1, 1)
     if partner_user_id != '':
         partner_user_id = partner_user_id.partner_user_id
+        recent_matching_date = date.today()
+
+    
 
     Registered_User_Table(
         user_id                 = data.user_id,
@@ -194,7 +198,7 @@ def add_registered_user_table(data):
         last_partner_user_id    = data.partner_user_id,
         sign_up_date            = data.sign_up_date,
         recent_matching_date    = data.recent_matching_date,
-        last_update_date        = date.today(),
+        last_update_date        = recent_matching_date,
         matching_count          = data.matching_count + origin_count,
     ).save()
 

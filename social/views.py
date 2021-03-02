@@ -26,7 +26,7 @@ def social(request):
 
     body = {'grant_type' : 'authorization_code',
             'client_id' : '5d7075d20b4eeae726c8c1b313767b1a',
-            'redirect_url' : 'http://127.0.0.1:8000/submit',
+            'redirect_url' : 'http://127.0.0.1:8000/social',
             'code' : kakao_access_code}
 
     token_kakao_response = requests.post(url, headers = headers, data = body)
