@@ -10,9 +10,7 @@ https://infinitt.tistory.com/221
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from django.shortcuts import get_object_or_404
 from django.views import View
-from config.settings import SECRET_KEY
 
 from django.db import models
 from .models import Social_User_Table

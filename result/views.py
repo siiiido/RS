@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 
 from social.models import Social_User_Table
 from main.models import Registered_User_Table
+from config.settings import LIST_DATE
 
 @csrf_protect
 def result(request):
@@ -21,7 +22,7 @@ def result(request):
                 
                 print("관리자 승인 대기중!\n" + user_info.user_nickname + '님!')
                 
-                context = {'my_info' : user_info}
+                context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
                 return render(request, 'result/result_not_approve.html', context)
                                 
             # 관리자 승인 O
@@ -37,7 +38,7 @@ def result(request):
                 if my_info.last_partner_user_id == '':
                     print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
 
-                    context = {'my_info' : user_info}
+                    context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
                     return render(request, 'result/result_fail.html', context)
 
                 # 매칭 성공
@@ -46,44 +47,21 @@ def result(request):
 
                     print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
                     
-                    context = {'my_info' : my_info, 'partner_info' : partner_info}
+                    context = {'my_info' : my_info, 'partner_info' : partner_info, 'LIST_DATE' : LIST_DATE}
                     return render(request, 'result/result_succes.html', context)
 
-
-                # 1
-                # 매칭일 이후 연결
-                # 매칭 성공 - 남여 구분 X
-                # if Social_User_Table.objects.filter(user_id=user_info.user_id).exists():                    
-                #     my_info = Social_User_Table.objects.get(user_id=user_info.user_id)
-                #     partner_info = Social_User_Table.objects.get(partner_user_id=user_info.user_id)
-
-                #     # print("매칭 성공!\n" + my_info.user_nickname + '님의 매칭 상대의 카카오톡 아이디는\n' + partner_info.contact + "입니다!")
-                    
-                #     context = {'my_info' : my_info, 'partner_info' : partner_info}
-                #     return render(request, 'result/result_succes.html', context)
-
-                # #매칭 실패
-                # else:
-                    
-                #     # print("매칭 실패 다음 기회에\n" + user_info.user_nickname + '님!')
-
-                #     context = {'my_info' : user_info}
-                #     return render(request, 'result/result_fail.html', context)
-
             # 관리자 승인 X
-            else:                
-                
+            else:                                
                 # print("관리자 승인 거절\n" + user_info.user_nickname + '님!')
                 
-                context = {'my_info' : user_info}
+                context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
                 return render(request, 'result/3.html', context)
                         
         # 정보 미등록 회원
         else:            
-
             # print("이번 매칭에 등록되어 있지 않습니다!\n" + user_info.user_nickname + '님!')
 
-            context = {'my_info' : user_info}
+            context = {'my_info' : user_info, 'LIST_DATE' : LIST_DATE}
             return render(request, 'result/4.html', context)
 
     # 로그인 X
