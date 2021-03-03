@@ -21,7 +21,7 @@ class Registered_User_Table(models.Model):
     university = models.TextField(null=False, default='')
 
     # 마지막 파트너 ID
-    last_partner_user_id = models.TextField(null=False, default='')
+    last_partner_user_id = models.TextField(blank=True)
 
     # 시스템 : 가입일
     sign_up_date = models.DateField(default=date.today)

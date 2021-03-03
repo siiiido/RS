@@ -62,9 +62,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-LAST_DATE = date(2021, 1, 1)
-THIS_DATE = date(2021, 3, 10)
-NEXT_DATE = date(2021, 3, 20)
+# LAST_DATE = date(2021, 1, 1)
+# THIS_DATE = date(2021, 3, 10)
+# NEXT_DATE = date(2021, 3, 20)
+
+LAST_DATE = date(2021, 3, 10)
+THIS_DATE = date(2021, 3, 20)
+NEXT_DATE = date(2021, 3, 30)
 
 ROOT_URLCONF = 'config.urls'
 

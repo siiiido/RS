@@ -9,6 +9,7 @@ django.setup()
 from datetime import date
 from social.models import Social_User_Table
 from main.models import Registered_User_Table
+from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE
 
 class User_Data(object):
     def __init__(self, user_id, user_nickname, contact, university, preference, priority, str_question):
@@ -185,7 +186,7 @@ def add_registered_user_table(data):
     recent_matching_date = date(2021, 1, 1)
     if partner_user_id != '':
         partner_user_id = partner_user_id.partner_user_id
-        recent_matching_date = date.today()
+        recent_matching_date = THIS_DATE
 
     
 

@@ -25,7 +25,8 @@ def submit(request):
         if Social_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists():
             deny_user = Social_User_Table.objects.get(user_id=session_user_info.get('user_id'))
             if deny_user.admin_allow == False:
-                return redirect('/submit')
+                pass
+                # return redirect('/submit')
             else:
                 return redirect('/')                
 
