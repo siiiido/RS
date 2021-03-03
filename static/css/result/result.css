@@ -124,13 +124,11 @@ img{
     justify-content: space-around;
 }
 .fail_page>a{
-
     padding: 0;
     padding-top: 0.5rem;
     font-size: 0.7rem;
     text-align: center;
     width: 6rem;
-
 }
 .move_page>a:first-child{
     background-color: #C2DAFE;
