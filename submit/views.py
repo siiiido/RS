@@ -12,10 +12,10 @@ def submit(request):
     
     session_user_info = request.session.get('user_info')
 
-    # 모든 DB에 사용자 데이터 존재
+    # RDB 사용자 데이터 존재
     if Registered_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists():
         recent_matching_user = Registered_User_Table.objects.get(user_id=session_user_info.get('user_id'))
-        # 모든 DB에 매칭 날짜가 최근 날짜
+        # RDB 매칭 날짜가 최근 날짜
         if recent_matching_user.last_update_date == LAST_DATE:
             return redirect('/status')
 

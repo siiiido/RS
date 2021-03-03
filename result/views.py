@@ -2,9 +2,10 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+from datetime import date
 from social.models import Social_User_Table
 from main.models import Registered_User_Table
-from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE
+from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE, SUBMIT_DATE
 
 @csrf_protect
 def result(request):
@@ -13,8 +14,30 @@ def result(request):
     
     # 로그인 O
     if session_user_info :
-        # 정보 등록 회원
-        if Social_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists() :
+
+        # RDB 등록 O / SDB 등록 X
+        if Registered_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists() and not Social_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists():
+            registered_user = Registered_User_Table.objects.get(user_id=session_user_info.get('user_id'))
+
+            # RDB 매칭일 == LAST_DATE
+            # RDB 매칭 성공
+            if registered_user.last_partner_user_id != '' and registered_user.recent_matching_date == LAST_DATE:
+                partner_info = Registered_User_Table.objects.get(last_partner_user_id=registered_user.user_id)    
+                context = {'my_info' : registered_user, 'partner_info' : partner_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE, 'SUBMIT_DATE' : SUBMIT_DATE}
+
+                return render(request, 'result/result_succes.html', context)
+
+            # RDB 매칭 실패
+            else:                
+                context = {'my_info' : registered_user, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
+                return render(request, 'result/result_fail.html', context)
+                
+            
+            # RDB 매칭일 != LAST_DATE
+            return redirect('/submit')
+
+        # SDB 등록 회원
+        elif Social_User_Table.objects.filter(user_id=session_user_info.get('user_id')).exists() :
             user_info = Social_User_Table.objects.get(user_id=session_user_info.get('user_id'))
 
             # 관리자 승인 대기
@@ -25,7 +48,6 @@ def result(request):
                                 
             # 관리자 승인 O
             elif user_info.admin_allow:
-
                 # 매칭일 이전 연결
                 context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
                 return render(request, 'result/result_allow_ok.html', context)
@@ -45,7 +67,6 @@ def result(request):
                     context = {'my_info' : my_info, 'partner_info' : partner_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}
                     return render(request, 'result/result_succes.html', context)
                 """
-                
             # 관리자 승인 X
             else:                       
                 context = {'my_info' : user_info, 'LAST_DATE' : LAST_DATE, 'THIS_DATE' : THIS_DATE, 'NEXT_DATE' : NEXT_DATE}

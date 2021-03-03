@@ -13,8 +13,10 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from django.db import models
+from datetime import date
 from .models import Social_User_Table
-from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE
+from main.models import Registered_User_Table
+from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE, SUBMIT_DATE
 
 import requests
 import json
@@ -42,12 +44,31 @@ def social(request):
     kakao_response = requests.get(url, headers = headers)
     kakao_response = json.loads(kakao_response.text)        
 
-    # 추가 정보 동의에 대한 처리
-    if kakao_response['kakao_account']['age_range_needs_agreement'] == False and kakao_response['kakao_account']['gender_needs_agreement'] == False :
+    # RDB 등록 유저
+    if Registered_User_Table.objects.filter(user_id=kakao_response['id']).exists():
 
-        global Social_User_Table        
+        user_info = {
+            'user_id'       : kakao_response['id'],
+            'user_nickname' : kakao_response['properties']['nickname'],
+            'gender'        : kakao_response['kakao_account']['gender'],
+            'age_range'     : kakao_response['kakao_account']['age_range'],
+        }
+
+        request.session['user_info'] = user_info
+
+        # date(2021, 3, 2) -> date.today()
+        date_diff = (date(2021, 3, 2) - LAST_DATE).days
+        # 매칭일 5일 이후
+        if date_diff > 5:
+            return redirect('/submit')               
+        else:
+            return redirect('/result')
+
+    # 추가 정보 동의에 대한 처리
+    elif kakao_response['kakao_account']['age_range_needs_agreement'] == False and kakao_response['kakao_account']['gender_needs_agreement'] == False :
+
         # 이미 가입된 유저
-        if Social_User_Table.objects.filter(user_nickname = kakao_response['properties']['nickname'], user_id = kakao_response['id']).exists():           
+        if Social_User_Table.objects.filter(user_id = kakao_response['id']).exists():           
             
             user_info = {
                 'user_id'       : kakao_response['id'],
@@ -59,7 +80,7 @@ def social(request):
             request.session['user_info'] = user_info
             
             return redirect('/result')
-
+            
         # 신규 가입 유저
         else :
             # 나이 20~29세만 가입 가능
@@ -81,12 +102,7 @@ def social(request):
                 # 서비스 이용 불가 안내 메시지
                 context = {'user_nickname' : kakao_response['properties']['nickname']}
                 return render(request, 'social/social_age.html', context)
-                # return HttpResponse('한국나이 기준 20대 만 이용 가능합니다.')
     # 추가 정보 동의 핸들링
     else:
-        # 카카오톡 - 설정 - 개인/보안 - 카카오계정 - 계정 연결
-        # - 연결된 서비스 관리 - 외부 서비스 - 새봄 - 모든정보 삭제 - 연결 끊기
-    
         context = {'user_nickname' : kakao_response['properties']['nickname']}
         return render(request, 'social/plus_info.html', context)
-        # return HttpResponse('추가 정보 동의해주세요')
