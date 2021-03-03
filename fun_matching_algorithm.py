@@ -188,8 +188,6 @@ def add_registered_user_table(data):
         partner_user_id = partner_user_id.partner_user_id
         recent_matching_date = THIS_DATE
 
-    
-
     Registered_User_Table(
         user_id                 = data.user_id,
         user_nickname           = data.user_nickname,
