@@ -60,7 +60,7 @@ def list_maker(qurey_set):
             str_question = str_maker(list_question)
 
             user_data = User_Data(data.user_id, data.user_nickname, data.contact,
-                                data.university, data.preference, data.priority, str_question)
+                                data.university, data.option, data.preference, data.priority, str_question)
 
             list_result.append(user_data)
 
@@ -84,7 +84,7 @@ def match_standard(list_man, list_woman):
         for woman in list_woman:
             if score_max == 10:
                 break
-            if handle_university(woman, man):
+            if handle_university(woman, man) and handle_option(woman, man):
                 score_question = handle_question(woman.str_question, man.str_question)
                 if score_max < score_question :
                     score_max = score_question
@@ -115,6 +115,11 @@ def handle_question(str_woman, str_man):
     
     return score_result
 
+# 옵션(1:1/2:2)에 따라 매칭
+def handle_option(woman, man):
+    if woman.option == man.option:
+        return True
+    return False
 
 # 대학별 매칭
 def handle_university(woman, man):

@@ -27,6 +27,10 @@ class Social_User_Table(models.Model):
     contact = models.TextField(null=False)
     # 사용자 : 학교
     university = models.TextField(null=False)
+
+    # 매칭 옵션 11/22/33/44
+    option = models.TextField(default="11")
+
     # 사용자 : 선호 학교
     # SAME : 자기 학교만 / DIFF : 다른 학교만 / ALL : 모든 학교
     preference = models.TextField(default="ALL")    

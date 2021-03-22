@@ -20,6 +20,9 @@ class Registered_User_Table(models.Model):
     # 사용자 : 학교
     university = models.TextField(null=False, default='')
 
+    # 매칭 옵션 11/22/33/44
+    option = models.TextField(default="11")
+
     # 마지막 파트너 ID
     last_partner_user_id = models.TextField(blank=True)
 
