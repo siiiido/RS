@@ -58,54 +58,69 @@ def submit(request):
         html_option = request.POST.get('html_option')
         html_contact = request.POST.get('html_contact')
         html_image = request.FILES.get('html_image')
-        html_preference = request.POST.get('html_preference')
 
-        html_Q01 = request.POST.get('html_Q01')
-        html_Q02 = request.POST.get('html_Q02')
-        html_Q03 = request.POST.get('html_Q03')
-        html_Q04 = request.POST.get('html_Q04')        
-        html_Q05 = request.POST.get('html_Q05')
-        html_Q06 = request.POST.get('html_Q06')     
-        html_Q07 = request.POST.get('html_Q07')
-        html_Q08 = request.POST.get('html_Q08')        
-        html_Q09 = request.POST.get('html_Q09')
-        html_Q10 = request.POST.get('html_Q10')
-        
-        html_Q01 = string_to_bool(html_Q01)
-        html_Q02 = string_to_bool(html_Q02)
-        html_Q03 = string_to_bool(html_Q03)
-        html_Q04 = string_to_bool(html_Q04)
-        html_Q05 = string_to_bool(html_Q05)
-        html_Q06 = string_to_bool(html_Q06)
-        html_Q07 = string_to_bool(html_Q07)
-        html_Q08 = string_to_bool(html_Q08)
-        html_Q09 = string_to_bool(html_Q09)
-        html_Q10 = string_to_bool(html_Q10)        
+        # 매칭 옵션 1:1 선택시
+        if html_option == '1:1':
+            html_preference = request.POST.get('html_preference')
+            html_Q01 = request.POST.get('html_Q01')
+            html_Q02 = request.POST.get('html_Q02')
+            html_Q03 = request.POST.get('html_Q03')
+            html_Q04 = request.POST.get('html_Q04')        
+            html_Q05 = request.POST.get('html_Q05')
+            html_Q06 = request.POST.get('html_Q06')     
+            html_Q07 = request.POST.get('html_Q07')
+            html_Q08 = request.POST.get('html_Q08')        
+            html_Q09 = request.POST.get('html_Q09')
+            html_Q10 = request.POST.get('html_Q10')
+            
+            html_Q01 = string_to_bool(html_Q01)
+            html_Q02 = string_to_bool(html_Q02)
+            html_Q03 = string_to_bool(html_Q03)
+            html_Q04 = string_to_bool(html_Q04)
+            html_Q05 = string_to_bool(html_Q05)
+            html_Q06 = string_to_bool(html_Q06)
+            html_Q07 = string_to_bool(html_Q07)
+            html_Q08 = string_to_bool(html_Q08)
+            html_Q09 = string_to_bool(html_Q09)
+            html_Q10 = string_to_bool(html_Q10)        
+    
+            Social_User_Table(
+                # 유저 정보
+                user_id         = session_user_info.get('user_id'),
+                user_nickname   = session_user_info.get('user_nickname'),
+                gender          = session_user_info.get('gender'),
+                age_range       = session_user_info.get('age_range'),
+                contact         = html_contact,        
+                university      = html_university,   
+                option          = html_option,              
+                preference      = html_preference,  
+                image           = html_image,
 
-        Social_User_Table(
-            # 유저 정보
-            user_id         = session_user_info.get('user_id'),
-            user_nickname   = session_user_info.get('user_nickname'),
-            gender          = session_user_info.get('gender'),
-            age_range       = session_user_info.get('age_range'),
-            contact         = html_contact,        
-            university      = html_university,   
-            option          = html_option,              
-            preference      = html_preference,  
-            image           = html_image,
+                # 질문 결과 Q1~10
+                Q01 = html_Q01,
+                Q02 = html_Q02,
+                Q03 = html_Q03,
+                Q04 = html_Q04,
+                Q05 = html_Q05,
+                Q06 = html_Q06,
+                Q07 = html_Q07,
+                Q08 = html_Q08,
+                Q09 = html_Q09,
+                Q10 = html_Q10,
+            ).save()
 
-            # 질문 결과 Q1~10
-            Q01 = html_Q01,
-            Q02 = html_Q02,
-            Q03 = html_Q03,
-            Q04 = html_Q04,
-            Q05 = html_Q05,
-            Q06 = html_Q06,
-            Q07 = html_Q07,
-            Q08 = html_Q08,
-            Q09 = html_Q09,
-            Q10 = html_Q10,
-        ).save()
+        # 매칭 옵션 N:N- 선택시
+        else:            
+            Social_User_Table(
+                # 유저 정보
+                user_id         = session_user_info.get('user_id'),
+                user_nickname   = session_user_info.get('user_nickname'),
+                gender          = session_user_info.get('gender'),
+                age_range       = session_user_info.get('age_range'),
+                contact         = html_contact,        
+                university      = html_university,   
+                option          = html_option,          
+                image           = html_image,
 
         return redirect('/status')
 

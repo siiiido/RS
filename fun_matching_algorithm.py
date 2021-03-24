@@ -12,11 +12,12 @@ from main.models import Registered_User_Table
 from config.settings import LAST_DATE, THIS_DATE, NEXT_DATE
 
 class User_Data(object):
-    def __init__(self, user_id, user_nickname, contact, university, preference, priority, str_question):
+    def __init__(self, user_id, user_nickname, contact, university, option, preference, priority, str_question):
         self.user_id = user_id
         self.user_nickname = user_nickname
         self.contact = contact
         self.university = university
+        self.option = option
         self.preference = preference
         self.priority = priority
         self.str_question = str_question
@@ -199,6 +200,7 @@ def add_registered_user_table(data):
         gender                  = data.gender,
         contact                 = data.contact,
         university              = data.university,
+        option                  = data.option,
         last_partner_user_id    = data.partner_user_id,
         sign_up_date            = data.sign_up_date,
         recent_matching_date    = data.recent_matching_date,
