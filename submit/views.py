@@ -121,6 +121,8 @@ def submit(request):
                 university      = html_university,   
                 option          = html_option,          
                 image           = html_image,
+            ).save()
+
 
         return redirect('/status')
 
