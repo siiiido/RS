@@ -55,6 +55,9 @@ def submit(request):
 
         # select, option 데이터 넘길 때
         html_university = request.POST['html_university']
+
+        html_option = request.POST.get('html_option')
+
         html_contact = request.POST.get('html_contact')
         html_image = request.FILES.get('html_image')
         html_preference = request.POST.get('html_preference')
