@@ -1,142 +1,132 @@
-html{
+html {
   height: 100vh;
 }
 
-body{
-    margin: 0;
-  }
-  div, section, header, footer, p, h1, h2, footer{
-    /* 내부 패딩이나 border가 width,  height에 포함이 되도록 */
-    box-sizing: border-box;
-  }
-  img{
-    max-width: 100%;
-    height: auto;
-  }
+body {
+  margin: 0;
+}
+div,
+section,
+header,
+footer,
+p,
+h1,
+h2,
+footer {
+  /* 내부 패딩이나 border가 width,  height에 포함이 되도록 */
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-  
+.global-width {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-  
-  .global-width{
-    /* max-width : 모바일 더 줄어들어서 width가 아닌 max-width함 */
-    max-width: 620px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  /* top에서 sticky(스크롤 중에 고정) */
-  .scroll-graphic{
-    overflow: hidden;
-    position: sticky;
-    top: 0;
-    /* sticky해주면 높이를 지정해줘야함 */
-    height: 100vh;
-  }
-  .scene-img{
-    max-height: 100vh;
-  }
-  
-  /* 각 이미지 감싸는 class */
-  .graphic-item{
-    /* 이미지 겹치게 할려고, 원래 이미지가 겹쳐져 있음 */
-    position: absolute;
-    left: 0;
-    top: 0;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* 화면에 꽉 차게 */
-    width: 100%;
-    height: 100%;
-  
-    /* js로 하나씩 opacity를 1로 할려구 결국 visible을 붙인다 */
-    opacity: 0;
-    transition: 0.5s;
-    
-    will-change: opacity;
-  }
-  .visible{
-    opacity: 1;
-  }
-  .scroll-text{
-    /* position 기본값 static */
-    position: relative;
-  }
-  
-  /* 말풍선 */
-  .step{
-    padding: 0.5rem 1rem;
-    background : rgba(255, 255, 255, 0.7);
-    border-radius: 0.8rem;
-  
-    /* 말풍선 사이 간격 */
-    margin-bottom: 55vh;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
-  }
+.scroll-graphic {
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.scene-img {
+  max-height: 100vh;
+}
 
-  .kakao_btn{
-    /* 버튼 테두리 없애기 */
-    border: 0;
-    outline: 0;
-  
-    width: 80vw;
-    height: 10vh;
-    background-color: #fff;
-  
-  }
-  .next_btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .last_img{
-    display: none;
-  }
+.graphic-item {
+  position: absolute;
+  left: 0;
+  top: 0;
 
-  .last-step{
-    box-shadow: rgba(0, 0, 0, 0.0) 0 0 0px;
-    margin-bottom: 0;
-  }
-  footer{
-    margin-top: 1rem;
-    background-color: #c0c4ce;
-    display: flex;
-  }
-  .footer_left{
-    /* background-color: wheat; */
-    width: 50%;
-    /* border-right: 2px solid black; */
-    height: 100%;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .footer_right{
-    /* background-color: tomato; */
-    display: inline;
-    width: 50%;
-    float: right;
-    height: 100%;
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-  }
-.footer_right>a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transition: 0.5s;
+
+  will-change: opacity;
+}
+.visible {
+  opacity: 1;
+}
+.scroll-text {
+  position: relative;
+}
+
+/* 말풍선 */
+.step {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.8rem;
+
+  margin-bottom: 55vh;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
+
+.kakao_btn {
+  border: 0;
+  outline: 0;
+
+  width: 80vw;
+  height: 10vh;
+  background-color: #fff;
+}
+.next_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.last_img {
+  display: none;
+}
+
+.last-step {
+  box-shadow: rgba(0, 0, 0, 0) 0 0 0px;
+  margin-bottom: 0;
+}
+footer {
+  margin-top: 1rem;
+  background-color: #c0c4ce;
+  display: flex;
+}
+.footer_left {
+  width: 50%;
+  height: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer_right {
+  display: inline;
+  width: 50%;
+  float: right;
+  height: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+.footer_right > a {
   text-decoration: none;
   color: black;
   position: absolute;
   margin-top: 0.7rem;
 }
-.channel{
+.channel {
   right: 3rem;
 }
-.man_to_man{
+.man_to_man {
   right: 8.5rem;
 }
-.email{
+.email {
   position: absolute;
   font-size: 0.3rem;
   margin-top: 2.8rem;
@@ -144,31 +134,29 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.footer_kakao{
+.footer_kakao {
   height: 1.5rem;
   width: 4.3rem;
   padding-left: 0.2rem;
 }
 
-
-.footer_left_span{
+.footer_left_span {
   font-size: 0.3rem;
 }
-.footer_first_a{
+.footer_first_a {
   margin-left: 6.5rem;
 }
-.footer_second_a{
+.footer_second_a {
   margin-left: 1rem;
-  background-color: #FEE500;
+  background-color: #fee500;
 }
-.footer_first_img{
+.footer_first_img {
   width: 4rem;
   height: 1.5rem;
 }
 
-.abc{
+.abc {
   visibility: hidden;
 }

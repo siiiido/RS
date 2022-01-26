@@ -48,7 +48,6 @@ li > label {
   margin-top: 4rem;
 }
 
-/* 큰 테두리를 rem으로 할 지 %로 할지 고민중 */
 .info_content {
   background-color: white;
   height: 13rem;
@@ -179,7 +178,6 @@ li > label {
   align-items: center;
 
   position: static;
-  /* background-color: red; */
   text-align: center;
 }
 .choose_uni_radio > li {
@@ -221,22 +219,11 @@ select {
 }
 
 .radio_items {
-  width:100%;
+  width: 100%;
   height: 100%;
-  /* display: -webkit-box;
-  display: -webkit-flex;
-  -webkit-align-items: center;
-  -webkit-justify-content: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   margin-bottom: 1rem;
 }
-.radio_items > li {
-  /* position: absolute; */
-}
-.radio_items>h5{
+.radio_items > h5 {
   display: inline;
   width: 100%;
   display: flex;
@@ -244,26 +231,20 @@ select {
   align-items: center;
   margin: 0;
 }
-.radio_li_con{
+.radio_li_con {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .left {
-  /* display: inline-block; */
-  /* margin-right: 8.3rem; */
-  /* margin-right: 80px; */
   height: 3rem;
   width: 8rem;
   color: rgb(161, 161, 161);
 }
 .right {
-  /* display: inline-block; */
   height: 3rem;
   width: 8rem;
-  /* margin-left: 8.3rem; */
-  /* margin-left: 80px; */
   color: rgb(161, 161, 161);
 }
 
@@ -284,61 +265,51 @@ select {
   color: black;
 }
 
-
-
-
-
 /* ===================add================== */
 
-.matching_ment{
+.matching_ment {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.group_ment{
+.group_ment {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
-  /* font-weight:bold; */
   line-height: 1.1rem;
   color: black;
   line-height: 1.5rem;
   font-weight: bold;
-
 }
-.group_ment:nth-of-type(2){
+.group_ment:nth-of-type(2) {
   font-size: 0.8rem;
 }
 
-
-
-.mtaching_group{
+.mtaching_group {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 3rem;
-
 }
-.group_li{
-  /* border: 2px solid red; */
+.group_li {
   list-style: none;
   width: 3rem;
   height: 1.5rem;
 }
-.group_color{
+.group_color {
   background-color: #f7c65d;
 }
-.group_default{
+.group_default {
   display: flex;
   justify-content: center;
   align-items: center;
   line-height: 1rem;
   margin-bottom: 1rem;
 }
-.group_default>a, .group_ment>a{
+.group_default > a,
+.group_ment > a {
   text-decoration: none;
   font-weight: bold;
   color: rgb(48, 104, 179);
 }
-
