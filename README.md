@@ -1,8 +1,7 @@
 # **🧸 새봄(New-Spring)**
 
 
-<img src="../RS/static/images/main/thumnail2.png" width="300px" heigth="300px">
-
+![Thumnail](static/images/main/thumnail2.png)
 
 ## **🎈 프로젝트 소개**
 * 랜덤의 질문들을 통해 가장 취향과 가치관이 비슷한 사람끼리 매달 매칭 해줍니다.
@@ -28,6 +27,6 @@
 <br>
 
 ## **🎈 미리보기**
-<img src="../RS/static/images/main/새봄1.png"  width="150px" heigth="150px">
-<img src="../RS/static/images/main/새봄2.png" width="150px" heigth="150px">
-<img src="../RS/static/images/main/새봄3.png" width="150px" heigth="150px">
+![NewSpring1](static/images/main/새봄1.png)
+![NewSpring2](static/images/main/새봄2.png)
+![NewSpring3](static/images/main/새봄3.png)
