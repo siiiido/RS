@@ -2,45 +2,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'css/result/result.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/result/result.css' %}" />
     <title>새봄 : 새로운 봄날</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <a class="img_test" href="http://127.0.0.1:8000/">
-            <img class="thumnail" src="{% static 'images/main/thumnail2.png' %}" alt="">
-        </a>
-        <a href="https://pf.kakao.com/_ExmxkkK">
-            <button class="kakao_plus_btn">
-                <img class="kakako_plus" src="{% static 'images/main/kakao_plus.png' %}" alt=""><span>채널추가</span>
-            </button>
-        </a>
+      <a class="img_test" href="http://127.0.0.1:8000/">
+        <img
+          class="thumnail"
+          src="{% static 'images/main/thumnail2.png' %}"
+          alt=""
+        />
+      </a>
+      <a href="https://pf.kakao.com/_ExmxkkK">
+        <button class="kakao_plus_btn">
+          <img
+            class="kakako_plus"
+            src="{% static 'images/main/kakao_plus.png' %}"
+            alt=""
+          /><span>채널추가</span>
+        </button>
+      </a>
     </div>
 
     <div class="modal_background">
-        <div class="modal_wrap fail_wrap">
-            <div class="modal_image"><img src="{% static 'images/main/fail.jpg' %}" alt=""></div>
-            <div class="modal_content">
-                <div class="fail">
-                    <div>{{my_info.user_nickname}}님</div>
-                    <div>승인이 거절되었습니다</div>
-                    <div>정보를 재등록 해주세요</div>
-                </div>
-                <div class="move_page fail_page for_margin_zero"><a href="http://127.0.0.1:8000/">메인으로 이동</a>
-                    <a href="http://127.0.0.1:8000/submit" class="move_submit_fail">정보 수정</a>
-                </div>
-            </div>
+      <div class="modal_wrap fail_wrap">
+        <div class="modal_image">
+          <img src="{% static 'images/main/fail.jpg' %}" alt="" />
         </div>
+        <div class="modal_content">
+          <div class="fail">
+            <div>{{my_info.user_nickname}}님</div>
+            <div>승인이 거절되었습니다</div>
+            <div>정보를 재등록 해주세요</div>
+          </div>
+          <div class="move_page fail_page for_margin_zero">
+            <a href="http://127.0.0.1:8000/">메인으로 이동</a>
+            <a href="http://127.0.0.1:8000/submit" class="move_submit_fail"
+              >정보 수정</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
-
-    
-
-    
-</body>
+  </body>
 </html>

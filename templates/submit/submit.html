@@ -1,8 +1,3 @@
-<!--
-  {% load static %}
-  위 라인은 static file인 css js를 사용하기 위해 html 가장 윗줄에 포함해야함
-href="{% static 'css/main/main.css' %}"
--->
 {% load static %}
 
 <!DOCTYPE html>
@@ -113,7 +108,9 @@ href="{% static 'css/main/main.css' %}"
               />
               <label for="two" class="two_label">2:2</label>
             </li>
-<!-- 
+            
+            <!-- 그룹 매칭 -->
+            <!-- 
             <li class="group_li three_li">
               <input
                 type="radio"

@@ -1,47 +1,50 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'css/result/result.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/result/result.css' %}" />
     <title>새봄 : 새로운 봄날</title>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div class="navbar">
-        <a class="img_test" href="http://127.0.0.1:8000/">
-            <img class="thumnail" src="{% static 'images/main/thumnail2.png' %}" alt="">
-        </a>
-        <a href="https://pf.kakao.com/_ExmxkkK">
-            <button class="kakao_plus_btn">
-                <img class="kakako_plus" src="{% static 'images/main/kakao_plus.png' %}" alt=""><span>채널추가</span>
-            </button>
-        </a>
+      <a class="img_test" href="http://127.0.0.1:8000/">
+        <img
+          class="thumnail"
+          src="{% static 'images/main/thumnail2.png' %}"
+          alt=""
+        />
+      </a>
+      <a href="https://pf.kakao.com/_ExmxkkK">
+        <button class="kakao_plus_btn">
+          <img
+            class="kakako_plus"
+            src="{% static 'images/main/kakao_plus.png' %}"
+            alt=""
+          /><span>채널추가</span>
+        </button>
+      </a>
     </div>
-
 
     <div class="modal_background">
-        <div class="modal_wrap approving">
-            <div class="main_matching_wrap">
-                <div class="main_matching_ment other_page">{{user_nickname}}님 새봄은 한국나이 기준
-                </div>
-                <div class="main_matching_ment other_page">
-                    20~29세만 이용가능합니다 !
-                </div>
-            </div>
+      <div class="modal_wrap approving">
+        <div class="main_matching_wrap">
+          <div class="main_matching_ment other_page">
+            {{user_nickname}}님 새봄은 한국나이 기준
+          </div>
+          <div class="main_matching_ment other_page">
+            20~29세만 이용가능합니다 !
+          </div>
         </div>
-        <div class="move_page approve_page"><a href="http://127.0.0.1:8000/">메인으로 이동</a></div>
+      </div>
+      <div class="move_page approve_page">
+        <a href="http://127.0.0.1:8000/">메인으로 이동</a>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
