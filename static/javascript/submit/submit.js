@@ -238,46 +238,46 @@
       // fourLi.classList.remove("group_color");
       oneLi.classList.remove("group_color");
       twoLi.classList.add("group_color");
-    // } else if (e.target.value == three.value) {
-    //   twoClick.style.display = "none";
-    //   fourClick.style.display = "none";
-    //   oneClick.style.display = "none";
-    //   threeClick.style.display = "block";
+      // } else if (e.target.value == three.value) {
+      //   twoClick.style.display = "none";
+      //   fourClick.style.display = "none";
+      //   oneClick.style.display = "none";
+      //   threeClick.style.display = "block";
 
-    //   threeClick.innerHTML = 
-    //   "" +
-    //   "      <p class='group_ment'>3:3 매칭은 한 명의 카카오톡ID만 등록합니다</p>" +
-    //   "          <p class='group_ment'>" +
-    //   "            매칭 상대 역시 같은 그룹 매칭을 신청한 상대입니다" +
-    //   "          </p>" +
-    //   "          <!-- <p class='group_ment'>신청 이후 다른 매칭으로 중복 신청은 안됩니다</p> -->" +
-    //   "          <p class='group_ment'>자세한 사항은 <a href='https://pf.kakao.com/_ExmxkkK/65944735'>새봄 페이지</a>를 참고해주세요!</p>" +
-    //   "          <br />";
+      //   threeClick.innerHTML =
+      //   "" +
+      //   "      <p class='group_ment'>3:3 매칭은 한 명의 카카오톡ID만 등록합니다</p>" +
+      //   "          <p class='group_ment'>" +
+      //   "            매칭 상대 역시 같은 그룹 매칭을 신청한 상대입니다" +
+      //   "          </p>" +
+      //   "          <!-- <p class='group_ment'>신청 이후 다른 매칭으로 중복 신청은 안됩니다</p> -->" +
+      //   "          <p class='group_ment'>자세한 사항은 <a href='https://pf.kakao.com/_ExmxkkK/65944735'>새봄 페이지</a>를 참고해주세요!</p>" +
+      //   "          <br />";
 
-    //   twoLi.classList.remove("group_color");
-    //   fourLi.classList.remove("group_color");
-    //   oneLi.classList.remove("group_color");
-    //   threeLi.classList.add("group_color");
-    // } else if (e.target.value == four.value) {
-    //   twoClick.style.display = "none";
-    //   threeClick.style.display = "none";
-    //   oneClick.style.display = "none";
-    //   fourClick.style.display = "block";
+      //   twoLi.classList.remove("group_color");
+      //   fourLi.classList.remove("group_color");
+      //   oneLi.classList.remove("group_color");
+      //   threeLi.classList.add("group_color");
+      // } else if (e.target.value == four.value) {
+      //   twoClick.style.display = "none";
+      //   threeClick.style.display = "none";
+      //   oneClick.style.display = "none";
+      //   fourClick.style.display = "block";
 
-    //   fourClick.innerHTML = 
-    //   "" +
-    //   "      <p class='group_ment'>4:4 매칭은 한 명의 카카오톡ID만 등록합니다</p>" +
-    //   "          <p class='group_ment'>" +
-    //   "            매칭 상대 역시 같은 그룹 매칭을 신청한 상대입니다" +
-    //   "          </p>" +
-    //   "          <!-- <p class='group_ment'>신청 이후 다른 매칭으로 중복 신청은 안됩니다</p> -->" +
-    //   "          <p class='group_ment'>자세한 사항은 <a href='https://pf.kakao.com/_ExmxkkK/65944735'>새봄 페이지</a>를 참고해주세요!</p>" +
-    //   "          <br />";
+      //   fourClick.innerHTML =
+      //   "" +
+      //   "      <p class='group_ment'>4:4 매칭은 한 명의 카카오톡ID만 등록합니다</p>" +
+      //   "          <p class='group_ment'>" +
+      //   "            매칭 상대 역시 같은 그룹 매칭을 신청한 상대입니다" +
+      //   "          </p>" +
+      //   "          <!-- <p class='group_ment'>신청 이후 다른 매칭으로 중복 신청은 안됩니다</p> -->" +
+      //   "          <p class='group_ment'>자세한 사항은 <a href='https://pf.kakao.com/_ExmxkkK/65944735'>새봄 페이지</a>를 참고해주세요!</p>" +
+      //   "          <br />";
 
-    //   twoLi.classList.remove("group_color");
-    //   threeLi.classList.remove("group_color");
-    //   oneLi.classList.remove("group_color");
-    //   fourLi.classList.add("group_color");
+      //   twoLi.classList.remove("group_color");
+      //   threeLi.classList.remove("group_color");
+      //   oneLi.classList.remove("group_color");
+      //   fourLi.classList.add("group_color");
     }
 
     const ccx_label = document.querySelector(".ccx_label");
@@ -412,7 +412,7 @@
         e.preventDefault();
       }
     } else if (
-      matchingGroup == two.value 
+      matchingGroup == two.value
       // matchingGroup == three.value ||
       // matchingGroup == four.value
     ) {
